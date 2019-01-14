@@ -34,13 +34,18 @@ class DanceClassScraper
     doc = Nokogiri::HTML(open('http://millenniumdancecomplex.com/schedule/'))
   end
 
+#so far only giving me the Monday classes
   def make_dance_classes
+    #first seven h2 elements are days of the week
+    #monday
+    days = self.get__page.css("h2")
     times = self.get__page.css(".pricing-table")[0].css("li")
     names = self.get__page.css(".pricing-table")[1].css("li")
     instructors = self.get__page.css(".pricing-table")[3].css("li")
     index = 0
     until index == times.length
       name = names[index].text
+      day = days[0].text
       studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
       time = times[index].text
       instructor_id = Instructor.find_or_create_by(name: instructors[index].text).id

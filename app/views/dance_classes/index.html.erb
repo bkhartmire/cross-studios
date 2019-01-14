@@ -3,7 +3,7 @@
 <% @classes.each do |dance_class|%>
   <li>
     <%=dance_class.name %>
-    <%=dance_class.day if !!dance_class.day%>
+    <%=dance_class.day %>
     <%=dance_class.time %>
     <%=dance_class.instructor.name %>
   </li>
