@@ -68,33 +68,33 @@ class DanceClassScraper
       variables['instructors'] = data[27].css("li")
     end
     return variables
-
   end
 
-  def make_dance_classes
+  def make_dance_classes()
     #get the seven days of the week
     days = self.get_page.css("h2").slice(0, 7).map{|day| day.text }
     days.each do |day|
-      self.get_elements(day)
+      variables = self.get_elements(day)
+      index = 0
+      until index == variables['times'].length
+        name = variables[names][index].text
+        studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
+        time = variables[times][index].text
+        instructor_id = Instructor.find_or_create_by(name: variables[instructors][index].text).id
+        dance_class = DanceClass.find_or_create_by(
+          name: name,
+          studio_id: studio_id,
+          time: time,
+          day: day,
+          instructor_id: instructor_id
+        )
+        index += 1
+      end
     end
     #times = self.get_page.css(".pricing-table")[0].css("li")
     #names = self.get_page.css(".pricing-table")[1].css("li")
     #instructors = self.get_page.css(".pricing-table")[3].css("li")
-    index = 0
-    until index == times.length
-      name = variables[names][index].text
-      studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
-      time = variables[times][index].text
-      instructor_id = Instructor.find_or_create_by(name: variables[instructors][index].text).id
-      dance_class = DanceClass.find_or_create_by(
-        name: name,
-        studio_id: studio_id,
-        time: time,
-        day: day,
-        instructor_id: instructor_id
-      )
-      index += 1
-    end
+
   end
 
 end
