@@ -42,7 +42,7 @@ class DanceClassScraper
     studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
     #day??
     #check if this exact dance class already exists in the database
-    if !DanceClass.find_by(name: name, instructor_id: instructor_id, time: time, studio_id: studio_id)
+    if !DanceClass.find_by(name: name, instructor_id: instructor.id, time: time, studio_id: studio_id)
       dance_class = DanceClass.create(name: name, time: time, instructor_id: instructor.id, studio_id: studio_id)
     end
   end
