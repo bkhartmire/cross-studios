@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_000758) do
+ActiveRecord::Schema.define(version: 2019_01_14_003316) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
     t.string "line_2"
     t.integer "studio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dance_classes", force: :cascade do |t|
+    t.string "name"
+    t.integer "instructor_id"
+    t.integer "studio_id"
+    t.string "day"
+    t.string "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.string "name"
+    t.integer "favorited_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
