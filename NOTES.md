@@ -21,3 +21,4 @@ Movement Lifestyle: https://www.themovementlifestyle.com/
 Playground: https://www.playgroundla.dance/schedule/
 
 UH-OH: turns out movement and playground render schedule elements with JS. can't scrape with nokogiri :(
+Can I use jquery selectors and JS constructor syntax to create new danceclass objects??
