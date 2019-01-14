@@ -53,6 +53,7 @@ class DanceClassScraper
         name: name,
         studio_id: studio_id,
         time: time,
+        day: day,
         instructor_id: instructor_id
       )
       index += 1
