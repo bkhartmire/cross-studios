@@ -1,5 +1,5 @@
 class DanceClassesController < ApplicationController
-  def new
+  def index
     puts "HEllo"
     DanceClassScraper.new.make_dance_classes
     @classes = DanceClass.all
