@@ -35,52 +35,57 @@ class DanceClassScraper
   end
 
 #so far only giving me the Monday classes
-  def get_attributes
+  def get_elements(day)
     data = self.get_page.css(".pricing-table")
-    days = self.get_page.css("h2")
+    variables = {times: [], names: [], instructors: []}
     if day == "MONDAY"
-      times = data[0].css("li")
-      names = data[1].css("li")
-      instructors = data[3].css("li")
+      variables[times] = data[0].css("li")
+      variables[names] = data[1].css("li")
+      variables[instructors] = data[3].css("li")
     elsif day == "TUESDAY"
-      times = data[4].css("li")
-      names = data[5].css("li")
-      instructors = data[7].css("li")
+      variables[times] = data[4].css("li")
+      variables[names] = data[5].css("li")
+      variables[instructors] = data[7].css("li")
     elsif day == "WEDNESDAY"
-      times = data[8].css("li")
-      names = data[9].css("li")
-      instructors = data[11].css("li")
+      variables[times] = data[8].css("li")
+      variables[names] = data[9].css("li")
+      variables[instructors] = data[11].css("li")
     elsif day == "THURSDAY"
-      times = data[12].css("li")
-      names = data[13].css("li")
-      instructors = data[15].css("li")
+      variables[times] = data[12].css("li")
+      variables[names] = data[13].css("li")
+      variables[instructors] = data[15].css("li")
     elsif day == "FRIDAY"
-      times = data[16].css("li")
-      names = data[17].css("li")
-      instructors = data[19].css("li")
+      variables[times] = data[16].css("li")
+      variables[names] = data[17].css("li")
+      variables[instructors] = data[19].css("li")
     elsif day == "SATURDAY"
-      times = data[20].css("li")
-      names = data[21].css("li")
-      instructors = data[23].css("li")
+      variables[times] = data[20].css("li")
+      variables[names] = data[21].css("li")
+      variables[instr[ctors] = data[23].css("li")
     elsif day == "SUNDAY"
-      times = data[24].css("li")
-      names = data[25].css("li")
-      instructors = data[27].css("li")
+      variables[times] = data[24].css("li")
+      variables[names] = data[25].css("li")
+      variables[instructors] = data[27].css("li")
     end
+    return variables
+
   end
 
   def make_dance_classes
-    #
-    #days = self.get_page.css("h2")
+    #get the seven days of the week
+    days = self.get_page.css("h2").slice(0, 7).map{|day| day.text }
+    days.each do |day|
+      self.get_elements(day)
+    end
     #times = self.get_page.css(".pricing-table")[0].css("li")
     #names = self.get_page.css(".pricing-table")[1].css("li")
     #instructors = self.get_page.css(".pricing-table")[3].css("li")
     index = 0
     until index == times.length
-      name = names[index].text
+      name = variables[names][index].text
       studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
-      time = times[index].text
-      instructor_id = Instructor.find_or_create_by(name: instructors[index].text).id
+      time = variables[times][index].text
+      instructor_id = Instructor.find_or_create_by(name: variables[instructors][index].text).id
       dance_class = DanceClass.find_or_create_by(
         name: name,
         studio_id: studio_id,
