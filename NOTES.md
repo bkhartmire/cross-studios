@@ -19,3 +19,5 @@ Dance Classes are scraped from Nokogiri.
 Millennium Dance Complex: http://millenniumdancecomplex.com/schedule/
 Movement Lifestyle: https://www.themovementlifestyle.com/
 Playground: https://www.playgroundla.dance/schedule/
+
+UH-OH: turns out movement and playground render schedule elements with JS. can't scrape with nokogiri :(
