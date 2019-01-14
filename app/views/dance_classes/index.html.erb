@@ -1,10 +1,5 @@
-<h1>Nokogiri Data: </h1>
-<h2>Classes: <%= @classes.count %></h2>
-<% @classes.each do |dance_class|%>
-  <li>
-    <%=dance_class.name %>
-    <%=dance_class.day %>
-    <%=dance_class.time %>
-    <%=dance_class.instructor.name %>
-  </li>
+<h1>Dance Class Schedule: </h1>
+<h2> MONDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "MONDAY"}.each do |dance_class| %>
+  <%= render partial: "dance_class_li", locals: {dance_class: dance_class} %>
 <% end %>
