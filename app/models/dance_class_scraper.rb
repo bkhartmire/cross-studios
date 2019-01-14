@@ -77,10 +77,10 @@ class DanceClassScraper
       variables = self.get_elements(day)
       index = 0
       until index == variables['times'].length
-        name = variables[names][index].text
+        name = variables['names'][index].text
         studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
-        time = variables[times][index].text
-        instructor_id = Instructor.find_or_create_by(name: variables[instructors][index].text).id
+        time = variables['times'][index].text
+        instructor_id = Instructor.find_or_create_by(name: variables['instructors'][index].text).id
         dance_class = DanceClass.find_or_create_by(
           name: name,
           studio_id: studio_id,
