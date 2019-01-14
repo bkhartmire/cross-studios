@@ -50,18 +50,18 @@ class DanceClassScraper
 
   def make_dance_classes
 
-    times = self.get__page.css(".pricing_table")[0]
-    names = self.get__page.css(".pricing_table")[1]
-    instructors = self.get__page.css(".pricing_table")[3]
-    count = 0
-    until count == times.length
+    times = self.get__page.css(".pricing-table")[0].css("li")
+    names = self.get__page.css(".pricing-table")[1].css("li")
+    instructors = self.get__page.css(".pricing-table")[3].css("li")
+    counter = 0
+    until counter == times.length
       dance_class = DanceClass.create(
-        name: names[count],
+        name: names[counter].text,
         studio_id: Studio.find_by(name: 'Millennium Dance Complex').id,
-        time: times[count],
-        instructor_id: Instructor.find_or_create_by(name: instructors[count])
+        time: times[counter].text,
+        instructor_id: Instructor.find_or_create_by(name: instructors[counter].text).id
       )
-      count += 1
+      counter += 1
     end
   end
 
