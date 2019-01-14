@@ -4,7 +4,7 @@ require 'open-uri'
 class DanceClassScraper
   #for now only using playground webpage
   def get__page
-    doc = 'https://www.playgroundla.dance/schedule/'
+    doc = Nokogiri::HTML(open('https://www.playgroundla.dance/schedule/'))
   end
 
 #date is span.hc_date
@@ -28,5 +28,5 @@ class DanceClassScraper
       end
     end
   end
-  
+
 end
