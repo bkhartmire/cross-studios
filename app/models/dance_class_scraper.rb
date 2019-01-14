@@ -30,5 +30,19 @@ class DanceClassScraper
 #      end
 #    end
 #  end
+  def get__page
+    doc = Nokogiri::HTML(open('http://millenniumdancecomplex.com/schedule/'))
+  end
+
+  def make_dance_classes
+    list = self.get__page.css(".first-table-item")
+    dance_class = DanceClass.new
+    dance_class.studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
+    dance_class.time = list[0].text
+    dance_class.name = list[1].text
+    instructor = Instructor.find_or_create_by(name: list[3].text)
+    dance_class.instructor_id = instructor.id
+    dance_class.save
+  end
 
 end
