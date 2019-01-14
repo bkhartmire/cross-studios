@@ -1,2 +1,5 @@
 <h1>Nokogiri Data: </h1>
-<%= @classes%>
+<h2>Classes: <%= @classes.count %></h2>
+<% @classes.each do |dance_class|%>
+  <%=dance_class.name %>
+<% end %>

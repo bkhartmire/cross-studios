@@ -18,6 +18,7 @@ class DanceClassScraper
       row.css("tr").each do |class_row|
         dance_class = DanceClass.new
         dance_class.date = date
+        console.log('inside method')
         #there are two inner spans for start time and ending time. Do I need to break this up?
         dance_class.time = class_row.css("span.hc_time").text
         dance_class.name = class_row.css("span.classname").text
