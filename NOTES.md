@@ -1,15 +1,14 @@
 users
 users have a schedule on profile page. Calendar?? Maybe that's too complex. But should be able to add to schedule and list on profile.
 
-Studio: name, address_id, classes, website
-Address: line_1, line_2
-Genre: name, dance classes
+XStudio: name, address_id, classes, website
+XAddress: line_1, line_2
 Instructor: name, classes
 
-Dance Classes:
--studio
--genre
--instructor
+DanceClasses:
+-name
+-studio_id
+-instructor_id
 -day
 -time
 
