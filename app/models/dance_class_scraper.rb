@@ -30,22 +30,54 @@ class DanceClassScraper
 #      end
 #    end
 #  end
-  def get__page
+  def get_page
     doc = Nokogiri::HTML(open('http://millenniumdancecomplex.com/schedule/'))
   end
 
 #so far only giving me the Monday classes
+  def get_attributes
+    data = self.get_page.css(".pricing-table")
+    days = self.get_page.css("h2")
+    if day == "MONDAY"
+      times = data[0].css("li")
+      names = data[1].css("li")
+      instructors = data[3].css("li")
+    elsif day == "TUESDAY"
+      times = data[4].css("li")
+      names = data[5].css("li")
+      instructors = data[7].css("li")
+    elsif day == "WEDNESDAY"
+      times = data[8].css("li")
+      names = data[9].css("li")
+      instructors = data[11].css("li")
+    elsif day == "THURSDAY"
+      times = data[12].css("li")
+      names = data[13].css("li")
+      instructors = data[15].css("li")
+    elsif day == "FRIDAY"
+      times = data[16].css("li")
+      names = data[17].css("li")
+      instructors = data[19].css("li")
+    elsif day == "SATURDAY"
+      times = data[20].css("li")
+      names = data[21].css("li")
+      instructors = data[23].css("li")
+    elsif day == "SUNDAY"
+      times = data[24].css("li")
+      names = data[25].css("li")
+      instructors = data[27].css("li")
+    end
+  end
+
   def make_dance_classes
-    #first seven h2 elements are days of the week
-    #monday
-    days = self.get__page.css("h2")
-    times = self.get__page.css(".pricing-table")[0].css("li")
-    names = self.get__page.css(".pricing-table")[1].css("li")
-    instructors = self.get__page.css(".pricing-table")[3].css("li")
+    #
+    #days = self.get_page.css("h2")
+    #times = self.get_page.css(".pricing-table")[0].css("li")
+    #names = self.get_page.css(".pricing-table")[1].css("li")
+    #instructors = self.get_page.css(".pricing-table")[3].css("li")
     index = 0
     until index == times.length
       name = names[index].text
-      day = days[0].text
       studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
       time = times[index].text
       instructor_id = Instructor.find_or_create_by(name: instructors[index].text).id
