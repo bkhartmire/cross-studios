@@ -37,35 +37,35 @@ class DanceClassScraper
 #so far only giving me the Monday classes
   def get_elements(day)
     data = self.get_page.css(".pricing-table")
-    variables = {times: [], names: [], instructors: []}
+    variables = {'times': [], 'names': [], 'instructors': []}
     if day == "MONDAY"
-      variables[times] = data[0].css("li")
-      variables[names] = data[1].css("li")
-      variables[instructors] = data[3].css("li")
+      variables['times'] = data[0].css("li")
+      variables['names'] = data[1].css("li")
+      variables['instructors'] = data[3].css("li")
     elsif day == "TUESDAY"
-      variables[times] = data[4].css("li")
-      variables[names] = data[5].css("li")
-      variables[instructors] = data[7].css("li")
+      variables['times'] = data[4].css("li")
+      variables['names'] = data[5].css("li")
+      variables['instructors'] = data[7].css("li")
     elsif day == "WEDNESDAY"
-      variables[times] = data[8].css("li")
-      variables[names] = data[9].css("li")
-      variables[instructors] = data[11].css("li")
+      variables['times'] = data[8].css("li")
+      variables['names'] = data[9].css("li")
+      variables['instructors'] = data[11].css("li")
     elsif day == "THURSDAY"
-      variables[times] = data[12].css("li")
-      variables[names] = data[13].css("li")
-      variables[instructors] = data[15].css("li")
+      variables['times'] = data[12].css("li")
+      variables['names'] = data[13].css("li")
+      variables['instructors'] = data[15].css("li")
     elsif day == "FRIDAY"
-      variables[times] = data[16].css("li")
-      variables[names] = data[17].css("li")
-      variables[instructors] = data[19].css("li")
+      variables['times'] = data[16].css("li")
+      variables['names'] = data[17].css("li")
+      variables['instructors'] = data[19].css("li")
     elsif day == "SATURDAY"
-      variables[times] = data[20].css("li")
-      variables[names] = data[21].css("li")
-      variables[instr[ctors] = data[23].css("li")
+      variables['times'] = data[20].css("li")
+      variables['names'] = data[21].css("li")
+      variables['instructors'] = data[23].css("li")
     elsif day == "SUNDAY"
-      variables[times] = data[24].css("li")
-      variables[names] = data[25].css("li")
-      variables[instructors] = data[27].css("li")
+      variables['times'] = data[24].css("li")
+      variables['names'] = data[25].css("li")
+      variables['instructors'] = data[27].css("li")
     end
     return variables
 
