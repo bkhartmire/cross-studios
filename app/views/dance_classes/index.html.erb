@@ -1,5 +1,29 @@
 <h1>Dance Class Schedule: </h1>
 <h2> MONDAY</h2>
 <% @classes.select{|dance_class| dance_class.day == "MONDAY"}.each do |dance_class| %>
-  <%= render partial: "dance_class_li", locals: {dance_class: dance_class} %>
+  <%= render "dance_class_li", dance_class: dance_class %>
+<% end %>
+<h2> TUESDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "TUESDAY"}.each do |dance_class| %>
+  <%= render "dance_class_li", dance_class: dance_class %>
+<% end %>
+<h2> WEDNESDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "WEDNESDAY"}.each do |dance_class| %>
+  <%= render "dance_class_li", dance_class: dance_class %>
+<% end %>
+<h2> THURSDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "THURSDAY"}.each do |dance_class| %>
+  <%= render "dance_class_li", dance_class: dance_class %>
+<% end %>
+<h2> FRIDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "FRIDAY"}.each do |dance_class| %>
+  <%= render "dance_class_li", dance_class: dance_class %>
+<% end %>
+<h2> SATURDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "SATURDAY"}.each do |dance_class| %>
+  <%= render "dance_class_li", dance_class: dance_class %>
+<% end %>
+<h2> SUNDAY</h2>
+<% @classes.select{|dance_class| dance_class.day == "SUNDAY"}.each do |dance_class| %>
+  <%= render "dance_class_li", dance_class: dance_class %>
 <% end %>
