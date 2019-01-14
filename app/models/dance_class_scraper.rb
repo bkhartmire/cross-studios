@@ -34,34 +34,23 @@ class DanceClassScraper
     doc = Nokogiri::HTML(open('http://millenniumdancecomplex.com/schedule/'))
   end
 
-#this only works for single class element on page, not all the others
-  def make_first_item_dance_classes
-    list = self.get__page.css(".first-table-item")
-    time = list[0].text
-    name = list[1].text
-    instructor = Instructor.find_or_create_by(name: list[3].text)
-    studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
-    #day??
-    #check if this exact dance class already exists in the database
-    if !DanceClass.find_by(name: name, instructor_id: instructor.id, time: time, studio_id: studio_id)
-      dance_class = DanceClass.create(name: name, time: time, instructor_id: instructor.id, studio_id: studio_id)
-    end
-  end
-
   def make_dance_classes
-
     times = self.get__page.css(".pricing-table")[0].css("li")
     names = self.get__page.css(".pricing-table")[1].css("li")
     instructors = self.get__page.css(".pricing-table")[3].css("li")
-    counter = 0
-    until counter == times.length
-      dance_class = DanceClass.create(
-        name: names[counter].text,
-        studio_id: Studio.find_by(name: 'Millennium Dance Complex').id,
-        time: times[counter].text,
-        instructor_id: Instructor.find_or_create_by(name: instructors[counter].text).id
+    index = 0
+    until index == times.length
+      name = names[index].text
+      studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
+      time = times[index].text
+      instructor_id = Instructor.find_or_create_by(name: instructors[index].text).id
+      dance_class = DanceClass.find_or_create_by(
+        name: name,
+        studio_id: studio_id,
+        time: time,
+        instructor_id: instructor_id
       )
-      counter += 1
+      index += 1
     end
   end
 

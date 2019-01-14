@@ -1,8 +1,10 @@
 <h1>Nokogiri Data: </h1>
 <h2>Classes: <%= @classes.count %></h2>
 <% @classes.each do |dance_class|%>
-  <%=dance_class.name %>
-  <%=dance_class.day if !!dance_class.day%>
-  <%=dance_class.time %>
-  <%=dance_class.instructor.name %>
+  <li>
+    <%=dance_class.name %>
+    <%=dance_class.day if !!dance_class.day%>
+    <%=dance_class.time %>
+    <%=dance_class.instructor.name %>
+  </li>
 <% end %>
