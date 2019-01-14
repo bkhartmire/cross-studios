@@ -1,6 +1,7 @@
 users
 users have a schedule on profile page. Calendar?? Maybe that's too complex. But should be able to add to schedule and list on profile. Persist data...favorite an instructor?
 Instructor page will show number of favorites from previous students. (more friendly, anonymous, less awkward version of reviewing)
+Users maintain an array of favorited instructors.
 
 
 XStudio: name, address_id, classes, website
