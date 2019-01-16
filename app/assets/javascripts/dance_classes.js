@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  getPlaygroundDanceClasses()
+})
+
 class DanceClass{
   constructor(obj){
     this.id = obj.id
@@ -9,6 +13,12 @@ class DanceClass{
   }
 }
 
-function getPlayground(){
-  
+function getPlaygroundDanceClasses(){
+  const playgroundURL = 'https://www.playgroundla.dance/schedule/'
+  request = $.ajax({
+    type: "GET",
+    url: playgroundURL,
+    success: function(result){console.log(result)},
+    error: function(error){console.log('Something went wrong.', error)}
+  })
 }
