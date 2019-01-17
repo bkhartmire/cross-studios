@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2019_01_14_003316) do
 
   create_table "instructors", force: :cascade do |t|
     t.string "name"
-    t.string "video_url", default: null
     t.integer "favorited_count", default: 0
+    t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
