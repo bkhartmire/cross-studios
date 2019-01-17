@@ -6,7 +6,11 @@ import DanceClass from '../components/DanceClass'
 
 class DanceClassList extends Component {
   render(){
-
+    return(
+      <div>
+        <h1>This is the Dance Class List</h1>
+      </div>
+    )
   }
 }
 
