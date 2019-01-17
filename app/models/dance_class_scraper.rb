@@ -64,10 +64,6 @@ class DanceClassScraper
         index += 1
       end
     end
-    #times = self.get_page.css(".pricing-table")[0].css("li")
-    #names = self.get_page.css(".pricing-table")[1].css("li")
-    #instructors = self.get_page.css(".pricing-table")[3].css("li")
-
   end
 
 end
