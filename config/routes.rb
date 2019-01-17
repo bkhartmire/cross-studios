@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   #just playing with this so that I can see Nokogiri results
   namespace :api do
     resources :dance_classes
-    root 'welcome#home'
   end
 end
