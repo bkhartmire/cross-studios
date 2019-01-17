@@ -38,6 +38,7 @@ instructors = Instructor.create([
 ])
 
 dance_classes = DanceClass.create([
+  #regular schedule from The Playground LA
   {name: 'Booty Bake', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Margie Dilivio').id, day: 'MONDAY',time: '9:15am-10:15am'},
   {name: 'Hip Hope', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Nick Gilligan').id, day: 'MONDAY',time: '4:30pm-5:30pm'},
   {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Charlie Bartley').id, day: 'MONDAY',time: '5:30pm-7:00pm'},
@@ -65,4 +66,6 @@ dance_classes = DanceClass.create([
   {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Dexter Carr').id, day: 'SATURDAY',time: '3:00pm-4:30pm'},
   {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Guy Groove').id, day: 'SUNDAY',time: '1200pm-1:00pm'},
   {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Rumer Noel').id, day: 'SUNDAY',time: '1:00pm-2:15pm'},
+  #regular schedule from Movement Lifestyle
+  {name: '', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: '').id, day: 'SATURDAY',time: ''},
 ])
