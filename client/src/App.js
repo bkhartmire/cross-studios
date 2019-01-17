@@ -6,9 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>This is src/App.js</h1>
         {routes}
-
       </div>
     );
   }

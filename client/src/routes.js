@@ -1,13 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
+import Home from './components/Home'
 
-const Home = () => {
-  return(
-    <div>
-      <h1>HOME!</h1>
-    </div>
-  )
-}
+
 
 export default (
   <BrowserRouter>
