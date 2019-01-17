@@ -97,14 +97,36 @@ instructors = Instructor.create([
   {name: 'Tricia Miranda', video_url: 'https://youtu.be/4TnUePIxP8I'},
   {name: 'Will Bell', video_url: 'https://youtu.be/rEQP2AV-jQI'},
   {name: 'Willdabeast Adams', video_url: 'https://youtu.be/nGPCp4hy-eA'},
-  {name: 'Zach Lattimore', video_url: 'https://youtu.be/XlZA7KR9Oys'}
+  {name: 'Zach Lattimore', video_url: 'https://youtu.be/XlZA7KR9Oys'},
+  {name: 'Alexis Saenz,'},
+  #this seed is to accomodate the mL & friends class
+  {name: 'Always changing! Get more information on Movement\'s website.'},
+  {name: 'Shawnette Heard', video_url: 'https://youtu.be/NS1qdxZddeI'},
+  {name: 'Amanda Grind', video_url: 'https://youtu.be/xixVq_fUy3c'},
+  {name: 'Allie Costello'},
+  {name: 'Lando Wilkins', video_url: 'https://youtu.be/575IOaDQGl0'},
+  {name: 'Dashaun Wesley', video_url: 'https://youtu.be/6L2dUwbSMkw'},
+  {name: 'Trevor Takemoto', video_url: 'https://youtu.be/88PyHwEgAFk'},
+  {name: 'Megan Lawson'},
+  {name: 'Alekz Samone', video_url: 'https://youtu.be/q3HXJi0w9_E'},
+  {name: 'Tango Leadaz', video_url: 'https://youtu.be/rzZ_rXfDjGQ'},
+  {name: 'Natsuki Miya', video_url: 'https://youtu.be/T-cQxXRZdW4'},
+  {name: 'Randi Freitas', video_url: 'https://youtu.be/9kvlQVXvHWo'},
+  {name: 'Kid Boogie', video_url: 'https://youtu.be/Ozh1FnyGHBs'},
+  {name: 'Jessie Levine'},
+  {name: 'Beno Anastascio', video_url: 'https://youtu.be/BZmDCtCHw14'},
+  {name: 'SuperDave', video_url: 'https://youtu.be/jQrmib37TwA'},
+  {name: 'Sean Carbs'},
+  {name: 'Jian Pierre-Louis', video_url: 'https://youtu.be/nMuotShl7WM'},
+  {name: 'Dalphe Morantus'},
+  {name: 'Jet'}
 ])
 
 #Millennium schedule is scraped with Nokogiri but other class schedules are JS rendered and their regular schedulws are manually entered here.
 dance_classes = DanceClass.create([
   #regular schedule from The Playground LA
   {name: 'Booty Bake', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Margie Dilivio').id, day: 'MONDAY',time: '9:15am-10:15am'},
-  {name: 'Hip Hope', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Nick Gilligan').id, day: 'MONDAY',time: '4:30pm-5:30pm'},
+  {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Nick Gilligan').id, day: 'MONDAY',time: '4:30pm-5:30pm'},
   {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Charlie Bartley').id, day: 'MONDAY',time: '5:30pm-7:00pm'},
   {name: 'Grooves', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Kennis Marquis').id, day: 'MONDAY',time: '7:00pm-8:15pm'},
   {name: 'Heels', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Nicole Kirkland').id, day: 'MONDAY',time: '8:30pm-10:00pm'},
@@ -131,5 +153,34 @@ dance_classes = DanceClass.create([
   {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Guy Groove').id, day: 'SUNDAY',time: '1200pm-1:00pm'},
   {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Rumer Noel').id, day: 'SUNDAY',time: '1:00pm-2:15pm'}
   #regular schedule from Movement Lifestyle
-  #{name: '', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: #Instructor.find_by(name: '').id, day: 'SATURDAY',time: ''}
+  {name: 'Mat Pilates', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Alexis Saenz').id, day: 'THURSDAY',time: '12:30pm-1:50pm'},
+  {name: 'mL & Friends', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Always changing! Get more information on Movement\'s website.').id, day: 'THURSDAY',time: '2:00pm-3:20pm'},
+  {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Shawnette Heard').id, day: 'THURSDAY',time: '3:30pm-4:50pm'},
+  {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Amanda Grind').id, day: 'THURSDAY',time: '5:00pm-6:20pm'},
+  {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Devin Solomon').id, day: 'THURSDAY',time: '6:30pm-7:50pm'},
+  {name: 'Heated Power Yoga', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Allie Costello').id, day: 'THURSDAY',time: '7:00pm-8:20pm'},
+  {name: 'Hip Hop', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Lando Wilkins').id, day: 'THURSDAY',time: '8:00-9:20pm'},
+  {name: 'Meditation', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Allie Costello').id, day: 'THURSDAY',time: '8:20pm-8:50pm'},
+  {name: 'Vogue Femme', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Dashaun Wesley').id, day: 'THURSDAY',time: '9:00pm-10:20pm'},
+  {name: 'Community Class', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Trevor Takemoto').id, day: 'THURSDAY',time: '9:30pm-10:50pm'},
+  {name: 'Contemporary', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Megan Lawson').id, day: 'FRIDAY',time: '11:30am-1:30pm'},
+  {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Alekz Samone').id, day: 'FRIDAY',time: '2:00pm-3:20pm'},
+  {name: 'Dancehall Foundation', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Tango Leadaz').id, day: 'FRIDAY',time: '2:30pm-3:50pm'},
+  {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: "Jose 'Boy Boi' Tena").id, day: 'FRIDAY',time: '3:30pm-4:50pm'},
+  {name: 'Heels Foundation', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Natsuki Miya').id, day: 'FRIDAY',time: '4:00pm-5:20pm'},
+  {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Brian & Scott Nicholson').id, day: 'FRIDAY',time: '5:00pm-6:20pm'},
+  {name: 'Vogue for Beginners', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Dashaun Wesley').id, day: 'FRIDAY',time: '5:30pm-6:50pm'},
+  {name: 'Floor-work Basics', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Randi Freitas').id, day: 'FRIDAY',time: '7:30pm-8:50pm'},
+  {name: 'Advanced Popping', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Kid Boogie').id, day: 'FRIDAY',time: '9:00-10:20pm'},
+  {name: 'FREE Yoga', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Jessie Levine').id, day: 'SATURDAY',time: '1:00pm-2:20pm'},
+  {name: 'Basics with Krumping', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Beno Anastascio').id, day: 'SATURDAY',time: '5:00pm-6:20pm'},
+  {name: 'Freestyle Theory', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'SuperDave').id, day: 'SATURDAY',time: '6:30pm-7:50pm'},
+  {name: 'Basics in Rhythm & Movement', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Sean Carbs').id, day: 'SUNDAY',time: '12:00pm-1:20pm'},
+  {name: 'House Foundation', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Jian Pierre-Louis').id, day: 'SUNDAY',time: '1:30pm-2:50pm'},
+  {name: 'Basics with Popping', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Kid Boogie').id, day: 'SUNDAY',time: '3:00pm-4:20pm'},
+  {name: 'Grooves', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Dalphe Morantus').id, day: 'SUNDAY',time: '4:30pm-5:30pm'},
+  {name: 'Body Control in Dance', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Jet').id, day: 'SUNDAY',time: '5:30pm-6:50pm'},
+  {name: '', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: '').id, day: 'THURSDAY',time: ''},
+  {name: '', studio_id: Studio.find_by(name: 'The Movement Lifestyle').id, instructor_id: Instructor.find_by(name: '').id, day: 'THURSDAY',time: ''},
+
 ])
