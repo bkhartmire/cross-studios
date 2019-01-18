@@ -1,13 +1,13 @@
 export default function danceClassesReducer(
   state = {
     loading: false,
-    names: []
+    all: []
   }, action) {
     switch (action.type) {
       case 'LOADING_DANCE_CLASSES':
         return { ...state, loading: true}
       case 'FETCH_DANCE_CLASSES':
-        return {...state, loading: false, names: action.payload}
+        return {...state, loading: false, all: action.payload}
       default:
         return state
     }

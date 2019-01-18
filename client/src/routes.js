@@ -9,6 +9,7 @@ export default (
   <BrowserRouter>
     <Switch id='routes'>
       <Route exact path='/' render={Home}/>
+      <Route path='/dance_classes' component={() => <DanceClassList/>} />
     </Switch>
   </BrowserRouter>
 );
