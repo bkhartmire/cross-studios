@@ -13,7 +13,7 @@ class DanceClassList extends Component {
     const {danceClasses} = this.props
     return(
       <div>
-        <h1>This is the Dance Class List</h1>
+        <h1>Dance Classes</h1>
         {danceClasses.map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
       </div>
     )
