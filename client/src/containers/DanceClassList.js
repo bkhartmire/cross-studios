@@ -14,7 +14,7 @@ class DanceClassList extends Component {
     return(
       <div>
         <h1>This is the Dance Class List</h1>
-        {danceClasses.map((danceClass) => <DanceClass danceClass={danceClass}/>)}
+        {danceClasses.map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
       </div>
     )
   }
