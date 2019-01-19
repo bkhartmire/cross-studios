@@ -10,8 +10,8 @@ export default (
   <BrowserRouter>
     <React.Fragment>
       <Route exact path='/' render={Home}/>
-      <Route path='/dance_classes' component={() => <DanceClassList/>} />
-      <Route path='/instructors/:id' component={() => <Instructor/>}/>
+      <Route path='/dance_classes' component={DanceClassList} />
+      <Route path='/instructors/:id' component={Instructor}/>
     </React.Fragment>
   </BrowserRouter>
 );
