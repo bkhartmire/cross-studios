@@ -10,7 +10,7 @@ class DanceClass extends Component {
         <h3><Link to={{
             pathname: `/instructors/${danceClass.instructor_id}`,
             state: {
-              instructor: this.props.danceClass.instructor
+              instructor: danceClass.instructor
             }
           }}>{danceClass.instructor.name}:</Link> {danceClass.name}</h3>
         <h4>{danceClass.day} {danceClass.time}</h4>
