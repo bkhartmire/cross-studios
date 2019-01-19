@@ -1,8 +1,10 @@
-import React {Component}, from 'react'
+import React, {Component} from 'react'
 
-class Instructor extends React {
+class Instructor extends Component {
   componentDidMount() {
-
+    const {id} = this.props.match.params
+    const {instructor} = this.props.location.state
+    debugger
   }
   render(){
     return(

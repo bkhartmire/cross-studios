@@ -8,7 +8,7 @@ import Instructor from './components/Instructor'
 
 export default (
   <BrowserRouter>
-    <React.Fragment id='routes'>
+    <React.Fragment>
       <Route exact path='/' render={Home}/>
       <Route path='/dance_classes' component={() => <DanceClassList/>} />
       <Route path='/instructors/:id' component={() => <Instructor/>}/>
