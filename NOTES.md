@@ -3,8 +3,7 @@ users have a schedule on profile page. Calendar?? Maybe that's too complex. But 
 Instructor page will show number of favorites from previous students. (more friendly, anonymous, less awkward version of reviewing)
 Users maintain an array of favorited instructors.
 
-maybe embed a youtube video of the class on the instructor show page?
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s1ujjzsApx8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+there should NOT be a link for TBA/changes instructor classes!
 
 XStudio: name, address_id, classes, website
 XAddress: line_1, line_2

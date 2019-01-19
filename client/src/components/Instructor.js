@@ -18,7 +18,6 @@ class Instructor extends Component {
   }
 
   componentDidMount() {
-    debugger
     this.id = this.props.match.params.id
     this.name = this.props.location.state.instructor.name
     this.video_url = this.props.location.state.instructor.video_url
@@ -31,8 +30,7 @@ class Instructor extends Component {
     const instructor = this.state
     return(
       <div>
-        <h1>This is the instructor component.</h1>
-        <h2>{instructor.name}</h2>
+        <h1>{instructor.name}</h1>
         <iframe width="560" height="315" src={instructor.video_url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       </div>
