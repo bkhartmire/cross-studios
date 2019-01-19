@@ -5,7 +5,8 @@ class Instructor extends Component {
     super(props)
     this.state= {
       name: '',
-      video_url: ''
+      video_url: '',
+      dance_classes: []
     }
   }
 
@@ -13,7 +14,8 @@ class Instructor extends Component {
     this.setState({
       name: this.name,
       video_url: this.video_url,
-      favorited_count: 0
+      favorited_count: 0,
+      dance_classes: this.dance_classes
     })
   }
 
@@ -22,6 +24,7 @@ class Instructor extends Component {
     this.name = this.props.location.state.instructor.name
     this.video_url = this.props.location.state.instructor.video_url
     this.favorited_count = this.props.location.state.instructor.favorited_count
+    this.dance_classes = this.props.location.state.instructor.dance_classes
     this.updateData()
   }
 
