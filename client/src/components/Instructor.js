@@ -6,26 +6,24 @@ class Instructor extends Component {
     this.state= {
       name: '',
       video_url: '',
+      favorited_count: 0,
       dance_classes: []
     }
   }
 
-  updateData() {
+  updateData(data) {
     this.setState({
-      name: this.name,
-      video_url: this.video_url,
-      favorited_count: 0,
-      dance_classes: this.dance_classes
+      name: data.name,
+      video_url: data.video_url,
+      favorited_count: data.favorited_count,
+      dance_classes: data.dance_classes
     })
   }
 
   componentDidMount() {
     this.id = this.props.match.params.id
-    this.name = this.props.location.state.instructor.name
-    this.video_url = this.props.location.state.instructor.video_url
-    this.favorited_count = this.props.location.state.instructor.favorited_count
-    this.dance_classes = this.props.location.state.instructor.dance_classes
-    this.updateData()
+    const data = this.props.location.state.instructor
+    this.updateData(data)
   }
 
 
