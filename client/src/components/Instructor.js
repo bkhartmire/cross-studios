@@ -12,14 +12,17 @@ class Instructor extends Component {
   updateData() {
     this.setState({
       name: this.name,
-      video_url: this.video_url
+      video_url: this.video_url,
+      favorited_count: 0
     })
   }
 
   componentDidMount() {
+    debugger
     this.id = this.props.match.params.id
     this.name = this.props.location.state.instructor.name
     this.video_url = this.props.location.state.instructor.video_url
+    this.favorited_count = this.props.location.state.instructor.favorited_count
     this.updateData()
   }
 
