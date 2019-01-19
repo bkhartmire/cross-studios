@@ -13,6 +13,7 @@ class Instructor extends Component {
 
   updateData(data) {
     this.setState({
+      id: data.id,
       name: data.name,
       video_url: data.video_url,
       favorited_count: data.favorited_count,
@@ -21,7 +22,6 @@ class Instructor extends Component {
   }
 
   componentDidMount() {
-    this.id = this.props.match.params.id
     const data = this.props.location.state.instructor
     this.updateData(data)
   }
