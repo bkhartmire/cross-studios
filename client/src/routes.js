@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import Home from './components/Home'
 import DanceClassList from './containers/DanceClassList'
 import Instructor from './components/Instructor'
@@ -14,8 +14,9 @@ export default (
       <Route exact path='/' component={Home}/>
       <Route path='/dance_classes' component={DanceClassList} />
       <Route path='/instructors/:id' component={Instructor}/>
-      <Route path='/signup' component={Signup}/>
-      <Route path='/login' component={Login}/>
+      <Route path='/signup' component={ () => loggedIn() ? <Redirect to="/"/> : <Signup/> }/>
+      <Route path='/login' component={ () => loggedIn() ? <Redirect to="/"/> : <Login/> }/>
+      <Route path='/logout' component={ () => logout() }/>
     </React.Fragment>
   </BrowserRouter>
 );
