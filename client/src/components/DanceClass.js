@@ -13,7 +13,8 @@ class DanceClass extends Component {
       instructor_name = <Link to={{
         pathname: `/instructors/${danceClass.instructor_id}`,
         state: {
-          instructor: danceClass.instructor
+          instructor: danceClass.instructor,
+          studio: danceClass.studio
         }
       }}>{danceClass.instructor.name}</Link>
     }

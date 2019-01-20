@@ -11,19 +11,21 @@ class Instructor extends Component {
     }
   }
 
-  updateData(data) {
+  updateData(instructor_data, studio_data) {
     this.setState({
-      id: data.id,
-      name: data.name,
-      video_url: data.video_url,
-      favorited_count: data.favorited_count,
-      dance_classes: data.dance_classes
+      id: instructor_data.id,
+      name: instructor_data.name,
+      video_url: instructor_data.video_url,
+      favorited_count: instructor_data.favorited_count,
+      dance_classes: instructor_data.dance_classes,
+      studio: studio_data.name
     })
   }
 
   componentDidMount() {
-    const data = this.props.location.state.instructor
-    this.updateData(data)
+    const instructor_data = this.props.location.state.instructor
+    const studio_data = this.props.location.state.studio
+    this.updateData(instructor_data, studio_data)
   }
 
 
