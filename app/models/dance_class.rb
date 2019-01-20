@@ -11,10 +11,26 @@ class DanceClass < ApplicationRecord
 
   #sort by day
   def self.sort_by_day
-    self.filter
+    monday = self.all.select {|dance_class| dance_class.day == "MONDAY"}
+    tuesday = self.all.select {|dance_class| dance_class.day == "TUESDAY"}
+    wednesday = self.all.select {|dance_class| dance_class.day == "WEDNESDAY"}
+    thursday = self.all.select {|dance_class| dance_class.day == "THURSDAY"}
+    friday = self.all.select {|dance_class| dance_class.day == "FRIDAY"}
+    saturday = self.all.select {|dance_class| dance_class.day == "SATURDAY"}
+    sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}
+    separated_days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+    self.sort_by_time(separated_days)
   end
   #sort each group of days
-  def self.sort_by_time
+  def self.sort_by_time(separated_days)
+    #this totally won't work but is this the basic idea? figure it out when you get wifi again
+    sorted_dance_classes = []
+    separated_days.each do |a, b|
+      day.sort_by(a.time - b.time)
+      sorted_dance_classes.push(day)
+    end
+    #Is there a built in method for this? Will you have to manipulate data to have starting time and ending time?
+
   end
 
 end

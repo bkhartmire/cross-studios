@@ -16,10 +16,10 @@ DanceClasses:
 -day
 -time
 
-Dance Classes are scraped from Nokogiri.
-Millennium Dance Complex: http://millenniumdancecomplex.com/schedule/
-Movement Lifestyle: https://www.themovementlifestyle.com/
-Playground: https://www.playgroundla.dance/schedule/
-
-UH-OH: turns out movement and playground render schedule elements with JS. can't scrape with nokogiri :(
-Can I use jquery selectors and JS constructor syntax to create new danceclass objects??
+To Do List:
+-sort dance classes chronologically
+-create users sign up/login
+-user profile with their own schedules
+-dance_classes will have a button for user to add to schedule if logged in
+-Home Page: Studio's with addresses and website.
+-Filter dance_classes by day or studio?
