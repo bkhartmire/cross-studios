@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 //create this action!
+//eventually split code into two files, home and StudioList
 import { fetchStudios } from '../actions/studioActions'
 import Studio from '../components/Studio'
 
@@ -21,5 +22,15 @@ class Home extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    studios: state.studios.all
+  }
+}
 
-export default Home
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchStudios
+}, dispatch)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
