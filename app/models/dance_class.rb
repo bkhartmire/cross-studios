@@ -11,6 +11,7 @@ class DanceClass < ApplicationRecord
 
   #sort by day
   def self.sort_by_day
+    self.filter
   end
   #sort each group of days
   def self.sort_by_time
