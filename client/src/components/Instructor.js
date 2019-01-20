@@ -7,7 +7,7 @@ class Instructor extends Component {
       name: '',
       video_url: '',
       favorited_count: 0,
-      dance_classes: []
+      dance_classes: [],
     }
   }
 
@@ -18,14 +18,14 @@ class Instructor extends Component {
       video_url: instructor_data.video_url,
       favorited_count: instructor_data.favorited_count,
       dance_classes: instructor_data.dance_classes,
-      studio: studio_data.name
     })
   }
 
   componentDidMount() {
-    const instructor_data = this.props.location.state.instructor
-    const studio_data = this.props.location.state.studio
-    this.updateData(instructor_data, studio_data)
+    const data = this.props.location.state.instructor
+    debugger
+    this.updateData(data)
+
   }
 
 
