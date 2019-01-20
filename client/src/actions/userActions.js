@@ -35,8 +35,6 @@ export const signupUser = (user, callback) => {
     body: JSON.stringify({ user })
   }
 
-
-//change this jwt stuff!! You won't do it this way.
   return dispatch => {
     fetch('/api/signup', data)
       .then(response => response.json())
@@ -54,8 +52,6 @@ export const signupUser = (user, callback) => {
   }
 }
 
-
-//not going to use jwt. google how to do authorization just with password digest
 export const fetchUser = () => {
   let data = {
     method: 'GET',
