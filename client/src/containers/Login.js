@@ -8,13 +8,12 @@ import { loginUser } from '../actions/userActions'
 class Login extends Component {
   constructor(){
     super()
-    //Do you have to get rid of this filler code??
     this.state = {
-      username: 'demo',
-      password: 'password'
+      username: '',
+      password: ''
     }
-    this.onSubmit = this.onSubmit.bind(this)
-    this.onChange = this.onChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
