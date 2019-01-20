@@ -10,7 +10,7 @@ export const loginUser = (user, callback) => {
 
   return dispatch => {
     fetch('/api/login', data)
-      .then(response => response.clone().json())
+      .then(response => response.json())
       .then(user => {
         sessionStorage.setItem('jwt', user.jwt)
 
@@ -71,26 +71,6 @@ export const fetchUser = () => {
           payload: user
         })
       })
-      .catch(err => err)
-  }
-}
-
-export const deleteUser = id => {
-  let data = {
-    method: 'DELETE',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  }
-
-  return dispatch => {
-    fetch(`/api/users/${ id }`, data)
-      .then(response => response.json())
-      .then(user => dispatch({
-        type: 'DELETE_TODO',
-        payload: user
-      }))
       .catch(err => err)
   }
 }
