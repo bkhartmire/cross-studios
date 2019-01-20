@@ -11,7 +11,7 @@ import Signup from './containers/Signup'
 export default (
   <BrowserRouter>
     <React.Fragment>
-      <Route exact path='/' component={Home}/>
+      <Route exact path='/' render={ () =>  loggedIn() ? <Home/> : <Redirect to="/login"/> }/>
       <Route path='/dance_classes' component={DanceClassList} />
       <Route path='/instructors/:id' component={Instructor}/>
       <Route path='/signup' component={ () => loggedIn() ? <Redirect to="/"/> : <Signup/> }/>
@@ -20,3 +20,11 @@ export default (
     </React.Fragment>
   </BrowserRouter>
 );
+
+const loggedIn = () => !!sessionStorage['jwt']
+
+const logout = () => {
+  if(sessionStorage['jwt']) sessionStorage.removeItem('jwt')
+
+  return <Redirect to="/login"/>
+}
