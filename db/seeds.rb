@@ -232,5 +232,5 @@ users = User.create([
   {username: 'user2', password: 'password', firstname: 'Jade', lastname: 'Chynoweth'},
   {username: 'user3', password: 'password', firstname: 'Bam', lastname: 'Martin'},
   {username: 'user4', password: 'password', firstname: 'Ysabelle', lastname: 'Capitule'},
-  {username: 'user5', password: 'password', firstname: 'Keone', lastname: 'Madrid'},
+  {username: 'user5', password: 'password', firstname: 'Keone', lastname: 'Madrid'}
   ])

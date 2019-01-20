@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Home from './components/Home'
+import Home from './containers/Home'
 import DanceClassList from './containers/DanceClassList'
 import Instructor from './components/Instructor'
 import Login from './containers/Login'
