@@ -11,7 +11,7 @@ import Signup from './containers/Signup'
 export default (
   <BrowserRouter>
     <React.Fragment>
-      <Route exact path='/' render={Home}/>
+      <Route exact path='/' component={Home}/>
       <Route path='/dance_classes' component={DanceClassList} />
       <Route path='/instructors/:id' component={Instructor}/>
       <Route path='/signup' component={Signup}/>
