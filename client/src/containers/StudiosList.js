@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-//create this action!
-//eventually split code into two files, home and StudioList
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchStudios } from '../actions/studioActions'
@@ -8,6 +6,7 @@ import Studio from '../components/Studio'
 
 class Home extends Component {
   componentDidMount(){
+    debugger
     this.props.fetchStudios()
   }
 
