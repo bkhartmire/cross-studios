@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   #just playing with this so that I can see Nokogiri results
   scope '/api' do
     resources :dance_classes
-    resources :instructors
+    resources :studios
   end
 end
