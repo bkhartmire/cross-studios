@@ -1,7 +1,12 @@
 import {combineReducers} from 'redux'
-import danceClassesReducer from './dance_classes_reducer'
-import studiosReducer from './studios_reducer'
+import danceClassesReducer from './danceClassesReducer'
+import studiosReducer from './studiosReducer'
+import userReducer from './userReducer'
 
-const rootReducer = combineReducers({danceClasses: danceClassesReducer, studios: studiosReducer})
+const rootReducer = combineReducers({
+  danceClasses: danceClassesReducer,
+  studios: studiosReducer,
+  user: userReducer
+})
 
 export default rootReducer
