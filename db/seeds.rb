@@ -226,3 +226,9 @@ dance_classes = DanceClass.create([
   {name: 'Grooves', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Dalphe Morantus').id, day: 'SUNDAY',time: '4:30pm-5:30pm'},
   {name: 'Body Control in Dance', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Jet').id, day: 'SUNDAY', time: '5:30pm-6:50pm'}
 ])
+
+counter = 1
+8.times do
+  User.create(username: "user#{counter}", password: "password")
+  counter += 1
+end
