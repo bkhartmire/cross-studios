@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom'
 
 import { loginUser } from '../actions/userActions'
 
-class Login extneds Component {
+class Login extends Component {
   constructor(){
     super()
     //Do you have to get rid of this filler code??
