@@ -6,7 +6,7 @@ class DanceClassesController < ApplicationController
     end
     @classes = DanceClass.all
     #include associated instructor and studio in json object
-    render json: @classes, include: {instructor: {include: :dance_classes}, studio: {include: :address}}
+    render json: @classes, include: {instructor: {include: {dance_classes: {include: :studio}}}, studio: {include: :address}}
   end
 
 end
