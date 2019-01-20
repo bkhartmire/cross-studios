@@ -7,7 +7,6 @@ import Studio from '../components/Studio'
 
 class StudioList extends Component {
   componentDidMount(){
-    debugger
     this.props.fetchStudios()
   }
 

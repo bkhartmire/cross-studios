@@ -1,4 +1,5 @@
 export const fetchStudios = () => {
+
   return (dispatch) => {
 
     dispatch({type: 'LOADING_STUDIOS'})
