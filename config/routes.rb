@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   scope '/api' do
     resources :dance_classes
     resources :studios
+    resources :users
+    get 'user', to: 'users#show', as: 'user_show'
+    post 'signup', to: 'users#create', as: 'user_signup'
+    post 'login', to: 'users#login', as: 'user_login'
   end
 end
