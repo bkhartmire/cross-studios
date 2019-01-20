@@ -29,11 +29,19 @@ class Instructor extends Component {
 
   render(){
     const instructor = this.state
+    const listDanceClasses = instructor.dance_classes.map(dance_class => {
+      return(
+        <li>
+          <h4>{dance_class.name}</h4>
+          <h5>{dance_class.day} {dance_class.time}</h5>
+          <h5>Put Studio Here.</h5>
+        </li>
+      )
+    })
     return(
       <div>
         <h1>{instructor.name}</h1>
         <iframe width="560" height="315" src={instructor.video_url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
       </div>
     )
   }
