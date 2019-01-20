@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Instructor from './Instructor'
 import { Link } from 'react-router-dom'
 
 class DanceClass extends Component {
@@ -7,7 +6,7 @@ class DanceClass extends Component {
     const {danceClass} = this.props
     //only add instructor link to dance classes with a known instructor
     let instructor_name
-    if (danceClass.instructor.name == "TBA") {
+    if (danceClass.instructor.name === "TBA") {
       instructor_name = danceClass.instructor.name
     } else {
       instructor_name = <Link to={{
