@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+
 import { fetchStudios } from '../actions/studioActions'
 import Studio from '../components/Studio'
 
-class Home extends Component {
+class StudioList extends Component {
   componentDidMount(){
     debugger
     this.props.fetchStudios()
@@ -15,9 +16,9 @@ class Home extends Component {
     return(
       <div>
         <h1>Manage your class schedule from these top LA dance studios!</h1>
-        <ul>
+
           {studios.map((studio) => <Studio key={studio.id} studio={studio}/>)}
-        </ul>
+
       </div>
     )
   }
@@ -34,4 +35,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(StudioList)
