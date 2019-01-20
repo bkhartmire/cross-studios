@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+//styling: reduce space between lines for each h5
 
 class Studio extends Component {
   render() {
