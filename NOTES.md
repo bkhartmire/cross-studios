@@ -19,7 +19,9 @@ DanceClasses:
 To Do List:
 -sort dance classes chronologically
 -create users sign up/login
+-can only navigate if logged in
 -user profile with their own schedules
--dance_classes will have a button for user to add to schedule if logged in
--Home Page: Studio's with addresses and website.
+-can delete classes from your schedules
+-each dance class listing has button to add to schedule. (danceclasses and instructor/:id routes)
+-alert if user tries to add class that conflicts with schedule
 -Filter dance_classes by day or studio?
