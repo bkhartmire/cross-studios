@@ -9,7 +9,7 @@ export const loginUser = (user, callback) => {
   }
 
   return dispatch => {
-    fetch('/api/login', data)
+    fetch('api/login', data)
       .then(response => response.json())
       .then(user => {
         sessionStorage.setItem('jwt', user.jwt)
