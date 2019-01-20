@@ -32,15 +32,15 @@ class Instructor extends Component {
     const listDanceClasses = instructor.dance_classes.map(dance_class => {
       return(
         <li>
-          <h4>{dance_class.name}</h4>
-          <h5>{dance_class.day} {dance_class.time}</h5>
-          <h5>Put Studio Here.</h5>
+          <h4>{dance_class.name}: {dance_class.day} {dance_class.time} at "Put Studio Here"</h4>
         </li>
       )
     })
     return(
       <div>
         <h1>{instructor.name}</h1>
+        <h3>Dance Classes:</h3>
+        <ul>{listDanceClasses}</ul>
         <iframe width="560" height="315" src={instructor.video_url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     )
