@@ -59,7 +59,6 @@ class UsersController < ApiController
     params.require(:user).permit(
         :username,
         :password,
-        :password_confirmation,
         :firstname,
         :lastname
       )
