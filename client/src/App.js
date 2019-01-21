@@ -3,7 +3,7 @@ import './App.css';
 //import routes from './routes'
 import Auth from './modules/Auth'
 //import React from 'react'
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
 import Home from './components/Home'
 import DanceClassList from './containers/DanceClassList'
 import Instructor from './components/Instructor'
@@ -63,6 +63,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <div className="nav">
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Signup</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/dance_classes'>All Dance Classes</Link>
+            <Link to='/profile'>Profile</Link>
+          </div>
           <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>
           <Route path='/instructors/:id' render ={ () => (this.state.auth) ? <Instructor/> :  <Redirect to='/login'/>}/>
