@@ -65,8 +65,8 @@ class App extends Component {
           <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>
           <Route path='/instructors/:id' render ={ () => (this.state.auth) ? <Instructor/> :  <Redirect to='/login'/>}/>
-          <Route path='/signup' component={ () => <Signup handleSignupSubmit={this.handleSignupSubmit}/> }/>
-          <Route path='/login' component={ () => (this.state.auth) ? < Redirect to="/"/> : <Login handleLoginSubmit={this.handleLoginSubmit}/> }/>
+          <Route path='/signup' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Signup handleSignupSubmit={this.handleSignupSubmit}/> }/>
+          <Route path='/login' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Login handleLoginSubmit={this.handleLoginSubmit}/> }/>
         </div>
 
       </BrowserRouter>
