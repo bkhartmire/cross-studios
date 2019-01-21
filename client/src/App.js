@@ -62,12 +62,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Route exact path='/' render={ () =>  <Home/>}/>
+          <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' component={DanceClassList} />
           <Route path='/instructors/:id' component={Instructor}/>
           <Route path='/signup' component={ () => <Signup handleSignupSubmit={this.handleSignupSubmit}/> }/>
-          <Route path='/login' component={ () => <Login handleLoginSubmit={this.handleLoginSubmit}/> }/>
+          <Route path='/login' component={ () => (this.state.auth) ? < Redirect to="/"/> : <Login handleLoginSubmit={this.handleLoginSubmit}/> }/>
         </div>
+
       </BrowserRouter>
     );
   }
