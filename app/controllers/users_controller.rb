@@ -14,7 +14,7 @@ class UsersController < ApiController
        username: user.username,
        firstname: user.firstname,
        lastname: user.lastname
-       }}
+      }}
    end
 
 
@@ -53,15 +53,15 @@ class UsersController < ApiController
   #   render json: get_current_user
   # end
   #
-  # private
-  #
-  # def user_params
-  #   params.require(:user).permit(
-  #       :username,
-  #       :password,
-  #       :password_confirmation,
-  #       :firstname,
-  #       :lastname
-  #     )
-  # end
+  private
+
+  def user_params
+    params.require(:user).permit(
+        :username,
+        :password,
+        :password_confirmation,
+        :firstname,
+        :lastname
+      )
+  end
 end
