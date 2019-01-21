@@ -3,4 +3,5 @@ class DanceClassSerializer < ActiveModel::Serializer
 
   belongs_to :studio
   belongs_to :instructor
+  has_many :users
 end
