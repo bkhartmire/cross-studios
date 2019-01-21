@@ -1,13 +1,19 @@
 
 class UsersController < ApplicationController
   def create
-    user = User.create(user_params)
+    #user = User.create(user_params)
 
-    if user
-      jwt = Auth.encrypt({ user_id: user.id })
-      render json: { jwt: jwt, current: user }
+    #if user
+    #  jwt = Auth.encrypt({ user_id: user.id })
+    #  render json: { jwt: jwt, current: user }
+    #else
+    #  render json: { error: 'Failed to Sign Up' }, status: 400
+    #end
+    input = User.new(user_params)
+    if(input.save)
+      :ok
     else
-      render json: { error: 'Failed to Sign Up' }, status: 400
+      :bad_request
     end
   end
 
