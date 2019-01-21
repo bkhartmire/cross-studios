@@ -5,7 +5,7 @@ class Profile extends Component {
   constructor() {
     super()
     this.state = {
-      usersDanceClasses: null,
+      userDanceClasses: null,
       danceClassesLoaded: false,
     }
   }
