@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_many :dance_classes
+  has_many :users_dance_classes
+  has_many :dance_classes, through: :users_dance_classes
+
 
   validates :username, presence: true, uniqueness: true
 

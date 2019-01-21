@@ -1,7 +1,8 @@
 class DanceClass < ApplicationRecord
   belongs_to :studio
   belongs_to :instructor
-  has_many :users
+  has_many :users_dance_classes
+  has_many :users, through: :users_dance_classes
 
   #add instance method to make day capital letter, then all lowercase
 
