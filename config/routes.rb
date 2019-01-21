@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :dance_classes
     resources :studios
     resources :users
+    resources :tokens, only: [:create]
     get 'user', to: 'users#show', as: 'show'
     post 'signup', to: 'users#create', as: 'user_signup'
     post 'login', to: 'users#login', as: 'user_login'

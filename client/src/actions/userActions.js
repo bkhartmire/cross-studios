@@ -7,8 +7,10 @@ export const loginUser = (user, callback) => {
     },
     body: JSON.stringify({ user })
   }
+  debugger
 
-  return dispatch => {
+  return (dispatch) => {
+    debugger
     fetch('api/login', data)
       .then(response => response.json())
       .then(user => {
@@ -18,7 +20,7 @@ export const loginUser = (user, callback) => {
           type: 'SET_USER',
           payload: user.current
         })
-
+        debugger
         callback()
       })
       .catch(err => err)
