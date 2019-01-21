@@ -11,7 +11,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    fetch('/profile', {
+    fetch('/api/profile', {
       method: 'GET',
       headers: {
         token: Auth.getToken(),
@@ -20,6 +20,8 @@ class Profile extends Component {
     }).then(res => res.json())
     .then(res => {
       console.log(res)
+      //right now res user object does not include an array of dance classes
+      // fix that!
     })
   }
   render(){
