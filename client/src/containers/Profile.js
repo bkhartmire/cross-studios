@@ -21,7 +21,7 @@ class Profile extends Component {
     .then(res => {
       console.log(res)
       //right now res user object does not include an array of dance classes
-      // fix that!
+      // fix that
     })
   }
   render(){
