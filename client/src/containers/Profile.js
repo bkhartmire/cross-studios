@@ -15,6 +15,7 @@ class Profile extends Component {
       method: 'GET',
       headers: {
         token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
       }
     })
   }
