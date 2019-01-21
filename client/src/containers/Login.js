@@ -23,18 +23,13 @@ class Login extends Component {
     this.setState(state)
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
-    const formData = this.state
 
-    this.props.loginUser(formData, () => this.props.history.push('/'))
-  }
 
   render() {
-    const { username, password } = this.state
+    //const { username, password } = this.state
 
     return(
-      <div>
+      <div className="login">
         <h1>Log In</h1>
         <form onSubmit={ this.handleSubmit }>
             <input name="username" placeholder="Username" value={ username } onChange={ this.handleChange }/><br/>

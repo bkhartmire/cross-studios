@@ -38,7 +38,7 @@ class Signup extends Component {
     const { username, password, firstname, lastname } = this.state
 
     return (
-      <div>
+      <div className="signup">
         <h1>Sign Up</h1>
         <form onSubmit={ (e) => this.props.handleSignupSubmit(e, this.state) }>
           <input name="username" placeholder="Username" value={ username } onChange={ this.handleChange }/><br/>
