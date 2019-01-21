@@ -14,17 +14,9 @@ export default (
       <Route exact path='/' render={ () =>  <Home/>}/>
       <Route path='/dance_classes' component={DanceClassList} />
       <Route path='/instructors/:id' component={Instructor}/>
-      <Route path='/signup' component={ () => loggedIn() ? <Redirect to="/"/> : <Signup/> }/>
-      <Route path='/login' component={ () => loggedIn() ? <Redirect to="/"/> : <Login/> }/>
+      <Route path='/signup' component={ () => <Signup handleSignupSubmit={this.handleSignupSubmit}/> }/>
+      <Route path='/login' component={ () => (this.state.auth) ? <Redirect to="/"/> : <Login/> }/>
       <Route path='/logout' component={ () => logout() }/>
     </React.Fragment>
   </BrowserRouter>
 );
-
-const loggedIn = () => !!sessionStorage['jwt']
-
-const logout = () => {
-  if(sessionStorage['jwt']) sessionStorage.removeItem('jwt')
-
-  return <Redirect to="/login"/>
-}

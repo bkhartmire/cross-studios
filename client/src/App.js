@@ -9,6 +9,11 @@ class App extends Component {
     this.state = {
       auth: Auth.isUserAuthenticated(),
     }
+    this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
+  }
+
+  handleSignupSubmit(e) {
+    e.preventDefault()
   }
   render() {
     return (
