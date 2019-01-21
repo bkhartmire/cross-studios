@@ -31,7 +31,6 @@ class App extends Component {
           <Route path='/instructors/:id' component={Instructor}/>
           <Route path='/signup' component={ () => <Signup handleSignupSubmit={this.handleSignupSubmit}/> }/>
           <Route path='/login' component={ () => (this.state.auth) ? <Redirect to="/"/> : <Login/> }/>
-
         </div>
       </BrowserRouter>
     );
