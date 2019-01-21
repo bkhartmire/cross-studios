@@ -1,6 +1,6 @@
 export const loginUser = (formData, callback) => {
   debugger
-  fetch("http://localhost:3000/api/tokens",
+  fetch("/api/tokens",
   {method: 'POST',body: formData})
   .then(res => res.json())
   .then(res => console.log(res.jwt))

@@ -26,6 +26,14 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault()
     const formData = this.state
+    //console.log(formData)
+
+    //fetch("/api/tokens",
+    //{method: 'POST', body: formData})
+    //working on postman but keep getting 404 error when attempting post request:()
+    //.then(resp => console.log(resp))
+    //.then(res => res.json())
+    //.then(res => console.log(res.jwt))
     this.props.loginUser(formData, () => this.props.history.push('/'))
   }
 
