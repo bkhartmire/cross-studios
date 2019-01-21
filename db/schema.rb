@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2019_01_21_174619) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_dance_classes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dance_class_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -53,11 +58,6 @@ ActiveRecord::Schema.define(version: 2019_01_21_174619) do
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_dance_classes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "dance_class_id"
   end
 
 end
