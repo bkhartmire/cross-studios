@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import routes from './routes'
+import Auth from './modules/Auth'
 
 class App extends Component {
   constructor() {
