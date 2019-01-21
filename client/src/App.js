@@ -45,7 +45,7 @@ class App extends Component {
     e.preventDefault()
     fetch('/api/login', {
       method: 'POST',
-      data: JSON.stringify(data),
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
       }
