@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Auth from '../modules/Auth'
 
 class Profile extends Component {
   constructor() {
@@ -10,7 +11,12 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    fetch('/profile', {})
+    fetch('/profile', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+      }
+    })
   }
   render(){
     return(
