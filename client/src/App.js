@@ -17,6 +17,7 @@ class App extends Component {
       auth: Auth.isUserAuthenticated(),
     }
     this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
   }
 
   handleSignupSubmit(e, data) {
@@ -40,6 +41,20 @@ class App extends Component {
     })
   }
 
+  handleLoginSubmit(e, data) => {
+    e.preventDefault()
+    fetch('/api/login', {
+      method: 'POST',
+      data: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => res.json())
+    .then(res => {
+      console.log(res)
+    }).catch(err => console.log(err))
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -48,7 +63,7 @@ class App extends Component {
           <Route path='/dance_classes' component={DanceClassList} />
           <Route path='/instructors/:id' component={Instructor}/>
           <Route path='/signup' component={ () => <Signup handleSignupSubmit={this.handleSignupSubmit}/> }/>
-          <Route path='/login' component={ () => <Login/> }/>
+          <Route path='/login' component={ () => <Login handleLoginSubmit={this.handleLoginSubmit}/> }/>
         </div>
       </BrowserRouter>
     );

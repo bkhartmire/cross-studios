@@ -23,10 +23,8 @@ class Login extends Component {
     this.setState(state)
   }
 
-
-
   render() {
-    //const { username, password } = this.state
+    const { username, password } = this.state
 
     return(
       <div className="login">
@@ -46,4 +44,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   loginUser
 }, dispatch)
 
+//what is this withRouter?
 export default withRouter(connect(null, mapDispatchToProps)(Login))
