@@ -1,30 +1,34 @@
 export const loginUser = (user, callback) => {
-  let data = {
+  fetch("/api/tokens", {
     method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ user })
-  }
-  debugger
-
-  return (dispatch) => {
-    debugger
-    fetch('api/login', data)
-      .then(response => response.json())
-      .then(user => {
-        sessionStorage.setItem('jwt', user.jwt)
-
-        dispatch({
-          type: 'SET_USER',
-          payload: user.current
-        })
-        debugger
-        callback()
-      })
-      .catch(err => err)
-  }
+    body: user
+  }.then(res => res.json()).then(res => console.log(res.jwt)))
+  // let data = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({ user })
+  // }
+  // debugger
+  //
+  // return (dispatch) => {
+  //   debugger
+  //   fetch('api/login', data)
+  //     .then(response => response.json())
+  //     .then(user => {
+  //       sessionStorage.setItem('jwt', user.jwt)
+  //
+  //       dispatch({
+  //         type: 'SET_USER',
+  //         payload: user.current
+  //       })
+  //       debugger
+  //       callback()
+  //     })
+  //     .catch(err => err)
+  // }
 }
 
 export const signupUser = (user, callback) => {

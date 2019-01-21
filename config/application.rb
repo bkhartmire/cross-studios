@@ -23,5 +23,7 @@ module ReactReduxGetTogetherApp
         resource '*', headers: :any, methods: [
           :delete, :put, :patch, :get, :post, :options
         ]
+      end
+    end
   end
 end
