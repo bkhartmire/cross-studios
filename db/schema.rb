@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_184136) do
+ActiveRecord::Schema.define(version: 2019_01_21_174619) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(version: 2019_01_20_184136) do
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users_dance_classes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dance_class_id"
   end
 
 end
