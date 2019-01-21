@@ -17,6 +17,9 @@ class Profile extends Component {
         token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`,
       }
+    }).then(res => res.json())
+    .then(res => {
+      console.log(res)
     })
   }
   render(){
