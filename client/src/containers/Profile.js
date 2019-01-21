@@ -3,6 +3,14 @@ import React, { Component } from 'react'
 class Profile extends Component {
   constructor() {
     super()
+    this.state = {
+      usersDanceClasses: null,
+      danceClassesLoaded: false,
+    }
+  }
+
+  componentDidMount() {
+    fetch('/profile', {})
   }
   render(){
     return(
