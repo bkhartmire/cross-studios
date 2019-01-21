@@ -1,5 +1,6 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery except: :create
+class ApplicationController < ActionController::API
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  #protect_from_forgery except: :create
   #def get_current_user
   #  jwt_token = request.headers['HTTP_AUTHORIZATION'] # .gsub('Bearer ', '')
 #
