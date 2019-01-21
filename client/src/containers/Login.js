@@ -25,8 +25,8 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const user = this.state
-    this.props.loginUser(user, () => this.props.history.push('/'))
+    const formData = this.state
+    this.props.loginUser(formData, () => this.props.history.push('/'))
   }
 
   render() {

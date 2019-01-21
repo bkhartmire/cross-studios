@@ -1,8 +1,9 @@
-export const loginUser = (user, callback) => {
-  fetch("/api/tokens", {
-    method: 'POST',
-    body: user
-  }.then(res => res.json()).then(res => console.log(res.jwt)))
+export const loginUser = (formData, callback) => {
+  debugger
+  fetch("http://localhost:3000/api/tokens",
+  {method: 'POST',body: formData})
+  .then(res => res.json())
+  .then(res => console.log(res.jwt))
   // let data = {
   //   method: 'POST',
   //   headers: {
