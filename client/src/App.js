@@ -19,9 +19,24 @@ class App extends Component {
     this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
   }
 
-  handleSignupSubmit(e) {
+  handleSignupSubmit(e, data) {
     e.preventDefault()
+    fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: data,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => res.json())
+    .then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
   }
+
   render() {
     return (
       <BrowserRouter>
