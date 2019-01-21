@@ -13,4 +13,12 @@
      errors = { errors: [detail: message]}
      render json: errors, status: :unauthorized
    end
+
+   private
+
+   def authenticate_token
+     authenticate_with_http_token do |token, options|
+       User.find_by(auth_token: token)
+     end
+   end
 end
