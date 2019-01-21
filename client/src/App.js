@@ -9,6 +9,7 @@ import DanceClassList from './containers/DanceClassList'
 import Instructor from './components/Instructor'
 import Login from './containers/Login'
 import Signup from './containers/Signup'
+import Profile from './containers/Profile'
 
 class App extends Component {
   constructor() {
