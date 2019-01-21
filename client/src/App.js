@@ -41,7 +41,7 @@ class App extends Component {
     })
   }
 
-  handleLoginSubmit(e, data) => {
+  handleLoginSubmit(e, data) {
     e.preventDefault()
     fetch('/api/login', {
       method: 'POST',
