@@ -19,9 +19,8 @@ class Profile extends Component {
       }
     }).then(res => res.json())
     .then(res => {
-      //console.log(res)
       this.setState({
-        userDanceClasses: res.dance_classes,
+        userDanceClasses: res.user.dance_classes,
         danceClassesLoaded: true,
       })
     }).catch(err => console.log(err))
@@ -29,7 +28,9 @@ class Profile extends Component {
   render(){
     return(
       <div className="userProfile">
-        <h1>Hello World</h1>
+        {(this.state.danceClassesLoaded) ? this.state.userDanceClasses.map(danceClass => {
+          return <h3 key={danceClass.id}>{danceClass.name}</h3>
+        }) : <h2>You don't have any dance classes scheduled yet.</h2>}
       </div>
     )
   }
