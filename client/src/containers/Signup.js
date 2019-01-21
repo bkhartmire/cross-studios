@@ -16,24 +16,23 @@ class Signup extends Component {
       lastname: ''
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    //this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
     const field = e.target.name
     let state = this.state
-
     state[field] = e.target.value
     this.setState(state)
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
-
-    const user = this.state
-    this.props.signupUser(user, () => this.props.history.push('/'))
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault()
+  //
+  //   const user = this.state
+  //   this.props.signupUser(user, () => this.props.history.push('/'))
+  // }
 
   render() {
     const { username, password, firstname, lastname } = this.state
