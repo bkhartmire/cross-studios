@@ -19,10 +19,12 @@ class Profile extends Component {
       }
     }).then(res => res.json())
     .then(res => {
-      console.log(res)
-      //right now res user object does not include an array of dance classes
-      // fix that
-    })
+      //console.log(res)
+      this.setState({
+        userDanceClasses: res.dance_classes,
+        danceClassesLoaded: true,
+      })
+    }).catch(err => console.log(err))
   }
   render(){
     return(
