@@ -23,7 +23,7 @@ class Instructor extends Component {
 
   componentDidMount() {
     debugger
-    const data = this.props.location.state.instructor
+    const {data} = this.props.location.state.instructor
     this.updateData(data)
 
   }
