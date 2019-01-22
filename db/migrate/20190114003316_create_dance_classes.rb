@@ -5,7 +5,8 @@ class CreateDanceClasses < ActiveRecord::Migration[5.2]
       t.integer :instructor_id
       t.integer :studio_id
       t.string :day
-      t.string :time
+      t.string :start_time
+      t.string :end_time
 
       t.timestamps
     end
