@@ -67,7 +67,12 @@ class App extends Component {
         token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`,
       }
-    })
+    }).then(res => {
+      Auth.deauthenticateToke()
+      this.setState({
+        auth: Auth.isUserAuthenticated()
+      })
+    }).catch(err => console.log(err))
   }
 
   render() {
