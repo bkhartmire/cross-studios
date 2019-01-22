@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Auth from '../modules/Auth'
 
+//Is this a container or a component??
 class Profile extends Component {
   constructor() {
     super()
@@ -25,7 +26,7 @@ class Profile extends Component {
           firstname: res.firstname,
           lastname: res.lastname,
         })
-      debugger}).catch(err => console.log(err))
+      }).catch(err => console.log(err))
   }
   render(){
     const user = this.state
