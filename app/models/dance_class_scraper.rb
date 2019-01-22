@@ -52,12 +52,15 @@ class DanceClassScraper
       until index == variables['times'].length
         name = variables['names'][index].text
         studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
-        time = variables['times'][index].text
+        time = variables['times'][index].text.split('-')
+        start_time = time[0]
+        end_time = time[1]
         instructor_id = Instructor.find_or_create_by(name: variables['instructors'][index].text).id
         dance_class = DanceClass.find_or_create_by(
           name: name,
           studio_id: studio_id,
-          time: time,
+          start_time: start_time,
+          end_time: end_time,
           day: day,
           instructor_id: instructor_id
         )
