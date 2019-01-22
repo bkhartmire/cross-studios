@@ -2,9 +2,18 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
 class DanceClass extends Component {
-  handleClick(e, danceClass_id) {
+  handleClick(e, danceClassId) {
     e.preventDefault()
     debugger
+    fetch('/api/user_dance_classes', {
+      method: 'POST',
+      body: JSON.stringify({
+        dance_class_id: danceClassId
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => console.log(res))
   }
   render() {
     const {danceClass} = this.props
