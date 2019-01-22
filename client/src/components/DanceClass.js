@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
 class DanceClass extends Component {
+  handleClick(e, danceClass_id) {
+    e.preventDefault()
+    debugger
+  }
   render() {
     const {danceClass} = this.props
     //only add instructor link to dance classes with a known instructor
@@ -21,6 +25,7 @@ class DanceClass extends Component {
         <h3>{instructor_name}: {danceClass.name}</h3>
         <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
         <h4>{danceClass.studio.name}</h4>
+        <button onClick={e => this.handleClick(e, danceClass.id)}>Add Class to Schedule</button>
         <br></br>
       </div>
     )

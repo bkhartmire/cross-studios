@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :instructors
     resources :studios
     resources :users
+    resources :user_dance_classes
     post '/login' => "sessions#create"
     delete '/logout' => "sessions#destroy"
     get '/profile' => "users#profile"
