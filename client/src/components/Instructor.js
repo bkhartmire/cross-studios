@@ -34,7 +34,7 @@ class Instructor extends Component {
     const listDanceClasses = instructor.dance_classes.map(dance_class => {
       return(
         <span>
-          <h4>{dance_class.name}: {dance_class.day} {dance_class.time} at {dance_class.studio.name}</h4>
+          <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
         </span>
       )
     })
