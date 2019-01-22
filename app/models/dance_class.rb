@@ -21,7 +21,8 @@ class DanceClass < ApplicationRecord
     saturday = self.all.select {|dance_class| dance_class.day == "SATURDAY"}
     sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}
     separated_days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
-    self.sort_by_time(separated_days)
+    separated_days.flatten
+    #self.sort_by_time(separated_days)
   end
   #sort each group of days
   def self.sort_by_time(separated_days)
