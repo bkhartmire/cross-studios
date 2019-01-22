@@ -61,6 +61,7 @@ class App extends Component {
   }
 
   handleLogout(e, data) {
+    e.preventDefault()
     fetch('/logout', {
       method: 'DELETE',
       headers: {
@@ -80,12 +81,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <div className="nav">
-            <Link to='/login'>Login</Link>
-            <Link to='/signup'>Signup</Link>
-            <Link to='/'>Home</Link>
-            <Link to='/dance_classes'>All Dance Classes</Link>
-            <Link to='/profile'>Profile</Link>
-            <span onClick={this.handleLogout}>Logout</span>
+            <Link to='/login'>Login</Link><span> | </span>
+            <Link to='/signup'>Signup</Link><span> | </span>
+            <Link to='/'>Home</Link><span> | </span>
+            <Link to='/dance_classes'>All Dance Classes</Link><span> | </span>
+            <Link to='/profile'>Profile</Link><span> | </span>
+            <a href="#" onClick={this.handleLogout}>Logout</a>
           </div>
           <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>

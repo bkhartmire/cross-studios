@@ -12,3 +12,5 @@ To Do List:
 -each dance class listing has button to add to schedule. (danceclasses and instructor/:id routes)
 -alert if user tries to add class that conflicts with schedule
 -Filter dance_classes by day or studio?
+
+***Intructor component is broken. Why???***
