@@ -61,9 +61,15 @@ class App extends Component {
   }
 
   handleLogout(e, data) {
-
+    fetch('/logout', {
+      method: 'DELETE',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    })
   }
-  
+
   render() {
     return (
       <BrowserRouter>
