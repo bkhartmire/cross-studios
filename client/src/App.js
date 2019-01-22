@@ -68,7 +68,7 @@ class App extends Component {
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => {
-      Auth.deauthenticateToke()
+      Auth.deauthenticateUser()
       this.setState({
         auth: Auth.isUserAuthenticated()
       })
@@ -85,6 +85,7 @@ class App extends Component {
             <Link to='/'>Home</Link>
             <Link to='/dance_classes'>All Dance Classes</Link>
             <Link to='/profile'>Profile</Link>
+            <span onClick={this.handleLogout}>Logout</span>
           </div>
           <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>
