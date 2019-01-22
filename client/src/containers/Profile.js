@@ -5,8 +5,7 @@ class Profile extends Component {
   constructor() {
     super()
     this.state = {
-      userDanceClasses: null,
-      danceClassesLoaded: false,
+      userDanceClasses: [],
       firstname: '',
       lastname: '',
     }
@@ -23,18 +22,17 @@ class Profile extends Component {
     .then(res => {
        this.setState({
           userDanceClasses: res.dance_classes,
-          danceClassesLoaded: true,
           firstname: res.firstname,
           lastname: res.lastname,
         })
-      }).catch(err => console.log(err))
+      debugger}).catch(err => console.log(err))
   }
   render(){
     const user = this.state
     return(
       <div className="userProfile">
       <h4>Logged In as {user.firstname} {user.lastname}</h4>
-        {(this.state.danceClassesLoaded) ? this.state.userDanceClasses.map(danceClass => {
+        {(user.userDanceClasses.length > 0) ? this.state.userDanceClasses.map(danceClass => {
           return (
             <div>
               <h3 key={danceClass.id}>{danceClass.instructor.name}: {danceClass.name}</h3>
