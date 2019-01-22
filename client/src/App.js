@@ -19,6 +19,7 @@ class App extends Component {
     }
     this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleSignupSubmit(e, data) {
@@ -59,6 +60,10 @@ class App extends Component {
     }).catch(err => console.log(err))
   }
 
+  handleLogout(e, data) {
+
+  }
+  
   render() {
     return (
       <BrowserRouter>
