@@ -27,7 +27,7 @@ class Profile extends Component {
           firstname: res.firstname,
           lastname: res.lastname,
         })
-     debugger}).catch(err => console.log(err))
+      }).catch(err => console.log(err))
   }
   render(){
     const user = this.state
@@ -37,7 +37,7 @@ class Profile extends Component {
         {(this.state.danceClassesLoaded) ? this.state.userDanceClasses.map(danceClass => {
           return (
             <div>
-              <h3 key={danceClass.id}>{danceClass.name}</h3>
+              <h3 key={danceClass.id}>{danceClass.instructor.name}: {danceClass.name}</h3>
               <h4>{danceClass.day} {danceClass.time}</h4>
               <h4>{danceClass.studio.name}</h4>
             </div>
