@@ -15,19 +15,19 @@ class DanceClassList extends Component {
     return(
       <div className="danceClassList">
         <h1>Dance Classes</h1>
-        <h3>Monday</h3>
+        <h1>Monday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'MONDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
-        <h3>Tuesday</h3>
+        <h1>Tuesday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'TUESDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
-        <h3>Wednesday</h3>
+        <h1>Wednesday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'WEDNESDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
-        <h3>Thursday</h3>
+        <h1>Thursday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'THURSDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
-        <h3>Friday</h3>
+        <h1>Friday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'FRIDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
-        <h3>Saturday</h3>
+        <h1>Saturday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'SATURDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
-        <h3>Sunday</h3>
+        <h1>Sunday</h1>
           {danceClasses.filter(danceClass => danceClass.day === 'SUNDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass}/>)}
       </div>
     )
