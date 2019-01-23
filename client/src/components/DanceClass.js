@@ -18,11 +18,11 @@ class DanceClass extends Component {
       }).then(res => res.json())
       .then(alert("Class successfully added to your schedule!"))
       .catch(error => console.error('Error:', error))
-      e.target.style.backgroundColor = 'red'
+      e.target.style.backgroundColor = 'gray'
       e.target.innerHTML = "Remove from Schedule"
     } else {
       //put delete request here
-      alert('DELETE')
+      alert('Class successfully removed from your schedule!')
       e.target.style.backgroundColor = ''
       e.target.innerHTML = "Add Class to Schedule"
     }
@@ -43,6 +43,7 @@ class DanceClass extends Component {
         }
       }}>{danceClass.instructor.name}</Link>
     }
+    //have to fix button. doens't know user has already added danceclass to schedule when you refresh the page.
     let button
     button = <button onClick={e => this.handleClick(e, danceClass.id)}>Add Class to Schedule</button>
     return(

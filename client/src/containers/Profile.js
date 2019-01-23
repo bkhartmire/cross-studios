@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Auth from '../modules/Auth'
+import DanceClass from '../components/DanceClass'
 
 //Is this a container or a component??
 class Profile extends Component {
@@ -30,18 +31,25 @@ class Profile extends Component {
   }
   render(){
     const user = this.state
+    const hasDanceClasses = user.userDanceClasses.length > 0
+
     return(
       <div className="userProfile">
-      <h4>Logged In as {user.firstname} {user.lastname}</h4>
-        {(user.userDanceClasses.length > 0) ? this.state.userDanceClasses.map(danceClass => {
-          return (
-            <div>
-              <h3 key={danceClass.id}>{danceClass.instructor.name}: {danceClass.name}</h3>
-              <h4>{danceClass.day} {danceClass.start_time}-{danceClass.end_time}</h4>
-              <h4>{danceClass.studio.name}</h4>
+        <h4>Logged In as {user.firstname} {user.lastname}</h4>
+
+          {hasDanceClasses? (
+            <div className="schedule">
+            <h1>Your Schedule</h1>
+            <h2>Monday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass}/>
+            )}
             </div>
-          )
-        }) : <h2>You don't have any dance classes scheduled yet.</h2>}
+          ) : (
+            <h1>You don't have any dance classes scheduled yet.</h1>
+          )}
+
+
       </div>
     )
   }
