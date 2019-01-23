@@ -5,9 +5,9 @@ import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClass
 
 class DanceClass extends Component {
   //separate into reducer
-  handleClick(e, danceClassId) {
+  handleClick(e, userDanceClassId) {
     e.preventDefault();
-    (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, danceClassId)) : (removeFromUserSchedule(e, danceClassId));
+    (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, userDanceClassId)) : (removeFromUserSchedule(e, userDanceClassId));
   }
 
   render() {
@@ -26,9 +26,9 @@ class DanceClass extends Component {
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     let button
     if (this.props.userDanceClasses.some(userDanceClass => userDanceClass.id === this.props.danceClass.id)) {
-      button = <button onClick={e => this.handleClick(e, this.props.danceClass.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
+      button = <button onClick={e => this.handleClick(e, this.props.userDanceClass.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
     } else {
-        button = <button onClick={e => this.handleClick(e, this.props.danceClass.id)} >Add Class to Schedule</button>
+        button = <button onClick={e => this.handleClick(e, this.props.userDanceClass.id)} >Add Class to Schedule</button>
     }
 
     return(

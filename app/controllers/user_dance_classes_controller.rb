@@ -10,10 +10,8 @@ class UserDanceClassesController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_auth_token!(request.headers[:token])
-    user_id = @user.id
-    @userDanceClass = UserDanceClass.find(user_id: user_id, dance_class_id: params[:dance_class_id])
-    @userDanceClass.destroy
+    @userDanceClass = UserDanceClass.find(params[:id])
+    userDanceClass.destroy
     render json: @userDanceClass
   end
 

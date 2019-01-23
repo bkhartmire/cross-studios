@@ -26,13 +26,13 @@ export const addToUserSchedule = (e, danceClassId) => {
   e.target.innerHTML = "Remove from Schedule"
 }
 
-export const removeFromUserSchedule = (e, danceClassId) => {
-  fetch('/api/user_dance_classes', {
+export const removeFromUserSchedule = (e, userDanceClassId) => {
+  //need the userdanceClassid
+  fetch(`/api/user_dance_classes/${userDanceClassId}`, {
     method: 'DELETE',
-    body: JSON.stringify({dance_class_id: danceClassId}),
     headers: {
-      token: Auth.getToken(),
-      'Authorization': `Token ${Auth.getToken()}`,
+      //token: Auth.getToken(),
+      //'Authorization': `Token ${Auth.getToken()}`,
       'Content-Type': 'application/json',
     }
   }).then(res => res.json())
