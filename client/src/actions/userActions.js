@@ -1,3 +1,5 @@
+import Auth from '../modules/Auth'
+
 export const handleLoginSubmit = (e, data) => {
   e.preventDefault()
   fetch('/api/login', {

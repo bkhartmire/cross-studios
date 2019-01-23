@@ -41,7 +41,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  loginUser
+  handleLoginSubmit
 }, dispatch)
 
 //what is this withRouter?

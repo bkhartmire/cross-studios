@@ -17,9 +17,9 @@ class App extends Component {
     this.state = {
       auth: Auth.isUserAuthenticated(),
     }
-    this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
+    // this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
+    // this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+    // this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleLogout(e, data) {

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
-import { signupUser } from '../actions/userActions'
+import { handleSignupSubmit } from '../actions/userActions'
 
 class Signup extends Component {
   constructor() {
@@ -54,7 +54,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  signupUser
+  handleSignupSubmit
 }, dispatch)
 
 export default withRouter(connect(null, mapDispatchToProps)(Signup))
