@@ -9,7 +9,7 @@ class DanceClass extends Component {
     e.preventDefault()
     if (e.target.innerHTML === 'Add Class to Schedule') {
       const data = {dance_class_id: danceClassId}
-      
+      addToUserSchedule(e, data)
     } else {
       //put delete request here
       alert('Class removed from your schedule.')

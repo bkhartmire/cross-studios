@@ -1,3 +1,5 @@
+import Auth from '../modules/Auth'
+
 export const fetchDanceClasses = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING_DANCE_CLASSES'})
@@ -8,7 +10,8 @@ export const fetchDanceClasses = () => {
   }
 }
 
-export const addToUserSchedule = () => {
+export const addToUserSchedule = (e, data) => {
+  debugger
   fetch('/api/user_dance_classes', {
     method: 'POST',
     body: JSON.stringify(data),
