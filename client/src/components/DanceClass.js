@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
+import { addToUserSchedule } from '../actions/danceClassActions'
 
 class DanceClass extends Component {
-
+  //separate into reducer
   handleClick(e, danceClassId) {
     e.preventDefault()
     if (e.target.innerHTML === 'Add Class to Schedule') {
