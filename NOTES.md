@@ -9,6 +9,5 @@ To Do List:
 -sort dance classes chronologically
 -can delete classes from your schedule
 -alert if user tries to add class that conflicts with schedule
--refactor fetch actions into separate components/reducers
 
 ***Intructor component is broken. Why???***

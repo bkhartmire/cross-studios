@@ -5,7 +5,6 @@ const initialState = {
 }
 
 export default function userReducer(state = initialState, action) {
-  //debugger 
   switch(action.type) {
     case 'SET_USER':
       return { ...state, auth: action.payload }
