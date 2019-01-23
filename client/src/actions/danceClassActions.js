@@ -27,7 +27,17 @@ export const addToUserSchedule = (e, danceClassId) => {
 }
 
 export const removeFromUserSchedule = (e, danceClassId) => {
-  alert('Class removed from your schedule.')
+  fetch('/api/user_dance_classes', {
+    method: 'DELETE',
+    body: JSON.stringify({dance_class_id: danceClassId}),
+    headers: {
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
+      'Content-Type': 'application/json',
+    }
+  }).then(res => res.json())
+  .then(alert("Class removed from your schedule."))
+  .catch(error => console.error('Error:', error))
   e.target.style.backgroundColor = ''
   e.target.innerHTML = "Add Class to Schedule"
 }
