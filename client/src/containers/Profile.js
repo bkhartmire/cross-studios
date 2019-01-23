@@ -42,7 +42,7 @@ class Profile extends Component {
             <h1>Your Schedule</h1>
             <h2>Monday</h2>
             {user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
             )}
             </div>
           ) : (
