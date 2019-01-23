@@ -44,6 +44,30 @@ class Profile extends Component {
             {user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY").map((danceClass) =>
               <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
             )}
+            <h2>Tuesday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            )}
+            <h2>Wednesday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            )}
+            <h2>Thursday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            )}
+            <h2>Friday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            )}
+            <h2>Saturday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            )}
+            <h2>Sunday</h2>
+            {user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY").map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            )}
             </div>
           ) : (
             <h1>You don't have any dance classes scheduled yet.</h1>
