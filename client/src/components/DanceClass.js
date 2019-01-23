@@ -1,22 +1,18 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
-import { addToUserSchedule } from '../actions/danceClassActions'
+import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
 class DanceClass extends Component {
   //separate into reducer
   handleClick(e, danceClassId) {
     e.preventDefault()
+    const data = {dance_class_id: danceClassId}
     if (e.target.innerHTML === 'Add Class to Schedule') {
-      const data = {dance_class_id: danceClassId}
       addToUserSchedule(e, data)
     } else {
-      //put delete request here
-      alert('Class removed from your schedule.')
-      e.target.style.backgroundColor = ''
-      e.target.innerHTML = "Add Class to Schedule"
+      removeFromUserSchedule(e, data)
     }
-
   }
 
   render() {

@@ -26,3 +26,9 @@ export const addToUserSchedule = (e, data) => {
   e.target.style.backgroundColor = 'gray'
   e.target.innerHTML = "Remove from Schedule"
 }
+
+export const removeFromUserSchedule = (e, data) => {
+  alert('Class removed from your schedule.')
+  e.target.style.backgroundColor = ''
+  e.target.innerHTML = "Add Class to Schedule"
+}
