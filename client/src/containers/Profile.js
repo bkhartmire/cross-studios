@@ -35,6 +35,16 @@ class Profile extends Component {
     const hasMondayClasses = mondayClasses.length > 0
     const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
     const hasTuesdayClasses = tuesdayClass.length > 0
+    const wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
+    const hasWednesdayClasses = wednesdayClasses.length > 0
+    const thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
+    const hasThursdayClasses = thursdayClasses.length > 0
+    const fridayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY")
+    const hasFridayClasses = fridayClasses.length > 0
+    const saturdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY")
+    const hasSaturdayClasses = saturdayClasses.length > 0
+    const sundayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY")
+    const hasSundayClasses = sundayClasses.length > 0
     const nothingMessage = "Nothing scheduled for this day."
 
 
@@ -65,7 +75,7 @@ class Profile extends Component {
         <h2>Saturday</h2>
 
         <h2>Sunday</h2>
-        
+
         </div>
       </div>
     )
