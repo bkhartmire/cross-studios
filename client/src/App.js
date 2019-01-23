@@ -4,6 +4,7 @@ import './App.css';
 import Auth from './modules/Auth'
 //import React from 'react'
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
+import { handleLogout } from './actions/userActions'
 import Home from './components/Home'
 import DanceClassList from './containers/DanceClassList'
 import Instructor from './components/Instructor'
@@ -20,22 +21,6 @@ class App extends Component {
     // this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
     // this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
     // this.handleLogout = this.handleLogout.bind(this)
-  }
-
-  handleLogout(e, data) {
-    e.preventDefault()
-    fetch('/logout', {
-      method: 'DELETE',
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-      }
-    }).then(res => {
-      Auth.deauthenticateUser()
-      this.setState({
-        auth: Auth.isUserAuthenticated()
-      })
-    }).catch(err => console.log(err))
   }
 
   render() {
