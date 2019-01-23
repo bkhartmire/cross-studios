@@ -5,16 +5,18 @@ import Auth from '../modules/Auth'
 class DanceClass extends Component {
   handleClick(e, danceClassId) {
     e.preventDefault()
+    const data = {dance_class_id: danceClassId}
     fetch('/api/user_dance_classes', {
       method: 'POST',
-      body: JSON.stringify({
-        dance_class_id: danceClassId
-      }),
+      body: JSON.stringify(data),
       headers: {
         token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`,
+        'Content-Type': 'application/json',
       }
-    }).then(res => console.log(res))
+    }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
   }
   render() {
     const {danceClass} = this.props
