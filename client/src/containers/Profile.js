@@ -31,49 +31,42 @@ class Profile extends Component {
   }
   render(){
     const user = this.state
-    const hasDanceClasses = user.userDanceClasses.length > 0
+    const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
+    const hasMondayClasses = mondayClasses.length > 0
+    const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
+    const hasTuesdayClasses = tuesdayClass.length > 0
+    const nothingMessage = "Nothing scheduled for this day."
+
+
 
     return(
       <div className="userProfile">
         <h4>Logged In as {user.firstname} {user.lastname}</h4>
+        <div className="schedule">
+        <h1>Your Schedule</h1>
+        <h2>Monday</h2>
+        {hasMondayClasses ? (
+          mondayClasses.map((danceClass) =>
+            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+          )
+        ) : (<h1>{nothingMessage}</h1>)}
+        <h2>Tuesday</h2>
+        {hasTuesdayClasses? (
+          tuesdayClasses.map((danceClass) =>
+            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+        )
+      ) : (<h1>{nothingMessage}</h1>)}
+        <h2>Wednesday</h2>
 
-          {hasDanceClasses? (
-            <div className="schedule">
-            <h1>Your Schedule</h1>
-            <h2>Monday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            <h2>Tuesday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            <h2>Wednesday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            <h2>Thursday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            <h2>Friday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            <h2>Saturday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            <h2>Sunday</h2>
-            {user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY").map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-            )}
-            </div>
-          ) : (
-            <h1>You don't have any dance classes scheduled yet.</h1>
-          )}
+        <h2>Thursday</h2>
 
+        <h2>Friday</h2>
 
+        <h2>Saturday</h2>
+
+        <h2>Sunday</h2>
+        
+        </div>
       </div>
     )
   }
