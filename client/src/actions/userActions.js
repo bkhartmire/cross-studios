@@ -15,33 +15,36 @@ export const loginUser = (user) => {
     .then(res => {
       Auth.authenticateToken(res.token)
 
-       dispatch({
-          type: 'SET_USER',
-          payload: Auth.isUserAuthenticated()
-        })
+      dispatch({
+        type: 'SET_USER',
+        payload: Auth.isUserAuthenticated()
+      })
 
-        //this.history.push('/') is not working, but forced reload will automatically render home page or login page depending on if user was successfully authenticated
-        document.location.reload()
+      document.location.reload()
     }).catch(err => console.log(err))
   }
 }
 
-export const signupUser = (e, data) => {
-  e.preventDefault()
+export const signupUser = (formData) => {
   fetch('/api/users', {
     method: 'POST',
     body: JSON.stringify({
-      user: data,
+      user: formData,
     }),
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
     }
   }).then(res => res.json())
   .then(res => {
     Auth.authenticateToken(res.token)
-    this.setState({
-      auth: Auth.isUserAuthenticated(),
+    
+    dispatch({
+      type: 'SET_USER',
+      payload: Auth.isUserAuthenticated()
     })
+    document.location.reload()
+
 
   }).catch(err => {
     console.log(err)

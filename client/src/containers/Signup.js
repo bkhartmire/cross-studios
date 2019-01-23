@@ -29,8 +29,8 @@ class Signup extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const user = this.state
-    this.props.signupUser(user)
+    const formData = this.state
+    this.props.signupUser(formData)
   }
 
   render() {
