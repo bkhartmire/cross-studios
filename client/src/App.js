@@ -18,9 +18,23 @@ class App extends Component {
     this.state = {
       auth: Auth.isUserAuthenticated(),
     }
-    // this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
-    // this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
-    //this.handleLogout = this.handleLogout.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
+  }
+
+  handleLogout(e, data) {
+    e.preventDefault()
+    fetch('/logout', {
+      method: 'DELETE',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).then(res => {
+      Auth.deauthenticateUser()
+      this.setState({
+        auth: Auth.isUserAuthenticated()
+      })
+    }).catch(err => console.log(err))
   }
 
   render() {
@@ -33,7 +47,7 @@ class App extends Component {
             <Link to='/'>Home</Link><span> | </span>
             <Link to='/dance_classes'>All Dance Classes</Link><span> | </span>
             <Link to='/profile'>Profile</Link><span> | </span>
-            <a href="#" onClick={e => {handleLogout(e, this.state)}}>Logout</a>
+            <a href="#" onClick={this.handleLogout}>Logout</a>
           </div>
           <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>

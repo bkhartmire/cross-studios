@@ -50,19 +50,3 @@ export const signupUser = (formData) => {
     }).catch(err => console.log(err))
   }
 }
-
-export const handleLogout = (e, data) => {
-  e.preventDefault()
-  fetch('/logout', {
-    method: 'DELETE',
-    headers: {
-      token: Auth.getToken(),
-      'Authorization': `Token ${Auth.getToken()}`,
-    }
-  }).then(res => {
-    Auth.deauthenticateUser()
-    // this.setState({
-    //   auth: Auth.isUserAuthenticated()
-    // })
-  }).catch(err => console.log(err))
-}
