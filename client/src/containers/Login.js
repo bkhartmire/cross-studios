@@ -12,7 +12,7 @@ class Login extends Component {
       username: '',
       password: ''
     }
-    //this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -23,13 +23,19 @@ class Login extends Component {
     this.setState(state)
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    const user = this.state
+    this.props.handleLoginSubmit(user, () => this.props.history.push('/'))
+  }
+
   render() {
     const { username, password } = this.state
 
     return(
       <div className="login">
         <h1>Log In</h1>
-        <form onSubmit={ (e) => handleLoginSubmit(e, this.state) }>
+        <form onSubmit={ this.handleSubmit }>
             <input name="username" placeholder="Username" value={ username } onChange={ this.handleChange }/><br/>
             <input type='password' name="password" placeholder="Password" value={ password } onChange={ this.handleChange }/><br/>
             <button type="submit">Login</button>
