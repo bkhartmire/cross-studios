@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import Auth from '../modules/Auth'
 
 class DanceClass extends Component {
   handleClick(e, danceClassId) {
     e.preventDefault()
-    debugger
     fetch('/api/user_dance_classes', {
       method: 'POST',
       body: JSON.stringify({
         dance_class_id: danceClassId
       }),
       headers: {
-        'Content-Type': 'application/json',
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => console.log(res))
   }
