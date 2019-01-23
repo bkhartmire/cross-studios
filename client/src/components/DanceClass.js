@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
 
 class DanceClass extends Component {
-  componentDidMount(){
-    debugger
-  }
+  // componentDidMount() {
+  //   debugger
+  // }
   handleClick(e, danceClassId) {
     e.preventDefault()
     if (e.target.innerHTML === 'Add Class to Schedule') {
@@ -33,27 +33,31 @@ class DanceClass extends Component {
   }
 
   render() {
-    const {danceClass} = this.props
-    //only adds instructor link to dance classes with a known instructor
+    //this conditional only adds instructor link to dance classes with a known instructor
     let instructor_name
-    if (danceClass.instructor.name === "TBA") {
-      instructor_name = danceClass.instructor.name
+    if (this.props.danceClass.instructor.name === "TBA") {
+      instructor_name = this.props.danceClass.instructor.name
     } else {
       instructor_name = <Link to={{
-        pathname: `/instructors/${danceClass.instructor.id}`,
+        pathname: `/instructors/${this.props.danceClass.instructor.id}`,
         state: {
-          instructor: danceClass.instructor
+          instructor: this.props.danceClass.instructor
         }
-      }}>{danceClass.instructor.name}</Link>
+      }}>{this.props.danceClass.instructor.name}</Link>
     }
-    //have to fix button. doens't know user has already added danceclass to schedule when you refresh the page. compare if danceclass is included in array of userdanceclasses
+    //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     let button
-    button = <button onClick={e => this.handleClick(e, danceClass.id)}>Add Class to Schedule</button>
+    if (this.props.userDanceClasses.some(userDanceClass => userDanceClass.id === this.props.danceClass.id)) {
+      button = <button onClick={e => this.handleClick(e, this.props.danceClass.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
+    } else {
+        button = <button onClick={e => this.handleClick(e, this.props.danceClass.id)} >Add Class to Schedule</button>
+    }
+
     return(
       <div className="dance_class_listing">
-        <h3>{instructor_name}: {danceClass.name}</h3>
-        <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
-        <h4>{danceClass.studio.name}</h4>
+        <h3>{instructor_name}: {this.props.danceClass.name}</h3>
+        <h4>{this.props.danceClass.start_time}-{this.props.danceClass.end_time}</h4>
+        <h4>{this.props.danceClass.studio.name}</h4>
         {button}
         <br></br>
       </div>
