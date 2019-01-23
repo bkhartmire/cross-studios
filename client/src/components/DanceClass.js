@@ -8,11 +8,7 @@ class DanceClass extends Component {
   handleClick(e, danceClassId) {
     e.preventDefault()
     const data = {dance_class_id: danceClassId}
-    if (e.target.innerHTML === 'Add Class to Schedule') {
-      addToUserSchedule(e, data)
-    } else {
-      removeFromUserSchedule(e, data)
-    }
+    (e.target.innerHTML === 'Add Class to Schedule') ? addToUserSchedule(e, data) : removeFromUserSchedule(e, data)  
   }
 
   render() {
