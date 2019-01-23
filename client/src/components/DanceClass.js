@@ -6,9 +6,8 @@ import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClass
 class DanceClass extends Component {
   //separate into reducer
   handleClick(e, danceClassId) {
-    e.preventDefault()
-    const data = {dance_class_id: danceClassId}
-    (e.target.innerHTML === 'Add Class to Schedule') ? addToUserSchedule(e, data) : removeFromUserSchedule(e, data)  
+    e.preventDefault();
+    (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, danceClassId)) : (removeFromUserSchedule(e, danceClassId));
   }
 
   render() {

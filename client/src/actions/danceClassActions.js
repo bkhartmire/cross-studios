@@ -10,11 +10,10 @@ export const fetchDanceClasses = () => {
   }
 }
 
-export const addToUserSchedule = (e, data) => {
-  debugger
+export const addToUserSchedule = (e, danceClassId) => {
   fetch('/api/user_dance_classes', {
     method: 'POST',
-    body: JSON.stringify(data),
+    body: JSON.stringify({dance_class_id: danceClassId}),
     headers: {
       token: Auth.getToken(),
       'Authorization': `Token ${Auth.getToken()}`,
@@ -27,7 +26,7 @@ export const addToUserSchedule = (e, data) => {
   e.target.innerHTML = "Remove from Schedule"
 }
 
-export const removeFromUserSchedule = (e, data) => {
+export const removeFromUserSchedule = (e, danceClassId) => {
   alert('Class removed from your schedule.')
   e.target.style.backgroundColor = ''
   e.target.innerHTML = "Add Class to Schedule"
