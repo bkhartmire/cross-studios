@@ -1,4 +1,4 @@
-export const handleLoginSubmit(e, data) {
+export const handleLoginSubmit = (e, data) => {
   e.preventDefault()
   fetch('/api/login', {
     method: 'POST',
@@ -13,4 +13,25 @@ export const handleLoginSubmit(e, data) {
       auth: Auth.isUserAuthenticated(),
     })
   }).catch(err => console.log(err))
+}
+
+export const handleSignupSubmit = (e, data) => {
+  e.preventDefault()
+  fetch('/api/users', {
+    method: 'POST',
+    body: JSON.stringify({
+      user: data,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  }).then(res => res.json())
+  .then(res => {
+    Auth.authenticateToken(res.token)
+    this.setState({
+      auth: Auth.isUserAuthenticated(),
+    })
+  }).catch(err => {
+    console.log(err)
+  })
 }

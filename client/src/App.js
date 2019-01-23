@@ -22,44 +22,6 @@ class App extends Component {
     this.handleLogout = this.handleLogout.bind(this)
   }
 
-  handleSignupSubmit(e, data) {
-    e.preventDefault()
-    fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({
-        user: data,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }).then(res => res.json())
-    .then(res => {
-      Auth.authenticateToken(res.token)
-      this.setState({
-        auth: Auth.isUserAuthenticated(),
-      })
-    }).catch(err => {
-      console.log(err)
-    })
-  }
-
-  handleLoginSubmit(e, data) {
-    e.preventDefault()
-    fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }).then(res => res.json())
-    .then(res => {
-      Auth.authenticateToken(res.token)
-      this.setState({
-        auth: Auth.isUserAuthenticated(),
-      })
-    }).catch(err => console.log(err))
-  }
-
   handleLogout(e, data) {
     e.preventDefault()
     fetch('/logout', {
