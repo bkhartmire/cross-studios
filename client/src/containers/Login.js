@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
+import Auth from '../modules/Auth'
 
 import { handleLoginSubmit } from '../actions/userActions'
 
@@ -10,7 +11,8 @@ class Login extends Component {
     super()
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      auth: Auth.isUserAuthenticated(),
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -26,7 +28,7 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault()
     const user = this.state
-    this.props.handleLoginSubmit(user, () => this.props.history.push('/'))
+    this.props.handleLoginSubmit(user)
   }
 
   render() {

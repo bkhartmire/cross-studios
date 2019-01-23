@@ -1,11 +1,14 @@
+import Auth from '../modules/Auth'
+
 const initialState = {
-  current: {}
+  auth: Auth.isUserAuthenticated(),
 }
 
 export default function userReducer(state = initialState, action) {
+  //debugger 
   switch(action.type) {
     case 'SET_USER':
-      return { ...state, current: action.payload }
+      return { ...state, auth: action.payload }
     default: return state
   }
 }
