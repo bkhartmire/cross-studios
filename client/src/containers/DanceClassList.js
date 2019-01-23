@@ -4,10 +4,30 @@ import { connect } from 'react-redux'
 
 import { fetchDanceClasses } from '../actions/danceClassActions'
 import DanceClass from '../components/DanceClass'
+import Auth from '../modules/Auth'
 
 class DanceClassList extends Component {
+  constructor() {
+    super()
+    this.state = {
+      userDanceClasses: [],
+    }
+  }
   componentDidMount(){
     this.props.fetchDanceClasses()
+    //refactor to action
+    fetch('/api/profile', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).then(res => res.json())
+    .then(res => {
+       this.setState({
+          userDanceClasses: res.dance_classes,
+        })
+      }).catch(err => console.log(err))
   }
   render(){
     const {danceClasses} = this.props

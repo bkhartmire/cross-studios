@@ -43,7 +43,7 @@ class DanceClass extends Component {
         }
       }}>{danceClass.instructor.name}</Link>
     }
-    //have to fix button. doens't know user has already added danceclass to schedule when you refresh the page.
+    //have to fix button. doens't know user has already added danceclass to schedule when you refresh the page. compare if danceclass is included in array of userdanceclasses
     let button
     button = <button onClick={e => this.handleClick(e, danceClass.id)}>Add Class to Schedule</button>
     return(
