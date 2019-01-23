@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
 
 class DanceClass extends Component {
-  
+
   handleClick(e, danceClassId) {
     e.preventDefault()
     if (e.target.innerHTML === 'Add Class to Schedule') {
@@ -17,13 +17,13 @@ class DanceClass extends Component {
           'Content-Type': 'application/json',
         }
       }).then(res => res.json())
-      .then(alert("Class successfully added to your schedule!"))
+      .then(alert("Class added to your schedule."))
       .catch(error => console.error('Error:', error))
       e.target.style.backgroundColor = 'gray'
       e.target.innerHTML = "Remove from Schedule"
     } else {
       //put delete request here
-      alert('Class successfully removed from your schedule!')
+      alert('Class removed from your schedule.')
       e.target.style.backgroundColor = ''
       e.target.innerHTML = "Add Class to Schedule"
     }
