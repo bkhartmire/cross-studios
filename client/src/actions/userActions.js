@@ -26,29 +26,29 @@ export const loginUser = (user) => {
 }
 
 export const signupUser = (formData) => {
-  fetch('/api/users', {
-    method: 'POST',
-    body: JSON.stringify({
-      user: formData,
-    }),
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    }
-  }).then(res => res.json())
-  .then(res => {
-    Auth.authenticateToken(res.token)
-    
-    dispatch({
-      type: 'SET_USER',
-      payload: Auth.isUserAuthenticated()
-    })
-    document.location.reload()
+  return dispatch => {
+    fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: formData,
+      }),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }).then(res => res.json())
+    .then(res => {
+      Auth.authenticateToken(res.token)
+
+      dispatch({
+        type: 'SET_USER',
+        payload: Auth.isUserAuthenticated()
+      })
+      document.location.reload()
 
 
-  }).catch(err => {
-    console.log(err)
-  })
+    }).catch(err => console.log(err))
+  }
 }
 
 export const handleLogout = (e, data) => {
