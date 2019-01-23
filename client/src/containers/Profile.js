@@ -34,7 +34,7 @@ class Profile extends Component {
     const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
     const hasMondayClasses = mondayClasses.length > 0
     const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
-    const hasTuesdayClasses = tuesdayClass.length > 0
+    const hasTuesdayClasses = tuesdayClasses.length > 0
     const wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
     const hasWednesdayClasses = wednesdayClasses.length > 0
     const thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
@@ -54,27 +54,55 @@ class Profile extends Component {
         <h4>Logged In as {user.firstname} {user.lastname}</h4>
         <div className="schedule">
         <h1>Your Schedule</h1>
+
         <h2>Monday</h2>
         {hasMondayClasses ? (
           mondayClasses.map((danceClass) =>
             <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
-        ) : (<h1>{nothingMessage}</h1>)}
+        ) : (<h5>{nothingMessage}</h5>)}
+
         <h2>Tuesday</h2>
         {hasTuesdayClasses? (
           tuesdayClasses.map((danceClass) =>
             <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
         )
-      ) : (<h1>{nothingMessage}</h1>)}
+      ) : (<h5>{nothingMessage}</h5>)}
+
         <h2>Wednesday</h2>
+          {hasWednesdayClasses? (
+            wednesdayClasses.map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+          )
+        ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Thursday</h2>
+          {hasThursdayClasses? (
+            thursdayClasses.map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+          )
+        ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Friday</h2>
+          {hasFridayClasses? (
+            fridayClasses.map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+          )
+        ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Saturday</h2>
+          {hasSaturdayClasses? (
+            saturdayClasses.map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+          )
+        ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Sunday</h2>
+          {hasSundayClasses? (
+            sundayClasses.map((danceClass) =>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+          )
+        ) : (<h5>{nothingMessage}</h5>)}
 
         </div>
       </div>
