@@ -37,7 +37,7 @@ class Profile extends Component {
           return (
             <div>
               <h3 key={danceClass.id}>{danceClass.instructor.name}: {danceClass.name}</h3>
-              <h4>{danceClass.day} {danceClass.time}</h4>
+              <h4>{danceClass.day} {danceClass.start_time}-{danceClass.end_time}</h4>
               <h4>{danceClass.studio.name}</h4>
             </div>
           )
