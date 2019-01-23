@@ -7,10 +7,9 @@ List all instructors?
 
 To Do List:
 -sort dance classes chronologically
--user profile with their own schedules
 -can delete classes from your schedules
--each dance class listing has button to add to schedule. (danceclasses and instructor/:id routes)
 -alert if user tries to add class that conflicts with schedule
--Filter dance_classes by day or studio?
+-refactor fetch actions into separate components/reducers
+-add delete userDanceClass feature
 
 ***Intructor component is broken. Why???***

@@ -8,7 +8,6 @@ export default function danceClassesReducer(
         return { ...state, loading: true}
       case 'FETCH_DANCE_CLASSES':
         return {...state, loading: false, all: action.payload}
-        console.log(state)
       default:
         return state
     }
