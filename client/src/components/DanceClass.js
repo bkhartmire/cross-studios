@@ -9,19 +9,7 @@ class DanceClass extends Component {
     e.preventDefault()
     if (e.target.innerHTML === 'Add Class to Schedule') {
       const data = {dance_class_id: danceClassId}
-      fetch('/api/user_dance_classes', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          token: Auth.getToken(),
-          'Authorization': `Token ${Auth.getToken()}`,
-          'Content-Type': 'application/json',
-        }
-      }).then(res => res.json())
-      .then(alert("Class added to your schedule."))
-      .catch(error => console.error('Error:', error))
-      e.target.style.backgroundColor = 'gray'
-      e.target.innerHTML = "Remove from Schedule"
+      
     } else {
       //put delete request here
       alert('Class removed from your schedule.')
