@@ -1,4 +1,3 @@
-users
 users have a schedule on profile page.
 Users can favorite an instructor and add anonymous reviews
 Instructor page will show number of favorites and all reviews from previous students.
