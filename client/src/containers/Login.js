@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
 
-import { handleLoginSubmit } from '../actions/userActions'
+import { loginUser } from '../actions/userActions'
 
 class Login extends Component {
   constructor(){
@@ -28,7 +28,7 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault()
     const user = this.state
-    this.props.handleLoginSubmit(user)
+    this.props.loginUser(user)
   }
 
   render() {
@@ -49,7 +49,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  handleLoginSubmit
+  loginUser
 }, dispatch)
 
 //what is this withRouter?

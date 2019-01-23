@@ -2,7 +2,7 @@ import Auth from '../modules/Auth'
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-export const handleLoginSubmit = (user) => {
+export const loginUser = (user) => {
   return dispatch => {
     fetch('/api/login', {
         method: 'POST',
@@ -26,7 +26,7 @@ export const handleLoginSubmit = (user) => {
   }
 }
 
-export const handleSignupSubmit = (e, data) => {
+export const signupUser = (e, data) => {
   e.preventDefault()
   fetch('/api/users', {
     method: 'POST',

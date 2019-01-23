@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
-import { handleSignupSubmit } from '../actions/userActions'
+import { signupUser } from '../actions/userActions'
 
 class Signup extends Component {
   constructor() {
@@ -30,7 +30,7 @@ class Signup extends Component {
   handleSubmit(e) {
     e.preventDefault()
     const user = this.state
-    this.props.handleSignupSubmit(user)
+    this.props.signupUser(user)
   }
 
   render() {
@@ -53,7 +53,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  handleSignupSubmit
+  signupUser
 }, dispatch)
 
 export default withRouter(connect(null, mapDispatchToProps)(Signup))
