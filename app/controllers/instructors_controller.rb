@@ -2,12 +2,12 @@ class InstructorsController < ApplicationController
 
   def index
     @instructors = Instructor.all
-    render json: @instructors, include: {dance_classes: {methods: :studio}}
+    render json: @instructors
   end
 
   def show
     @instructor = Instructor.find(params[:id])
-    render json: @instructor, include: {dance_classes: {include: :studio}}
+    render json: @instructor
   end
 
 end
