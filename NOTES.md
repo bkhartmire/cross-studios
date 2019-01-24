@@ -4,7 +4,6 @@ Users maintain an array of favorited instructors.
 
 
 To Do List:
--sort dance classes chronologically
 -alert if user tries to add class that conflicts with schedule
 -fix instructor Component
 -add favorites join table for user_id and instructor_id

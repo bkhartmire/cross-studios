@@ -1,3 +1,4 @@
+require 'pry'
 class DanceClass < ApplicationRecord
   belongs_to :studio
   belongs_to :instructor
@@ -13,10 +14,11 @@ class DanceClass < ApplicationRecord
     saturday = self.all.select {|dance_class| dance_class.day == "SATURDAY"}
     sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}
     separated_days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
-    sorted_days = separated_days.each do |day|
-      day.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
+    separated_days.each do |day|
+      day.sort_by!{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
     end
-    sorted_days.flatten
+    binding.pry
+    separated_days.flatten
   end
 
 end
