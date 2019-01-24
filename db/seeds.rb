@@ -188,7 +188,7 @@ dance_classes = DanceClass.create([
   {name: 'Chicago Footwork Basics', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'King Charles').id, day: 'TUESDAY', start_time: '7:00pm', end_time: '8:20pm'},
   {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Andye J').id, day: 'TUESDAY', start_time: '8:00pm', end_time: '9:20pm'},
   {name: 'Waack/Punk/Pose', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Lorena Valenzuela').id, day: 'MONDAY', start_time: '8:30pm', end_time: '9:50pm'},
-  {name: 'Hip Hop', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Tatiana Parker').id, day: 'MONDAY', start_time: '9:3opm', end_time: '10:50pm'},
+  {name: 'Hip Hop', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Tatiana Parker').id, day: 'MONDAY', start_time: '9:30pm', end_time: '10:50pm'},
   {name: 'Stretch & Strength', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Sienna Lyons').id, day: 'WEDNESDAY', start_time: '12:00p', end_time: '-1:20pm'},
   {name: 'Creating Movement', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Toogie Barcelo').id, day: 'WEDNESDAY', start_time: '1:30pm', end_time: '3:30pm'},
   {name: 'Jazz Funk', studio_id: Studio.find_by(name: 'Movement Lifestyle').id, instructor_id: Instructor.find_by(name: 'Lee Daniel').id, day: 'WEDNESDAY', start_time: '2:00pm', end_time: '3:20pm'},
