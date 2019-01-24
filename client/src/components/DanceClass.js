@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
-import { fetchInstructor } from '../actions/instructorActions'
-import { InstructorLink } from '../containers/InstructorLink'
+
 
 class DanceClass extends Component {
 
