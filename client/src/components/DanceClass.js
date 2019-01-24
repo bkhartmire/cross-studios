@@ -12,7 +12,7 @@ class DanceClass extends Component {
 
   handleInstructorClick(e, id) {
     e.preventDefault();
-    alert('clicked me')
+    fetchInstructor(id)
   }
 
   render() {
@@ -22,13 +22,6 @@ class DanceClass extends Component {
       instructor_name = this.props.danceClass.instructor.name
     } else {
       instructor_name = <a href="#" onClick={e => this.handleInstructorClick(e, this.props.danceClass.instructor_id)}>{this.props.danceClass.instructor.name}</a>
-      // instructor_name = <Link to={{
-      //   pathname: `/instructors/${this.props.danceClass.instructor.id}`,
-      //   state: {
-      //     instructor: this.props.danceClass.instructor
-      //   }
-      // }}>{this.props.danceClass.instructor.name}</Link>
-      //add link that on click = fetchInstructor action
     }
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     const userDanceClassMatch = this.props.userDanceClasses.find(userDanceClass => userDanceClass.id === this.props.danceClass.id)
