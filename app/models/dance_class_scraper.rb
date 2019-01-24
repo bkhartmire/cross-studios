@@ -56,14 +56,16 @@ class DanceClassScraper
         start_time = time[0]
         end_time = time[1]
         instructor_id = Instructor.find_or_create_by(name: variables['instructors'][index].text).id
-        dance_class = DanceClass.find_or_create_by(
-          name: name,
-          studio_id: studio_id,
-          start_time: start_time,
-          end_time: end_time,
-          day: day,
-          instructor_id: instructor_id
-        )
+        if (end_time.include? "am") || (end_time.include? "pm")
+          dance_class = DanceClass.find_or_create_by(
+            name: name,
+            studio_id: studio_id,
+            start_time: start_time,
+            end_time: end_time,
+            day: day,
+            instructor_id: instructor_id
+          )
+        end
         index += 1
       end
     end
