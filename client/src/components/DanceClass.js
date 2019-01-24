@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 // import { bindActionCreators } from 'redux'
 // import { connect } from 'react-redux'
 import Auth from '../modules/Auth'
@@ -25,7 +26,7 @@ class DanceClass extends Component {
     if (this.props.danceClass.instructor.name === "TBA") {
       instructor_name = this.props.danceClass.instructor.name
     } else {
-      instructor_name = <Link to=`/instructors/${this.props.danceClass.instructor_id}`>{this.props.danceClass.instructor.name}</Link>
+      instructor_name = <Link to={`/instructors/${this.props.danceClass.instructor_id}`}>{this.props.danceClass.instructor.name}</Link>
     }
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     const userDanceClassMatch = this.props.userDanceClasses.find(userDanceClass => userDanceClass.id === this.props.danceClass.id)
