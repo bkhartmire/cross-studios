@@ -8,5 +8,4 @@ To Do List:
 -fix instructor Component
 -add favorites join table for user_id and instructor_id
 -each instructor page has a button to favorite them and all of a user's favorited instructors are listed on their profile page
-
-***Intructor component is broken. Why???***
+-instructor fetch request

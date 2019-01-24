@@ -6,7 +6,8 @@ import userReducer from './userReducer'
 const rootReducer = combineReducers({
   danceClasses: danceClassesReducer,
   studios: studiosReducer,
-  user: userReducer
+  user: userReducer,
+  instructor: instructorReducer,
 })
 
 export default rootReducer
