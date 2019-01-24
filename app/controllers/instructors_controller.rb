@@ -2,7 +2,7 @@ class InstructorsController < ApplicationController
 
   def index
     @instructors = Instructor.all
-    render json: @instructors, include: {dance_classes: {include: :studio}}
+    render json: @instructors, include: {dance_classes: {methods: :studio}}
   end
 
   def show
