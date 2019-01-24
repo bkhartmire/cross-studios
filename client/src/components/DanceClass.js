@@ -11,7 +11,7 @@ class DanceClass extends Component {
   }
 
   handleInstructorClick(e, id) {
-    e.preventDefault();
+    e.preventDefault()
     fetchInstructor(id)
   }
 
