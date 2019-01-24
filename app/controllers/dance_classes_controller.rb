@@ -6,7 +6,7 @@ class DanceClassesController < ApplicationController
     end
     @classes = DanceClass.sort_chronologically
     #include associated instructor and studio in json object
-    render json: @classes, include: {instructor: {include: {dance_classes: {include: :studios}}}, studio: {include: :address}}
+    render json: @classes
   end
 
 end
