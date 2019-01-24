@@ -2,13 +2,13 @@ import {combineReducers} from 'redux'
 import danceClassesReducer from './danceClassesReducer'
 import studiosReducer from './studiosReducer'
 import userReducer from './userReducer'
-import instructorReducer from './instructorReducer'
+import instructorsReducer from './instructorsReducer'
 
 const rootReducer = combineReducers({
   danceClasses: danceClassesReducer,
   studios: studiosReducer,
   user: userReducer,
-  instructor: instructorReducer,
+  instructors: instructorsReducer,
 })
 
 export default rootReducer

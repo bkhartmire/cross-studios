@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchInstructor } from '../actions/instructorActions'
+import { fetchInstructor } from '../actions/instructorsActions'
 import DanceClass from './DanceClass'
 
 class Instructor extends Component {
@@ -44,7 +44,7 @@ class Instructor extends Component {
 
 const mapStateToProps = state => {
   return {
-    instructor: state.instructor.instructor_data
+    instructor: state.instructors.instructor_data
   }
 }
 

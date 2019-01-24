@@ -1,4 +1,4 @@
-export default function instructorReducer(
+export default function instructorsReducer(
   state = {
     loading: false,
     instructor_data: []
