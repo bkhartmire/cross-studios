@@ -29,12 +29,12 @@ class DanceClass < ApplicationRecord
     #self.sort_by_time(separated_days)
   end
   #sort each group of days
-  def self.sort_by_time(single_day_array)
+  def sort_by_time
     #this totally won't work but is this the basic idea? figure it out when you get wifi again
     #  use something like this to get in military clock format: DateTime.parse(date).strftime("%H:%M:%S")
     # then .sort
     #not working...
-    sorted_dance_classes = single_day_array.sort_by{|a, b| DateTime.parse(a.start_time).strftime("%H:%M:%S") - DateTime.parse(b.start_time).strftime("%H:%M:%S")}
+    sorted_dance_classes = self.sort_by{|a, b| DateTime.parse(a.start_time).strftime("%H:%M:%S") - DateTime.parse(b.start_time).strftime("%H:%M:%S")}
     return sorted_dance_classes
   end
 
