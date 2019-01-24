@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+// import { bindActionCreators } from 'redux'
+// import { connect } from 'react-redux'
 import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 import { fetchInstructor } from '../actions/instructorActions'
@@ -13,11 +13,11 @@ class DanceClass extends Component {
     (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
   }
 
-  handleInstructorClick(e, id) {
-    e.preventDefault()
-    this.props.fetchInstructor(id)
-    debugger
-  }
+  // handleInstructorClick(e, id) {
+  //   e.preventDefault()
+  //   this.props.fetchInstructor(id)
+  //   debugger
+  // }
 
   render() {
     //this conditional only adds instructor link to dance classes with a known instructor
@@ -25,7 +25,7 @@ class DanceClass extends Component {
     if (this.props.danceClass.instructor.name === "TBA") {
       instructor_name = this.props.danceClass.instructor.name
     } else {
-      instructor_name = <a href="" onClick={e => this.handleInstructorClick(e, this.props.danceClass.instructor_id)}>{this.props.danceClass.instructor.name}</a>
+      instructor_name = <Link to=`/instructors/${this.props.danceClass.instructor_id}`>{this.props.danceClass.instructor.name}</Link>
     }
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     const userDanceClassMatch = this.props.userDanceClasses.find(userDanceClass => userDanceClass.id === this.props.danceClass.id)
@@ -53,10 +53,11 @@ class DanceClass extends Component {
 //     instructor: state.instructor.instructor_data
 //   }
 // }
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchInstructor
-}, dispatch)
+//
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//   fetchInstructor
+// }, dispatch)
 
 // export default connect(mapStateToProps, mapDispatchToProps)(DanceClass)
-export default connect(null, mapDispatchToProps)(DanceClass)
+// export default connect(null, mapDispatchToProps)(DanceClass)
+export default DanceClass

@@ -1,30 +1,9 @@
 import React, {Component} from 'react'
 
 class Instructor extends Component {
-  constructor(props){
-    super(props)
-    this.state= {
-      name: '',
-      video_url: '',
-      favorited_count: 0,
-      dance_classes: [],
-    }
-  }
-
-  updateData(data) {
-    this.setState({
-      id: data.id,
-      name: data.name,
-      video_url: data.video_url,
-      favorited_count: data.favorited_count,
-      dance_classes: data.dance_classes
-    })
-  }
-
   componentDidMount() {
     debugger
-    const {data} = this.props.location.state.instructor
-    this.updateData(data)
+
 
   }
 
