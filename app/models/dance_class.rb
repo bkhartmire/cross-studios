@@ -12,15 +12,18 @@ class DanceClass < ApplicationRecord
   end
 
   def self.sort_chronologically
-    monday = self.all.select {|dance_class| dance_class.day == "MONDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
-    tuesday = self.all.select {|dance_class| dance_class.day == "TUESDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
-    wednesday = self.all.select {|dance_class| dance_class.day == "WEDNESDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
-    thursday = self.all.select {|dance_class| dance_class.day == "THURSDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
-    friday = self.all.select {|dance_class| dance_class.day == "FRIDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
-    saturday = self.all.select {|dance_class| dance_class.day == "SATURDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
-    sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
+    monday = self.all.select {|dance_class| dance_class.day == "MONDAY"}
+    tuesday = self.all.select {|dance_class| dance_class.day == "TUESDAY"}
+    wednesday = self.all.select {|dance_class| dance_class.day == "WEDNESDAY"}
+    thursday = self.all.select {|dance_class| dance_class.day == "THURSDAY"}
+    friday = self.all.select {|dance_class| dance_class.day == "FRIDAY"}
+    saturday = self.all.select {|dance_class| dance_class.day == "SATURDAY"}
+    sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}
     separated_days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
-    separated_days.flatten
+    sorted_days = separated_days.each do |day|
+      day.sort_by{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
+    end
+    sorted_days.flatten
   end
 
 
