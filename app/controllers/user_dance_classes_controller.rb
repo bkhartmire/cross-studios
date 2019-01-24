@@ -10,7 +10,6 @@ class UserDanceClassesController < ApplicationController
   end
 
   def destroy
-    #binding.pry
     @userDanceClass = UserDanceClass.find_by(params[:id])
     @userDanceClass.destroy
     render json: @userDanceClass

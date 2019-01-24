@@ -4,12 +4,7 @@ import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
 class DanceClass extends Component {
-  componentDidMount() {
-    //debugger
-  }
-  //separate into reducer
   handleClick(e, id) {
-    debugger
     e.preventDefault();
     (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
   }
