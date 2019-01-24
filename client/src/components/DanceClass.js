@@ -12,6 +12,7 @@ class DanceClass extends Component {
 
   handleInstructorClick(e, id) {
     e.preventDefault();
+    alert('clicked me')
   }
 
   render() {
@@ -20,6 +21,7 @@ class DanceClass extends Component {
     if (this.props.danceClass.instructor.name === "TBA") {
       instructor_name = this.props.danceClass.instructor.name
     } else {
+      instructor_name = <a href="#" onClick={e => this.handleInstructorClick(e, this.props.danceClass.instructor_id)}>{this.props.danceClass.instructor.name}</a>
       // instructor_name = <Link to={{
       //   pathname: `/instructors/${this.props.danceClass.instructor.id}`,
       //   state: {
