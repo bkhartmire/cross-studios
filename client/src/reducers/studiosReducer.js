@@ -1,6 +1,6 @@
 export default function studiosReducer(
   state = {
-    loadding: false,
+    loading: false,
     all: []
   }, action) {
     switch (action.type) {
@@ -8,7 +8,6 @@ export default function studiosReducer(
         return { ...state, loading: true}
       case 'FETCH_STUDIOS':
         return {...state, loading: false, all: action.payload}
-        console.log(state)
       default:
         return state
     }

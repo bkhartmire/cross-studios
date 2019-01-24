@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 import { fetchInstructor } from '../actions/instructorActions'
 
 class DanceClass extends Component {
+
   handleAddToScheduleClick(e, id) {
     e.preventDefault();
     (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
@@ -14,7 +14,7 @@ class DanceClass extends Component {
 
   handleInstructorClick(e, id) {
     e.preventDefault()
-    fetchInstructor(id)
+    this.props.fetchInstructor(id)
   }
 
   render() {
@@ -46,14 +46,15 @@ class DanceClass extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    instructor: state.instructor.instructor_data
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     instructor: state.instructor.instructor_data
+//   }
+// }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchInstructor
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(DanceClass)
+// export default connect(mapStateToProps, mapDispatchToProps)(DanceClass)
+export default connect(null, mapDispatchToProps)(DanceClass)
