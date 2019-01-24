@@ -33,6 +33,7 @@ class DanceClass < ApplicationRecord
     #this totally won't work but is this the basic idea? figure it out when you get wifi again
     #  use something like this to get in military clock format: DateTime.parse(date).strftime("%H:%M:%S")
     # then .sort
+    #not working...
     sorted_dance_classes = single_day_array.sort_by{|a, b| DateTime.parse(a.start_time).strftime("%H:%M:%S") - DateTime.parse(b.start_time).strftime("%H:%M:%S")}
     return sorted_dance_classes
   end
