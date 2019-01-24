@@ -7,3 +7,7 @@ export const fetchInstructor = (instructor_id) => {
       .then(instructor => dispatch({type: 'FETCH_INSTRUCTOR', payload: instructor}))
   }
 }
+
+export const fetchInstructors = () => {
+  
+}
