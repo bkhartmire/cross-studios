@@ -9,10 +9,6 @@ class Instructor extends Component {
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
   }
-  // componentDidUpdate() {
-  //   debugger
-  //   this.dance_classes = this.props.instructor.dance_classes
-  // }
 
   //eventually going to have to do something like the danceClass button feature that determines whether an instructor is favorited by the current user. This handleClick should fetch a post request to create a new Favorite with current user id and instructor id.
   handleClick(e) {
@@ -23,35 +19,13 @@ class Instructor extends Component {
 
   render(){
     const {instructor} = this.props
-    //debugger
     let listDanceClasses
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
-        return(<span><h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} </h4></span>)
+        return(<span><h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4></span>)
       })
     }
-    // <span>
-    //   <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
-    // </span>
 
-    // debugger
-    // if (instructor.dance_classes) {
-    //   debugger
-    //   listDanceClasses =
-    // }
-    // const {listDanceClasses} = this.dance_classes.map(dance_class => {
-    //   return(<h1>dance_class.name</h1>)
-    // })
-    // let dance_classes_length = this.props.dance_classes.length
-    // for (var i=0; i < dance_classes_length; i++) {
-    //   listDanceClasses.push(<h1>this.props.dance_classes[i].name</h1>)
-    // }
-
-    // const {listDanceClasses} = this.props.dance_classes.map(dance_class => {
-    //   return(
-
-    //  )
-    // })
     return(
       <div className="instructorPage">
         <h1>{instructor.name}</h1>
@@ -67,8 +41,6 @@ class Instructor extends Component {
     )
   }
 }
-
-
 
 const mapStateToProps = state => {
   return {
