@@ -6,7 +6,7 @@ import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClass
 
 class DanceClass extends Component {
 
-  handleAddToScheduleClick(e, id) {
+  handleClick(e, id) {
     e.preventDefault();
     (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
   }
@@ -23,9 +23,9 @@ class DanceClass extends Component {
     const userDanceClassMatch = this.props.userDanceClasses.find(userDanceClass => userDanceClass.id === this.props.danceClass.id)
     let button
     if (userDanceClassMatch) {
-      button = <button onClick={e => this.handleAddToScheduleClick(e, userDanceClassMatch.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
+      button = <button onClick={e => this.handleClick(e, userDanceClassMatch.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
     } else {
-        button = <button onClick={e => this.handleAddToScheduleClick(e, this.props.danceClass.id)} >Add Class to Schedule</button>
+        button = <button onClick={e => this.handleClick(e, this.props.danceClass.id)} >Add Class to Schedule</button>
     }
 
     return(

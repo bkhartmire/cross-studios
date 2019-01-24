@@ -9,6 +9,12 @@ class Instructor extends Component {
     this.props.fetchInstructor(instructor_id)
   }
 
+  //eventually going to have to do something like the danceClass button feature that determines whether an instructor is favorited by the current user. This handleClick should fetch a post request to create a new Favorite with current user id and instructor id.
+  handleClick(e) {
+    e.preventDefault()
+    e.target.style.color = 'red'
+  }
+
 
   render(){
     const {instructor} = this.props
@@ -22,6 +28,10 @@ class Instructor extends Component {
     return(
       <div className="instructorPage">
         <h1>{instructor.name}</h1>
+        <span>
+          <a className="heart" onClick={e => this.handleClick(e)}>&hearts;</a>   {instructor.favorited_count} favorited
+        </span>
+        <br></br><br></br>
         <iframe width="560" height="315" src={instructor.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
     )

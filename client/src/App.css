@@ -38,3 +38,8 @@ a {
 a:hover {
     color: red;
 }
+
+.heart {
+  font-size: 200%;
+  color: grey;
+}
