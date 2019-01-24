@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 import { fetchInstructor } from '../actions/instructorActions'
+import { InstructorLink } from '../containers/InstructorLink'
 
 class DanceClass extends Component {
 
@@ -15,6 +16,7 @@ class DanceClass extends Component {
   handleInstructorClick(e, id) {
     e.preventDefault()
     this.props.fetchInstructor(id)
+    debugger
   }
 
   render() {
@@ -23,7 +25,7 @@ class DanceClass extends Component {
     if (this.props.danceClass.instructor.name === "TBA") {
       instructor_name = this.props.danceClass.instructor.name
     } else {
-      instructor_name = <a href="#" onClick={e => this.handleInstructorClick(e, this.props.danceClass.instructor_id)}>{this.props.danceClass.instructor.name}</a>
+      instructor_name = <a href="" onClick={e => this.handleInstructorClick(e, this.props.danceClass.instructor_id)}>{this.props.danceClass.instructor.name}</a>
     }
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     const userDanceClassMatch = this.props.userDanceClasses.find(userDanceClass => userDanceClass.id === this.props.danceClass.id)
