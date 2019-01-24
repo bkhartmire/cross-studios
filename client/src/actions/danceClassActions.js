@@ -24,9 +24,11 @@ export const addToUserSchedule = (e, danceClassId) => {
   .catch(error => console.error('Error:', error))
   e.target.style.backgroundColor = 'gray'
   e.target.innerHTML = "Remove from Schedule"
+  document.location.reload()
 }
 
 export const removeFromUserSchedule = (e, userDanceClassId) => {
+  debugger
   //need the userdanceClassid
   fetch(`/api/user_dance_classes/${userDanceClassId}`, {
     method: 'DELETE',
@@ -40,4 +42,5 @@ export const removeFromUserSchedule = (e, userDanceClassId) => {
   .catch(error => console.error('Error:', error))
   e.target.style.backgroundColor = ''
   e.target.innerHTML = "Add Class to Schedule"
+  document.location.reload()
 }
