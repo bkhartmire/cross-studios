@@ -1,4 +1,3 @@
-require 'pry'
 class DanceClass < ApplicationRecord
   belongs_to :studio
   belongs_to :instructor
@@ -17,7 +16,6 @@ class DanceClass < ApplicationRecord
     separated_days.each do |day|
       day.sort_by!{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
     end
-    binding.pry
     separated_days.flatten
   end
 
