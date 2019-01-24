@@ -22,9 +22,9 @@ export const addToUserSchedule = (e, danceClassId) => {
   }).then(res => res.json())
   .then(alert("Class added to your schedule."))
   .catch(error => console.error('Error:', error))
-  e.target.style.backgroundColor = 'gray'
-  e.target.innerHTML = "Remove from Schedule"
-  document.location.reload()
+  // e.target.style.backgroundColor = 'gray'
+  // e.target.innerHTML = "Remove from Schedule"
+  //document.location.reload()
 }
 
 export const removeFromUserSchedule = (e, userDanceClassId) => {
@@ -35,12 +35,13 @@ export const removeFromUserSchedule = (e, userDanceClassId) => {
     headers: {
       //token: Auth.getToken(),
       //'Authorization': `Token ${Auth.getToken()}`,
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
     }
   }).then(res => res.json())
   .then(alert("Class removed from your schedule."))
   .catch(error => console.error('Error:', error))
-  e.target.style.backgroundColor = ''
-  e.target.innerHTML = "Add Class to Schedule"
+  // e.target.style.backgroundColor = ''
+  // e.target.innerHTML = "Add Class to Schedule"
   document.location.reload()
 }
