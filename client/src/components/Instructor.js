@@ -12,13 +12,13 @@ class Instructor extends Component {
 
   render(){
     const {instructor} = this.props
-    // const listDanceClasses = instructor.dance_classes.map(dance_class => {
+    // const {listDanceClasses} = this.props.dance_classes.map(dance_class => {
     //   return(
     //     <span>
     //       <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
     //     </span>
     //  )
-    //})
+    // })
     return(
       <div className="instructorPage">
         <h1>{instructor.name}</h1>
@@ -37,5 +37,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchInstructor
 }, dispatch)
 
-// export default connect(mapStateToProps, mapDispatchToProps)(DanceClass)
 export default connect(mapStateToProps, mapDispatchToProps)(Instructor)
