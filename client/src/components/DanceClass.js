@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
@@ -44,6 +46,14 @@ class DanceClass extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    instructor: state.instructor.instructor_data
+  }
+}
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchInstructor
+}, dispatch)
 
-export default DanceClass
+export default connect(mapStateToProps, mapDispatchToProps)(DanceClass)
