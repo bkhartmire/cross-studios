@@ -31,5 +31,10 @@ export const favoriteInstructor = instructor_id => {
       },
       body: JSON.stringify({instructor_id})
     })
+    .then(resp => resp.json())
+    .then(favorite => dispatch({
+      type: 'CREATE_FAVORITE',
+      payload: favorite
+    }))
   }
 }
