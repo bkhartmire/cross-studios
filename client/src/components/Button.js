@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
 class Button extends Component {
+  // componentDidMount() {
+  //   debugger
+  // }
   handleClick(e, id) {
     e.preventDefault();
     (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
@@ -11,16 +14,16 @@ class Button extends Component {
     const {danceClass, userDanceClasses} = this.props
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
     const userDanceClassMatch = userDanceClasses.find(userDanceClass => userDanceClass.id === danceClass.id)
-    let button
+    let buttonMessage
     if (userDanceClassMatch) {
-      button = <button onClick={e => this.handleClick(e, userDanceClassMatch.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
+      buttonMessage = "Remove from Schedule"
     } else {
-      button = <button onClick={e => this.handleClick(e, danceClass.id)} >Add Class to Schedule</button>
+      buttonMessage = "Add Class to Schedule"
     }
 
     return(
       <div className="button">
-        {button}
+        <button onClick={e => this.handleClick(e, danceClass.id)} >{buttonMessage}</button>
       </div>
     )
   }

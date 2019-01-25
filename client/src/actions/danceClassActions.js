@@ -22,13 +22,6 @@ export const fetchUserDanceClasses = () => {
     }).then(res => res.json())
     .then(user_profile_info => user_profile_info.dance_classes)
     .then(dance_classes => dispatch({type: 'FETCH_USER_DANCE_CLASSES', payload: dance_classes}))
-    // .then(user_profile_info => dispatch({type: 'FETCH_USER_DANCE_CLASSES', payload: user_profile_info.dance_classes}))
-    // debugger
-    // .then(res => {
-    //    this.setState({
-    //       userDanceClasses: res.dance_classes,
-    //     })
-    //   })
   }
 
 }
@@ -49,12 +42,14 @@ export const addToUserSchedule = (e, danceClassId) => {
   document.location.reload()
 }
 
-export const removeFromUserSchedule = (e, userDanceClassId) => {
-  fetch(`/api/user_dance_classes/${userDanceClassId}`, {
+export const removeFromUserSchedule = (e, danceClassId) => {
+  fetch(`/api/user_dance_classes/${danceClassId}`, {
     method: 'DELETE',
     headers: {
-      'Accept': 'application/json',
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
       'Content-Type': 'application/json',
+      'Accept': 'application/json'
     }
   }).then(res => res.json())
   .then(alert("Class removed from your schedule."))
