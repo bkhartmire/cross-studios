@@ -55,11 +55,12 @@ export const fetchUserFavorites = () => {
     fetch('/api/favorites', {
       method: 'GET',
       headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
         token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => res.json())
-    .then(favorites => console.log(favorites))
     .then(favorites => dispatch({type:'FETCH_USER_FAVORITES', payload: favorites}))
   }
 }

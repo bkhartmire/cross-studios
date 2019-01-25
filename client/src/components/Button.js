@@ -11,7 +11,7 @@ class Button extends Component {
   render() {
     const {danceClass, userDanceClasses} = this.props
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
-    const userDanceClassMatch = userDanceClasses.find(userDanceClass => userDanceClass.id === danceClass.id)
+    const userDanceClassMatch = userDanceClasses.some(userDanceClass => userDanceClass.id === danceClass.id)
     let button
     if (userDanceClassMatch) {
       button = <button onClick={e => this.handleClick(e, danceClass.id)} style={{backgroundColor: '#dd7a7a'}}>Remove from Schedule</button>
