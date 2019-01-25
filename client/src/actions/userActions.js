@@ -48,3 +48,9 @@ export const signupUser = (formData) => {
     }).catch(err => console.log(err))
   }
 }
+
+export const fetchUserFavorites = () => {
+  return (dispatch) => {
+    dispatch({type: 'LOADING_USER_FAVORITES'})
+  }
+}
