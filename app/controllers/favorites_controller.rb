@@ -29,6 +29,7 @@ class FavoritesController < ApplicationController
     instructor = Instructor.find_by(id: params[:instructor_id])
     instructor.favorited_count -= 1
     instructor.save
+    binding.pry
     @favorite = Favorite.find_by(user_id: user_id, instructor_id: params[:instructor_id])
     @favorite.destroy
     render json: @favorite

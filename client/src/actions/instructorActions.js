@@ -35,6 +35,19 @@ export const favoriteInstructor = (instructorId) => {
   document.location.reload()
 }
 
-export const unfavoriteInstructor = (instructorId) => {
-  
+export const unfavoriteInstructor = (favoriteId, instructorID) => {
+  debugger
+  fetch(`/api/favorites/${favoriteId}`, {
+    method: 'DELETE',
+    headers: {
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      favorite_id: favoriteId,
+      instructor_id: instructorID
+    }),
+  })
 }

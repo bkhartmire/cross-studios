@@ -8,18 +8,19 @@ class FavoriteHeart extends Component {
     favoriteInstructor(instructorId)
   }
 
-  handleUnfavorite(e, instructor_id) {
+  handleUnfavorite(e, favoriteId, instructorId) {
+    debugger
     e.preventDefault()
-    unfavoriteInstructor(instructor_id)
+    unfavoriteInstructor(favoriteId, instructorId)
   }
-  
+
   render() {
     const {instructor, userFavorites} = this.props
 
-    const userFavoritesMatch = userFavorites.some((favorite) => favorite.instructor_id === instructor.id)
+    const userFavoritesMatch = userFavorites.find((favorite) => favorite.instructor_id === instructor.id)
     let heart
     if (userFavoritesMatch) {
-      heart = <a className="heart" onClick={e => this.handleUnfavorite(e, instructor.id)} style={{color: 'red'}}>&hearts;</a>
+      heart = <a className="heart" onClick={e => this.handleUnfavorite(e, userFavoritesMatch.id, instructor.id)} style={{color: 'red'}}>&hearts;</a>
     } else {
       heart = <a className="heart" onClick={e => this.handleFavorite(e, instructor.id)} style={{color: '#c2c4c6'}}>&hearts;</a>
     }
