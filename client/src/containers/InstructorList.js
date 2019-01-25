@@ -6,13 +6,20 @@ import { fetchInstructors } from '../actions/instructorActions'
 import Instructor from '../components/Instructor'
 
 class InstructorList extends Component {
+
   componentDidMount(){
     this.props.fetchInstructors()
   }
 
   render() {
+    const {instructors} = this.props
+
     return(
-      <h1>Hello</h1>
+      <div className="instructorList">
+        <h1>Instructors</h1>
+        {instructors.map(instructor => <Instructor key={instructor.id} instructor={instructor} />)}
+      </div>
+
     )
   }
 }
@@ -26,4 +33,5 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchInstructors
 }, dispatch)
-export default connect (mapStateToProps, mapDispatchToProps)(InstructorList)
+
+export default connect(mapStateToProps, mapDispatchToProps)(InstructorList)

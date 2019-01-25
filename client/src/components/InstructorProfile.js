@@ -27,7 +27,7 @@ class InstructorProfile extends Component {
     }
 
     return(
-      <div className="instructorPage">
+      <div className="instructorProfile">
         <h1>{instructor.name}</h1>
         <span>
           <a className="heart" onClick={e => this.handleClick(e)}>&hearts;</a>   {instructor.favorited_count} favorited
