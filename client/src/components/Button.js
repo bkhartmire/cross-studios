@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
 class Button extends Component {
@@ -20,8 +19,8 @@ class Button extends Component {
     }
 
     return(
-      <div>
-      <h1>Hi</h1>
+      <div className="button">
+        {button}
       </div>
     )
   }
