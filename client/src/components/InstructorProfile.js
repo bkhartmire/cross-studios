@@ -23,7 +23,8 @@ class InstructorProfile extends Component {
 
 
   render(){
-    const {instructor, userDanceClasses} = this.props
+    const {instructor, userDanceClasses, userFavorites} = this.props
+    const userFavoritesMatch = userFavorites.find(favorite => favorite.instructor_id === instructor.id)
     let listDanceClasses
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
@@ -58,7 +59,6 @@ const mapStateToProps = state => {
   return {
     instructor: state.instructors.instructor_data,
     userDanceClasses: state.danceClasses.userDanceClasses,
-    //is this one right?
     userFavorites: state.user.favorites
   }
 }
