@@ -4,7 +4,7 @@ const initialState = {
   loading: false,
   auth: Auth.isUserAuthenticated(),
   favorites: [],
-  current: {}
+  current: {},
 }
 
 export default function userReducer(state = initialState, action) {

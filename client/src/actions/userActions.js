@@ -17,7 +17,6 @@ export const loginUser = (user) => {
         type: 'SET_USER',
         payload: Auth.isUserAuthenticated()
       })
-
       document.location.reload()
     }).catch(err => console.log(err))
   }
@@ -43,8 +42,6 @@ export const signupUser = (formData) => {
         payload: Auth.isUserAuthenticated()
       })
       document.location.reload()
-
-
     }).catch(err => console.log(err))
   }
 }
@@ -61,12 +58,7 @@ export const fetchUser = () => {
       }
     }).then(res => res.json())
     .then(res => console.log(res))
-    .then(user => {
-      dispatch({
-        type: 'FETCH_USER',
-        payload: user
-      })
-    }).catch(err => console.log(err))
+    .then(user => dispatch({type: 'FETCH_USER', payload: user}))
   }
 }
 
