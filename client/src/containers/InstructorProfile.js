@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorActions'
 import { fetchUserDanceClasses } from '../actions/danceClassActions'
 import { fetchUserFavorites } from '../actions/userActions'
-import Button from './Button'
-import FavoriteHeart from './FavoriteHeart'
+import Button from '../components/Button'
+import FavoriteHeart from '../components/FavoriteHeart'
 
 class InstructorProfile extends Component {
   componentDidMount() {
