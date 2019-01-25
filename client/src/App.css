@@ -54,10 +54,15 @@ a:hover {
 
 }
 
-.column {
-  width: 14%
+div.column {
+  width: 14%;
+  float: left;
+  display: inline;
 }
 
+div.danceClassList {
+  width: 100%;
+}
 .col-2 {
 
 }
