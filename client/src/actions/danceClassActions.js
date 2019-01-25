@@ -20,7 +20,9 @@ export const fetchUserDanceClasses = () => {
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => res.json())
-    .then(user_profile_info => dispatch({type: 'FETCH_USER_DANCE_CLASSES', payload: user_profile_info.dance_classes}))
+    .then(user_profile_info => user_profile_info.dance_classes)
+    .then(dance_classes => dispatch({type: 'FETCH_USER_DANCE_CLASSES', payload: dance_classes}))
+    // .then(user_profile_info => dispatch({type: 'FETCH_USER_DANCE_CLASSES', payload: user_profile_info.dance_classes}))
     // debugger
     // .then(res => {
     //    this.setState({
