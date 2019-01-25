@@ -60,6 +60,7 @@ export const fetchUser = () => {
         'Content-Type': 'application/json',
       }
     }).then(res => res.json())
+    .then(res => console.log(res))
     .then(user => {
       dispatch({
         type: 'FETCH_USER',

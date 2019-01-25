@@ -7,49 +7,47 @@ import DanceClass from '../components/DanceClass'
 import { fetchUser } from '../actions/userActions'
 
 class Profile extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     userDanceClasses: [],
-  //     firstname: '',
-  //     lastname: '',
-  //   }
-  // }
 
   componentDidMount() {
     this.props.fetchUser()
-    // fetch('/api/profile', {
-    //   method: 'GET',
-    //   headers: {
-    //     token: Auth.getToken(),
-    //     'Authorization': `Token ${Auth.getToken()}`,
-    //   }
-    // }).then(res => res.json())
-    // .then(res => {
-    //    this.setState({
-    //       userDanceClasses: res.dance_classes,
-    //       firstname: res.firstname,
-    //       lastname: res.lastname,
-    //     })
-    //   }).catch(err => console.log(err))
   }
+
+
   render(){
-    const {user} = this.props
-    
-    const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
-    const hasMondayClasses = mondayClasses.length > 0
-    const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
-    const hasTuesdayClasses = tuesdayClasses.length > 0
-    const wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
-    const hasWednesdayClasses = wednesdayClasses.length > 0
-    const thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
-    const hasThursdayClasses = thursdayClasses.length > 0
-    const fridayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY")
-    const hasFridayClasses = fridayClasses.length > 0
-    const saturdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY")
-    const hasSaturdayClasses = saturdayClasses.length > 0
-    const sundayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY")
-    const hasSundayClasses = sundayClasses.length > 0
+    const { user } = this.props
+
+    let mondayClasses
+    let hasMondayClasses
+    let tuesdayClasses
+    let hasTuesdayClasses
+    let wednesdayClasses
+    let hasWednesdayClasses
+    let thursdayClasses
+    let hasThursdayClasses
+    let fridayClasses
+    let hasFridayClasses
+    let saturdayClasses
+    let hasSaturdayClasses
+    let sundayClasses
+    let hasSundayClasses
+
+    if (user.userDanceClasses) {
+      mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
+      hasMondayClasses = mondayClasses.length > 0
+      tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
+      hasTuesdayClasses = tuesdayClasses.length > 0
+      wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
+      hasWednesdayClasses = wednesdayClasses.length > 0
+      thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
+      hasThursdayClasses = thursdayClasses.length > 0
+      fridayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY")
+      hasFridayClasses = fridayClasses.length > 0
+      saturdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY")
+      hasSaturdayClasses = saturdayClasses.length > 0
+      sundayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY")
+      hasSundayClasses = sundayClasses.length > 0
+    }
+
     const nothingMessage = "Nothing scheduled for this day."
 
 
@@ -117,12 +115,12 @@ class Profile extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.current
+    user: state.user.current,
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser
-})
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)
