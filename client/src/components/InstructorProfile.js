@@ -59,7 +59,7 @@ const mapStateToProps = state => {
     instructor: state.instructors.instructor_data,
     userDanceClasses: state.danceClasses.userDanceClasses,
     //is this one right?
-    userFavorites: state.favorites.userFavorites
+    userFavorites: state.user.favorites
   }
 }
 

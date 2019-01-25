@@ -13,11 +13,6 @@ class UsersController < ApiController
      render json: @user, include: {dance_classes: {include: [:studio, :instructor]}}
    end
 
-   def favorites
-     @user = User.find_by_auth_token!(request.headers[:token])
-     render json: @user, include: [:favorites]
-  end
-
 
   private
 

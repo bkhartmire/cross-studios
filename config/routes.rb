@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     post '/login' => "sessions#create"
     delete '/logout' => "sessions#destroy"
     get '/profile' => "users#profile"
-    get '/favorites' => "users#favorites"
     #resources :tokens, only: [:create]
     # get 'user', to: 'users#show', as: 'show'
     # post 'signup', to: 'users#create', as: 'user_signup'
