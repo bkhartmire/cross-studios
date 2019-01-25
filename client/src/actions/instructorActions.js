@@ -20,21 +20,23 @@ export const fetchInstructors = () => {
   }
 }
 
-export const favoriteInstructor = instructor_id => {
-  return dispatch => {
+export const favoriteInstructor = (instructorId) => {
+  return (dispatch) => {
     fetch('/api/favorites', {
       method: 'POST',
+      body: JSON.stringify({instructor_id: instructorId}),
       headers: {
         token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({instructor_id})
     })
-    .then(resp => resp.json())
+    .then(res => res.json())
+    .then(res => console.log(res))
     .then(favorite => dispatch({
       type: 'CREATE_FAVORITE',
       payload: favorite
     }))
   }
+  document.location.reload()
 }

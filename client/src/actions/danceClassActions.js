@@ -26,7 +26,7 @@ export const fetchUserDanceClasses = () => {
 
 }
 
-export const addToUserSchedule = (e, danceClassId) => {
+export const addToUserSchedule = (danceClassId) => {
   fetch('/api/user_dance_classes', {
     method: 'POST',
     body: JSON.stringify({dance_class_id: danceClassId}),
@@ -42,7 +42,7 @@ export const addToUserSchedule = (e, danceClassId) => {
   document.location.reload()
 }
 
-export const removeFromUserSchedule = (e, danceClassId) => {
+export const removeFromUserSchedule = (danceClassId) => {
   fetch(`/api/user_dance_classes/${danceClassId}`, {
     method: 'DELETE',
     headers: {

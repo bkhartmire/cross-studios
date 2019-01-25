@@ -5,7 +5,7 @@ class Button extends Component {
 
   handleClick(e, id) {
     e.preventDefault();
-    (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
+    (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(id)) : (removeFromUserSchedule(id));
   }
 
   render() {
