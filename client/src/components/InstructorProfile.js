@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchInstructor } from '../actions/instructorsActions'
+import { fetchInstructor } from '../actions/instructorActions'
 import DanceClass from './DanceClass'
 
 class InstructorProfile extends Component {

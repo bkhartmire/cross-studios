@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { fetchInstructors } from '../actions/danceClassActions'
+import { fetchInstructors } from '../actions/instructorActions'
 import Instructor from '../components/Instructor'
 
 class InstructorList extends Component {
-  componentDidMount( {
+  componentDidMount(){
     this.props.fetchInstructors()
-  })
+  }
 
   render() {
     return(
