@@ -15,16 +15,21 @@ class InstructorProfile extends Component {
   }
 
   //eventually going to have to do something like the danceClass button feature that determines whether an instructor is favorited by the current user. This handleClick should fetch a post request to create a new Favorite with current user id and instructor id.
-  handleClick(e, instructorId) {
+  handleFavorite(e, instructorId) {
     e.preventDefault()
     this.props.favoriteInstructor(instructorId)
     e.target.style.color = 'red'
   }
 
+  handleUnfavorite(e, instructor_id) {
+    e.preventDefault()
+    //unfavorite instructor action
+  }
+
 
   render(){
     const {instructor, userDanceClasses, userFavorites} = this.props
-    const userFavoritesMatch = userFavorites.find(favorite => favorite.instructor_id === instructor.id)
+
     let listDanceClasses
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
@@ -37,11 +42,22 @@ class InstructorProfile extends Component {
       })
     }
 
+    //userFavoritesMatch determines if this instructor is one of the current user's favorites
+    const userFavoritesMatch = userFavorites.find(favorite => favorite.instructor_id === instructor.id)
+    let heart
+    if (userFavoritesMatch) {
+      heart = <a className="heart" onClick={e => this.handleUnfavorite(e, instructor.id)}>&hearts;</a>
+    } else {
+      heart = <a className="heart" onClick={e => this.handleFavorite(e, instructor.id)}>&hearts;</a>
+    }
+
+
+
     return(
       <div className="instructorProfile">
         <h1>{instructor.name}</h1>
         <span>
-          <a className="heart" onClick={e => this.handleClick(e, instructor.id)}>&hearts;</a>   {instructor.favorited_count} favorited
+           {heart} {instructor.favorited_count} favorited
         </span>
         <br></br><br></br>
 
