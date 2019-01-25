@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorActions'
 import { fetchUserDanceClasses } from '../actions/danceClassActions'
-import DanceClass from './DanceClass'
+import Button from './Button'
 
 class InstructorProfile extends Component {
   componentDidMount() {
@@ -24,7 +24,12 @@ class InstructorProfile extends Component {
     let listDanceClasses
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
-        return(<span><h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4></span>)
+        return(
+          <span>
+            <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
+            <Button key={dance_class.id} danceClass={dance_class} userDanceClasses={userDanceClasses}/>
+          </span>
+        )
       })
     }
 
@@ -37,6 +42,8 @@ class InstructorProfile extends Component {
         <br></br><br></br>
 
         {listDanceClasses}
+
+        <br></br>
 
         <iframe width="560" height="315" src={instructor.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
