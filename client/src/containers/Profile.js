@@ -1,56 +1,52 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-
 import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
-import { fetchUser } from '../actions/userActions'
 
+//Is this a container or a component??
 class Profile extends Component {
+  constructor() {
+    super()
+    this.state = {
+      userDanceClasses: [],
+      firstname: '',
+      lastname: '',
+      favorites: [],
+    }
+  }
 
   componentDidMount() {
-    this.props.fetchUser()
-    debugger
-  }
-
-  componentDidUpdate() {
-    debugger
+    fetch('/api/profile', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).then(res => res.json())
+    .then(res => {
+       this.setState({
+          userDanceClasses: res.dance_classes,
+          firstname: res.firstname,
+          lastname: res.lastname,
+          favorites: res.favorites
+        })
+      }).catch(err => console.log(err))
   }
   render(){
-    const { user } = this.props
-
-    let mondayClasses
-    let hasMondayClasses
-    let tuesdayClasses
-    let hasTuesdayClasses
-    let wednesdayClasses
-    let hasWednesdayClasses
-    let thursdayClasses
-    let hasThursdayClasses
-    let fridayClasses
-    let hasFridayClasses
-    let saturdayClasses
-    let hasSaturdayClasses
-    let sundayClasses
-    let hasSundayClasses
-
-    if (user && user.danceClasses) {
-      mondayClasses = user.danceClasses.filter(danceClass => danceClass.day === "MONDAY")
-      hasMondayClasses = mondayClasses.length > 0
-      tuesdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "TUESDAY")
-      hasTuesdayClasses = tuesdayClasses.length > 0
-      wednesdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
-      hasWednesdayClasses = wednesdayClasses.length > 0
-      thursdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "THURSDAY")
-      hasThursdayClasses = thursdayClasses.length > 0
-      fridayClasses = user.danceClasses.filter(danceClass => danceClass.day === "FRIDAY")
-      hasFridayClasses = fridayClasses.length > 0
-      saturdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "SATURDAY")
-      hasSaturdayClasses = saturdayClasses.length > 0
-      sundayClasses = user.danceClasses.filter(danceClass => danceClass.day === "SUNDAY")
-      hasSundayClasses = sundayClasses.length > 0
-    }
-
+    const user = this.state
+    const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
+    const hasMondayClasses = mondayClasses.length > 0
+    const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
+    const hasTuesdayClasses = tuesdayClasses.length > 0
+    const wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
+    const hasWednesdayClasses = wednesdayClasses.length > 0
+    const thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
+    const hasThursdayClasses = thursdayClasses.length > 0
+    const fridayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY")
+    const hasFridayClasses = fridayClasses.length > 0
+    const saturdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY")
+    const hasSaturdayClasses = saturdayClasses.length > 0
+    const sundayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY")
+    const hasSundayClasses = sundayClasses.length > 0
     const nothingMessage = "Nothing scheduled for this day."
 
 
@@ -64,49 +60,49 @@ class Profile extends Component {
         <h2>Monday</h2>
         {hasMondayClasses ? (
           mondayClasses.map((danceClass) =>
-            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Tuesday</h2>
         {hasTuesdayClasses? (
           tuesdayClasses.map((danceClass) =>
-            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
         )
       ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Wednesday</h2>
           {hasWednesdayClasses? (
             wednesdayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Thursday</h2>
           {hasThursdayClasses? (
             thursdayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Friday</h2>
           {hasFridayClasses? (
             fridayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Saturday</h2>
           {hasSaturdayClasses? (
             saturdayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Sunday</h2>
           {hasSundayClasses? (
             sundayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
@@ -116,14 +112,4 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user.current,
-  }
-}
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchUser
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default Profile

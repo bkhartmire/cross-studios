@@ -17,6 +17,7 @@ export const loginUser = (user) => {
         type: 'SET_USER',
         payload: Auth.isUserAuthenticated()
       })
+
       document.location.reload()
     }).catch(err => console.log(err))
   }
@@ -42,24 +43,14 @@ export const signupUser = (formData) => {
         payload: Auth.isUserAuthenticated()
       })
       document.location.reload()
+
+
     }).catch(err => console.log(err))
   }
 }
 
 export const fetchUser = () => {
-  return (dispatch) => {
-    fetch('/api/profile', {
-      method: 'GET',
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    }).then(res => res.json())
-    .then(res => console.log(res))
-    .then(user => dispatch({type: 'FETCH_USER', payload: user}))
-  }
+  
 }
 
 export const fetchUserFavorites = () => {
