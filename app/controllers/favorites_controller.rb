@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
     instructor = Instructor.find_by(id: params[:instructor_id])
     @favorite = Favorite.find_by(user_id: user.id, instructor_id: params[:instructor_id])
     if !@favorite
-      Favorite.create_by(user_id: user.id, instructor_id: params[:instructor_id])
+      Favorite.create(user_id: user.id, instructor_id: params[:instructor_id])
       instructor.favorited_count += 1
       instructor.save
     end

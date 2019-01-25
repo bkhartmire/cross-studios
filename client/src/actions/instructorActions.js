@@ -37,6 +37,6 @@ export const favoriteInstructor = (instructorId) => {
       type: 'CREATE_FAVORITE',
       payload: favorite
     }))
+    document.location.reload()
   }
-  document.location.reload()
 }
