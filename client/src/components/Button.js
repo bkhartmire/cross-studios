@@ -14,7 +14,7 @@ class Button extends Component {
     const userDanceClassMatch = userDanceClasses.find(userDanceClass => userDanceClass.id === danceClass.id)
     let button
     if (userDanceClassMatch) {
-      button = <button onClick={e => this.handleClick(e, danceClass.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
+      button = <button onClick={e => this.handleClick(e, danceClass.id)} style={{backgroundColor: '#dd7a7a'}}>Remove from Schedule</button>
     } else {
       button = <button onClick={e => this.handleClick(e, danceClass.id)} >Add Class to Schedule</button>
     }
