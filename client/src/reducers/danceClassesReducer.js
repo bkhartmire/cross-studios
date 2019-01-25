@@ -2,7 +2,7 @@ export default function danceClassesReducer(
   state = {
     loading: false,
     all: [],
-    userDanceClasses: []
+    userDanceClasses: [],
   }, action) {
     switch (action.type) {
       case 'LOADING_DANCE_CLASSES':

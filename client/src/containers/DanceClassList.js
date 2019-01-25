@@ -7,39 +7,32 @@ import DanceClass from '../components/DanceClass'
 import Auth from '../modules/Auth'
 
 class DanceClassList extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     userDanceClasses: [],
-  //   }
-  // }
+
   componentDidMount(){
     this.props.fetchDanceClasses()
     this.props.fetchUserDanceClasses()
-    //refactor to action
-
-
   }
+
   render(){
-    const {danceClasses} = this.props
+    const {danceClasses, userDanceClasses} = this.props
 
     return(
       <div className="danceClassList">
         <h1>Dance Classes</h1>
         <h1>Monday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'MONDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'MONDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
         <h1>Tuesday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'TUESDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'TUESDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
         <h1>Wednesday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'WEDNESDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'WEDNESDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
         <h1>Thursday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'THURSDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'THURSDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
         <h1>Friday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'FRIDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'FRIDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
         <h1>Saturday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'SATURDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'SATURDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
         <h1>Sunday</h1>
-          {danceClasses.filter(danceClass => danceClass.day === 'SUNDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={this.state.userDanceClasses}/>)}
+          {danceClasses.filter(danceClass => danceClass.day === 'SUNDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>)}
       </div>
     )
   }
@@ -56,4 +49,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDanceClasses,
   fetchUserDanceClasses
 }, dispatch)
+
 export default connect(mapStateToProps, mapDispatchToProps)(DanceClassList)
