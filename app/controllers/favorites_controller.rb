@@ -2,8 +2,9 @@ class FavoritesController < ApplicationController
 
   def create
     user = User.find_by_auth_token!(request.headers[:token])
-    user_id = user.id
-    @favorite = Favorite.find_or_create_by(user_id: user_id, instructor_id: params[:instructor_id])
+    @favorite = Favorite.find_or_create_by(user_id: user.id, instructor_id: params[:instructor_id])
+    instructor = Instructor.find_by(params[:instructor_id])
+    instructor.favorited_count += 1
     render json: @favorite
   end
 
