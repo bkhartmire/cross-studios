@@ -2,12 +2,14 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorActions'
+import { fetchUserDanceClasses } from '../actions/danceClassActions'
 import DanceClass from './DanceClass'
 
 class InstructorProfile extends Component {
   componentDidMount() {
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
+    this.props.fetchUserDanceClasses()
   }
 
   //eventually going to have to do something like the danceClass button feature that determines whether an instructor is favorited by the current user. This handleClick should fetch a post request to create a new Favorite with current user id and instructor id.
@@ -18,7 +20,7 @@ class InstructorProfile extends Component {
 
 
   render(){
-    const {instructor} = this.props
+    const {instructor, userDanceClasses} = this.props
     let listDanceClasses
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
@@ -44,12 +46,14 @@ class InstructorProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    instructor: state.instructors.instructor_data
+    instructor: state.instructors.instructor_data,
+    userDanceClasses: state.danceClasses.userDanceClasses
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchInstructor
+  fetchInstructor,
+  fetchUserDanceClasses
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(InstructorProfile)
