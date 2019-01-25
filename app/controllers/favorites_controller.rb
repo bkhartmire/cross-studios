@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find_or_create_by(user_id: user.id, instructor_id: params[:instructor_id])
     instructor = Instructor.find_by(params[:instructor_id])
     instructor.favorited_count += 1
+    instructor.save
     render json: @favorite
   end
 
