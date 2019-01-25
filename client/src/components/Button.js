@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Auth from '../modules/Auth'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
 class Button extends Component {
@@ -15,11 +16,13 @@ class Button extends Component {
     if (userDanceClassMatch) {
       button = <button onClick={e => this.handleClick(e, userDanceClassMatch.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
     } else {
-        button = <button onClick={e => this.handleClick(e, danceClass.id)} >Add Class to Schedule</button>
+      button = <button onClick={e => this.handleClick(e, danceClass.id)} >Add Class to Schedule</button>
     }
 
     return(
-      {button}
+      <div>
+      <h1>Hi</h1>
+      </div>
     )
   }
 }
