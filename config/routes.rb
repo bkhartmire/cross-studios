@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :studios
     resources :users
     resources :user_dance_classes
+    resources :favorites
     post '/login' => "sessions#create"
     delete '/logout' => "sessions#destroy"
     get '/profile' => "users#profile"

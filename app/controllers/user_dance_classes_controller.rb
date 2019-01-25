@@ -1,5 +1,3 @@
-require 'pry'
-
 class UserDanceClassesController < ApplicationController
 
   def create
