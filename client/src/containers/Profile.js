@@ -3,7 +3,6 @@ import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
 
-//Is this a container or a component??
 class Profile extends Component {
   constructor() {
     super()
@@ -54,10 +53,13 @@ class Profile extends Component {
 
     return(
       <div className="userProfile">
-        <h4>Logged In as {user.firstname} {user.lastname}</h4>
+        <div className="sidebar">
+          <h4>Logged In as {user.firstname} {user.lastname}</h4>
+          <h1>Your Favorite Instructors:</h1>
+          {user.favorites.map((fave) => <Instructor key={fave.instructor_id} instructor={fave.instructor}/>)}
+        </div>
+
         <div className="schedule">
-        <h1>Your Favorite Instructors:</h1>
-        {user.favorites.map((fave) => <Instructor key={fave.instructor_id} instructor={fave.instructor}/>)}
         <h1>Your Schedule</h1>
 
         <h2>Monday</h2>

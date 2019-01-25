@@ -42,3 +42,14 @@ a:hover {
 .heart {
   font-size: 200%;
 }
+
+.schedule {
+  left: 0px;
+  width: 70%;
+}
+
+.sidebar {
+  position: fixed;
+  right: 30px;
+
+}
