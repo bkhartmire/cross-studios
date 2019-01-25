@@ -59,6 +59,7 @@ export const fetchUserFavorites = () => {
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => res.json())
+    .then(favorites => console.log(favorites))
     .then(favorites => dispatch({type:'FETCH_USER_FAVORITES', payload: favorites}))
   }
 }
