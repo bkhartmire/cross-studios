@@ -7,27 +7,17 @@ import DanceClass from '../components/DanceClass'
 import Auth from '../modules/Auth'
 
 class DanceClassList extends Component {
-  constructor() {
-    super()
-    this.state = {
-      userDanceClasses: [],
-    }
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     userDanceClasses: [],
+  //   }
+  // }
   componentDidMount(){
     this.props.fetchDanceClasses()
+    this.props.fetchUserDanceClasses()
     //refactor to action
-    fetch('/api/profile', {
-      method: 'GET',
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-      }
-    }).then(res => res.json())
-    .then(res => {
-       this.setState({
-          userDanceClasses: res.dance_classes,
-        })
-      }).catch(err => console.log(err))
+
 
   }
   render(){
@@ -57,11 +47,13 @@ class DanceClassList extends Component {
 
 const mapStateToProps = state => {
   return {
-    danceClasses: state.danceClasses.all
+    danceClasses: state.danceClasses.all,
+    userDanceClasses: state.danceClasses.userDanceClasses
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchDanceClasses
+  fetchDanceClasses,
+  fetchUserDanceClasses
 }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(DanceClassList)

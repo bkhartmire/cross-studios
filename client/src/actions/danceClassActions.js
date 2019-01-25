@@ -11,7 +11,24 @@ export const fetchDanceClasses = () => {
 }
 
 export const fetchUserDanceClasses = () => {
-  
+  return (dispatch) => {
+    dispatch({type: 'LOADING_USER_DANCE_CLASSES'})
+    fetch('/api/profile', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).then(res => res.json())
+    .then(user_profile_info => dispatch({type: 'FETCH_USER_DANCE_CLASSES', payload: user_profile_info.dance_classes}))
+    // debugger
+    // .then(res => {
+    //    this.setState({
+    //       userDanceClasses: res.dance_classes,
+    //     })
+    //   })
+  }
+
 }
 
 export const addToUserSchedule = (e, danceClassId) => {
