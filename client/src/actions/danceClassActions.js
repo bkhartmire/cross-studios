@@ -10,6 +10,10 @@ export const fetchDanceClasses = () => {
   }
 }
 
+export const fetchUserDanceClasses = () => {
+  
+}
+
 export const addToUserSchedule = (e, danceClassId) => {
   fetch('/api/user_dance_classes', {
     method: 'POST',
