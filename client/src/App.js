@@ -41,8 +41,6 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <div className="nav">
-            <Link to='/login'>Login</Link><span> | </span>
-            <Link to='/signup'>Signup</Link><span> | </span>
             <Link to='/'>Home</Link><span> | </span>
             <Link to='/dance_classes'>All Dance Classes</Link><span> | </span>
             <Link to='/all_instructors'>All Instructors</Link><span> | </span>
