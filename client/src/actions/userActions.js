@@ -50,7 +50,23 @@ export const signupUser = (formData) => {
 }
 
 export const fetchUser = () => {
-  
+  return (dispatch) => {
+    fetch('/api/profile', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }).then(res => res.json())
+    .then(user => {
+      dispatch({
+        type: 'FETCH_USER',
+        payload: user
+      })
+    }).catch(err => console.log(err))
+  }
 }
 
 export const fetchUserFavorites = () => {
