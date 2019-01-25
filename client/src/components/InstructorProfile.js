@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorsActions'
 import DanceClass from './DanceClass'
 
-class Instructor extends Component {
+class InstructorProfile extends Component {
   componentDidMount() {
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
@@ -52,4 +52,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchInstructor
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Instructor)
+export default connect(mapStateToProps, mapDispatchToProps)(InstructorProfile)
