@@ -1,36 +1,41 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
 import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
 import { fetchUser } from '../actions/userActions'
 
 class Profile extends Component {
-  constructor() {
-    super()
-    this.state = {
-      userDanceClasses: [],
-      firstname: '',
-      lastname: '',
-    }
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     userDanceClasses: [],
+  //     firstname: '',
+  //     lastname: '',
+  //   }
+  // }
 
   componentDidMount() {
-    fetch('/api/profile', {
-      method: 'GET',
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-      }
-    }).then(res => res.json())
-    .then(res => {
-       this.setState({
-          userDanceClasses: res.dance_classes,
-          firstname: res.firstname,
-          lastname: res.lastname,
-        })
-      }).catch(err => console.log(err))
+    this.props.fetchUser()
+    // fetch('/api/profile', {
+    //   method: 'GET',
+    //   headers: {
+    //     token: Auth.getToken(),
+    //     'Authorization': `Token ${Auth.getToken()}`,
+    //   }
+    // }).then(res => res.json())
+    // .then(res => {
+    //    this.setState({
+    //       userDanceClasses: res.dance_classes,
+    //       firstname: res.firstname,
+    //       lastname: res.lastname,
+    //     })
+    //   }).catch(err => console.log(err))
   }
   render(){
-    const user = this.state
+    const {user} = this.props
+    
     const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
     const hasMondayClasses = mondayClasses.length > 0
     const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
@@ -110,4 +115,14 @@ class Profile extends Component {
   }
 }
 
-export default Profile
+const mapStateToProps = state => {
+  return {
+    user: state.user.current
+  }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
