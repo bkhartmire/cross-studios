@@ -31,24 +31,6 @@ export const favoriteInstructor = (instructorId) => {
     },
     body: JSON.stringify({instructor_id: instructorId}),
   }).then(res => res.clone().json())
-    .then(favorite => console.log(favorite))
-  // return (dispatch) => {
-  //   fetch('/api/favorites', {
-  //     method: 'POST',
-  //     headers: {
-  //       token: Auth.getToken(),
-  //       'Authorization': `Token ${Auth.getToken()}`,
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json',
-  //     },
-  //     body: JSON.stringify({instructor_id: instructorId}),
-  //   })
-  //   .then(res => res.clone().json())
-  //   .then(favorite => dispatch({
-  //     type: 'CREATE_FAVORITE',
-  //     payload: favorite
-  //   }))
-  //   .catch(err => console.log(err))
-     document.location.reload()
-  //}
+  .catch(err => console.log(err))
+  document.location.reload()
 }
