@@ -7,7 +7,8 @@ import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
 import { handleLogout } from './actions/userActions'
 import Home from './components/Home'
 import DanceClassList from './containers/DanceClassList'
-import Instructor from './components/Instructor'
+import InstructorList from './containers/InstructorList'
+import InstructorProfile from './components/InstructorProfile'
 import Login from './containers/Login'
 import Signup from './containers/Signup'
 import Profile from './containers/Profile'
@@ -46,12 +47,14 @@ class App extends Component {
             <Link to='/signup'>Signup</Link><span> | </span>
             <Link to='/'>Home</Link><span> | </span>
             <Link to='/dance_classes'>All Dance Classes</Link><span> | </span>
+            <Link to='/instructors'>All Instructors</Link><span> | </span>
             <Link to='/profile'>Profile</Link><span> | </span>
             <a href="#" onClick={this.handleLogout}>Logout</a>
           </div>
           <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>
-          <Route path='/instructors/:id' render={ () => (this.state.auth) ? <Instructor/> :  <Redirect to='/login'/>}/>
+          <Route path='/instructors' render ={ () => (this.state.auth) ? <InstructorList/> :  <Redirect to='/login'/>}/>
+          <Route path='/instructors/:id' render={ () => (this.state.auth) ? <InstructorProfile/> :  <Redirect to='/login'/>}/>
           <Route path='/signup' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Signup/> }/>
           <Route path='/login' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Login/> }/>
           <Route path='/profile' render={ () => (this.state.auth) ? <Profile/> : <Redirect to='/login'/>}/>
