@@ -46,9 +46,9 @@ class InstructorProfile extends Component {
     const userFavoritesMatch = userFavorites.find(favorite => favorite.instructor_id === instructor.id)
     let heart
     if (userFavoritesMatch) {
-      heart = <a className="heart" onClick={e => this.handleUnfavorite(e, instructor.id)}>&hearts;</a>
+      heart = <a className="heart" onClick={e => this.handleUnfavorite(e, instructor.id)} style={{color: 'red'}}>&hearts;</a>
     } else {
-      heart = <a className="heart" onClick={e => this.handleFavorite(e, instructor.id)}>&hearts;</a>
+      heart = <a className="heart" onClick={e => this.handleFavorite(e, instructor.id)} style={{color: '#c2c4c6'}}>&hearts;</a>
     }
 
 
