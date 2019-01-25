@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { favoriteInstructor } from '../actions/instructorActions'
+import { favoriteInstructor, unfavoriteInstructor } from '../actions/instructorActions'
 
 class FavoriteHeart extends Component {
 
@@ -10,7 +10,9 @@ class FavoriteHeart extends Component {
 
   handleUnfavorite(e, instructor_id) {
     e.preventDefault()
+    unfavoriteInstructor(instructor_id)
   }
+  
   render() {
     const {instructor, userFavorites} = this.props
 

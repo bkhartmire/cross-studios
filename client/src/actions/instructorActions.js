@@ -34,3 +34,7 @@ export const favoriteInstructor = (instructorId) => {
   .catch(err => console.log(err))
   document.location.reload()
 }
+
+export const unfavoriteInstructor = (instructorId) => {
+  
+}
