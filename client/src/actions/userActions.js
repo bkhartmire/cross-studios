@@ -49,6 +49,10 @@ export const signupUser = (formData) => {
   }
 }
 
+export const fetchUser = () => {
+  
+}
+
 export const fetchUserFavorites = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING_USER_FAVORITES'})

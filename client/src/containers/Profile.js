@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
+import { fetchUser } from '../actions/userActions'
 
-//Is this a container or a component??
 class Profile extends Component {
   constructor() {
     super()
