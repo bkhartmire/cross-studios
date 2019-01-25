@@ -21,22 +21,34 @@ export const fetchInstructors = () => {
 }
 
 export const favoriteInstructor = (instructorId) => {
-  return (dispatch) => {
-    fetch('/api/favorites', {
-      method: 'POST',
-      body: JSON.stringify({instructor_id: instructorId}),
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-        'Content-Type': 'application/json',
-      },
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .then(favorite => dispatch({
-      type: 'CREATE_FAVORITE',
-      payload: favorite
-    }))
-    document.location.reload()
-  }
+  fetch('/api/favorites', {
+    method: 'POST',
+    headers: {
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({instructor_id: instructorId}),
+  }).then(res => res.clone().json())
+    .then(favorite => console.log(favorite))
+  // return (dispatch) => {
+  //   fetch('/api/favorites', {
+  //     method: 'POST',
+  //     headers: {
+  //       token: Auth.getToken(),
+  //       'Authorization': `Token ${Auth.getToken()}`,
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //     },
+  //     body: JSON.stringify({instructor_id: instructorId}),
+  //   })
+  //   .then(res => res.clone().json())
+  //   .then(favorite => dispatch({
+  //     type: 'CREATE_FAVORITE',
+  //     payload: favorite
+  //   }))
+  //   .catch(err => console.log(err))
+     document.location.reload()
+  //}
 }

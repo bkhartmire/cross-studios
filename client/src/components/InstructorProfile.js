@@ -22,7 +22,7 @@ class InstructorProfile extends Component {
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
         return(
-          <span>
+          <span className={`dance_class_${dance_class.id}`}>
             <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
             <Button key={dance_class.id} danceClass={dance_class} userDanceClasses={userDanceClasses}/>
           </span>

@@ -1,3 +1,4 @@
+require 'pry'
 class FavoritesController < ApplicationController
 
 
@@ -9,13 +10,16 @@ class FavoritesController < ApplicationController
 
   def create
     user = User.find_by_auth_token!(request.headers[:token])
+    user_id = user.id
     instructor = Instructor.find_by(id: params[:instructor_id])
-    @favorite = Favorite.find_by(user_id: user.id, instructor_id: params[:instructor_id])
-    if !@favorite
-      Favorite.create(user_id: user.id, instructor_id: params[:instructor_id])
+
+    if instructor.favorites.none?{|fave| fave.user_id == user_id}
       instructor.favorited_count += 1
       instructor.save
     end
+    
+    @favorite = Favorite.find_or_create_by(user_id: user_id, instructor_id: params[:instructor_id])
+
     render json: @favorite
   end
 
