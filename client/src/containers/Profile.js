@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
+import Instructor from '../components/Instructor'
 
 //Is this a container or a component??
 class Profile extends Component {
@@ -22,7 +23,6 @@ class Profile extends Component {
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => res.json())
-    .then(res => console.log(res))
     .then(res => {
        this.setState({
           userDanceClasses: res.dance_classes,
@@ -56,6 +56,8 @@ class Profile extends Component {
       <div className="userProfile">
         <h4>Logged In as {user.firstname} {user.lastname}</h4>
         <div className="schedule">
+        <h1>Your Favorite Instructors:</h1>
+        {user.favorites.map((fave) => <Instructor key={fave.instructor_id} instructor={fave.instructor}/>)}
         <h1>Your Schedule</h1>
 
         <h2>Monday</h2>
