@@ -4,7 +4,7 @@ Users maintain an array of favorited instructors.
 
 
 To Do List:
--list all Instructors
+
 -alert if user tries to add class that conflicts with schedule
 -refactor userdanceclass fetch request into action
 -add favorites join table for user_id and instructor_id

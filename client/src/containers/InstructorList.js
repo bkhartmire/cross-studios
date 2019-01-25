@@ -8,7 +8,6 @@ import Instructor from '../components/Instructor'
 class InstructorList extends Component {
 
   componentDidMount(){
-    debugger
     this.props.fetchInstructors()
   }
 
