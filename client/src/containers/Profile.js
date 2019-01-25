@@ -10,9 +10,12 @@ class Profile extends Component {
 
   componentDidMount() {
     this.props.fetchUser()
+    debugger
   }
 
-
+  componentDidUpdate() {
+    debugger
+  }
   render(){
     const { user } = this.props
 
@@ -31,20 +34,20 @@ class Profile extends Component {
     let sundayClasses
     let hasSundayClasses
 
-    if (user.userDanceClasses) {
-      mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
+    if (user && user.danceClasses) {
+      mondayClasses = user.danceClasses.filter(danceClass => danceClass.day === "MONDAY")
       hasMondayClasses = mondayClasses.length > 0
-      tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
+      tuesdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "TUESDAY")
       hasTuesdayClasses = tuesdayClasses.length > 0
-      wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
+      wednesdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
       hasWednesdayClasses = wednesdayClasses.length > 0
-      thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
+      thursdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "THURSDAY")
       hasThursdayClasses = thursdayClasses.length > 0
-      fridayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY")
+      fridayClasses = user.danceClasses.filter(danceClass => danceClass.day === "FRIDAY")
       hasFridayClasses = fridayClasses.length > 0
-      saturdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY")
+      saturdayClasses = user.danceClasses.filter(danceClass => danceClass.day === "SATURDAY")
       hasSaturdayClasses = saturdayClasses.length > 0
-      sundayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY")
+      sundayClasses = user.danceClasses.filter(danceClass => danceClass.day === "SUNDAY")
       hasSundayClasses = sundayClasses.length > 0
     }
 
@@ -61,49 +64,49 @@ class Profile extends Component {
         <h2>Monday</h2>
         {hasMondayClasses ? (
           mondayClasses.map((danceClass) =>
-            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Tuesday</h2>
         {hasTuesdayClasses? (
           tuesdayClasses.map((danceClass) =>
-            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+            <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
         )
       ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Wednesday</h2>
           {hasWednesdayClasses? (
             wednesdayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Thursday</h2>
           {hasThursdayClasses? (
             thursdayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Friday</h2>
           {hasFridayClasses? (
             fridayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Saturday</h2>
           {hasSaturdayClasses? (
             saturdayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
         <h2>Sunday</h2>
           {hasSundayClasses? (
             sundayClasses.map((danceClass) =>
-              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
+              <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.danceClasses}/>
           )
         ) : (<h5>{nothingMessage}</h5>)}
 
