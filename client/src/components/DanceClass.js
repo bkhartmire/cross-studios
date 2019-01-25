@@ -18,9 +18,9 @@ class DanceClass extends Component {
 
     return(
       <div className="dance_class_listing">
-        <h3>{instructor_name}: {this.props.danceClass.name}</h3>
-        <h4>{this.props.danceClass.start_time}-{this.props.danceClass.end_time}</h4>
-        <h4>{this.props.danceClass.studio.name}</h4>
+        <h3>{instructor_name}: {danceClass.name}</h3>
+        <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
+        <h4>{danceClass.studio.name}</h4>
         <Button key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>
         <br></br>
       </div>
