@@ -37,7 +37,7 @@ class InstructorProfile extends Component {
       <div className="instructorProfile">
         <h1>{instructor.name}</h1>
         <span>
-          <a href="" className="heart" onClick={e => this.handleClick(e)}>&hearts;</a>   {instructor.favorited_count} favorited
+          <a className="heart" onClick={e => this.handleClick(e)}>&hearts;</a>   {instructor.favorited_count} favorited
         </span>
         <br></br><br></br>
 
