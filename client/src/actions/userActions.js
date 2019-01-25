@@ -52,5 +52,13 @@ export const signupUser = (formData) => {
 export const fetchUserFavorites = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING_USER_FAVORITES'})
+    fetch('/api/favorites', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).then(res => res.json())
+    .then(user_info => console.log(user_info))
   }
 }
