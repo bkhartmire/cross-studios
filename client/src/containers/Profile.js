@@ -22,6 +22,7 @@ class Profile extends Component {
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => res.json())
+    .then(res => console.log(res))
     .then(res => {
        this.setState({
           userDanceClasses: res.dance_classes,
