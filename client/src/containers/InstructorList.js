@@ -8,6 +8,7 @@ import Instructor from '../components/Instructor'
 class InstructorList extends Component {
 
   componentDidMount(){
+    debugger
     this.props.fetchInstructors()
   }
 
@@ -26,7 +27,7 @@ class InstructorList extends Component {
 
 const mapStateToProps = state => {
   return {
-    instructors: state.instructors.instructor_data
+    instructors: state.instructors.all_instructors
   }
 }
 

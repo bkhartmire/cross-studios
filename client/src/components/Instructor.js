@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Instructor = ({instructor}) =>
   <div className="instructor">
-    <a href={`/instructors/${instructor.id}`}><h3>{instructor.name}</h3></a>
+    <Link to={`/instructors/${instructor.id}`}><h3>{instructor.name}</h3></Link>
   </div>
 
 export default Instructor

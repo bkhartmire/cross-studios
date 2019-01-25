@@ -10,10 +10,10 @@ export const fetchInstructor = (instructor_id) => {
 
 export const fetchInstructors = () => {
   return (dispatch) => {
-    dispatch({type: 'LOADING_INSTRUCTORS'})
+    dispatch({type: 'LOADING_ALL_INSTRUCTORS'})
     return fetch('/api/instructors', {
       accept: 'application/json',
     }).then(resp => resp.clone().json())
-    .then(instructors => dispatch({type: 'FETCH_INSTRUCTORS', payload: instructors}))
+    .then(instructors => dispatch({type: 'FETCH_ALL_INSTRUCTORS', payload: instructors}))
   }
 }
