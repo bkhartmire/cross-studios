@@ -5,22 +5,22 @@ import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClass
 
 
 class DanceClass extends Component {
-
   handleClick(e, id) {
     e.preventDefault();
     (e.target.innerHTML === 'Add Class to Schedule') ? (addToUserSchedule(e, id)) : (removeFromUserSchedule(e, id));
   }
 
   render() {
+    const {danceClass, userDanceClasses} = this.props
     //this conditional only adds instructor link to dance classes with a known instructor
     let instructor_name
-    if (this.props.danceClass.instructor.name === "TBA") {
-      instructor_name = this.props.danceClass.instructor.name
+    if (danceClass.instructor.name === "TBA") {
+      instructor_name = danceClass.instructor.name
     } else {
-      instructor_name = <Link to={`/instructors/${this.props.danceClass.instructor_id}`}>{this.props.danceClass.instructor.name}</Link>
+      instructor_name = <Link to={`/instructors/${danceClass.instructor_id}`}>{danceClass.instructor.name}</Link>
     }
     //this conditional determines whether the current user has already added this danceclass to their schedule and defines the add/delete button accordingly
-    const userDanceClassMatch = this.props.userDanceClasses.find(userDanceClass => userDanceClass.id === this.props.danceClass.id)
+    const userDanceClassMatch = userDanceClasses.find(userDanceClass => userDanceClass.id === danceClass.id)
     let button
     if (userDanceClassMatch) {
       button = <button onClick={e => this.handleClick(e, userDanceClassMatch.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
