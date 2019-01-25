@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { fetchDanceClasses, fetchUserDanceClasses } from '../actions/danceClassActions'
 import DanceClass from '../components/DanceClass'
-import Auth from '../modules/Auth'
+// import Auth from '../modules/Auth'
 
 class DanceClassList extends Component {
 

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-//import routes from './routes'
 import Auth from './modules/Auth'
-//import React from 'react'
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
 import { handleLogout } from './actions/userActions'
 import Home from './components/Home'

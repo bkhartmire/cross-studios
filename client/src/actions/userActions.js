@@ -1,6 +1,4 @@
 import Auth from '../modules/Auth'
-import React from 'react'
-import { Redirect } from 'react-router-dom'
 
 export const loginUser = (user) => {
   return dispatch => {
