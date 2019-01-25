@@ -9,7 +9,6 @@ class FavoriteHeart extends Component {
   }
 
   handleUnfavorite(e, favoriteId, instructorId) {
-    debugger
     e.preventDefault()
     unfavoriteInstructor(favoriteId, instructorId)
   }

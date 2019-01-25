@@ -36,7 +36,6 @@ export const favoriteInstructor = (instructorId) => {
 }
 
 export const unfavoriteInstructor = (favoriteId, instructorID) => {
-  debugger
   fetch(`/api/favorites/${favoriteId}`, {
     method: 'DELETE',
     headers: {
@@ -49,5 +48,7 @@ export const unfavoriteInstructor = (favoriteId, instructorID) => {
       favorite_id: favoriteId,
       instructor_id: instructorID
     }),
-  })
+  }).then(res => res.clone().json())
+  .catch(err => console.log(err))
+  document.location.reload()
 }
