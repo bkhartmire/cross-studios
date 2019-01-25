@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../modules/Auth'
+import Button from './Button'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
 
@@ -25,15 +26,15 @@ class DanceClass extends Component {
     if (userDanceClassMatch) {
       button = <button onClick={e => this.handleClick(e, userDanceClassMatch.id)} style={{backgroundColor: 'gray'}}>Remove from Schedule</button>
     } else {
-        button = <button onClick={e => this.handleClick(e, this.props.danceClass.id)} >Add Class to Schedule</button>
+        button = <button onClick={e => this.handleClick(e, danceClass.id)} >Add Class to Schedule</button>
     }
 
     return(
       <div className="dance_class_listing">
-        <h3>{instructor_name}: {this.props.danceClass.name}</h3>
-        <h4>{this.props.danceClass.start_time}-{this.props.danceClass.end_time}</h4>
-        <h4>{this.props.danceClass.studio.name}</h4>
-        {button}
+        <h3>{instructor_name}: {danceClass.name}</h3>
+        <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
+        <h4>{danceClass.studio.name}</h4>
+        <Button key={danceClass.id} userDanceClasses={userDanceClasses} danceClass={danceClass}/>
         <br></br>
       </div>
     )
