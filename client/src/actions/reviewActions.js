@@ -24,7 +24,7 @@ export const createReview = (review, instructorId) => {
 export const deleteReview = (reviewId, instructorId) => {
   debugger
   return dispatch => {
-    fetch(`/api/instructors/${instructorId}/reviews/${reviewId}` {
+    fetch(`/api/instructors/${instructorId}/reviews/${reviewId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

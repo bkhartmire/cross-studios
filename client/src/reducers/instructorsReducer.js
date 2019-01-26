@@ -18,6 +18,10 @@ export default function instructorsReducer(
         let instructor = [ state.instructor_data ]
         instructor[0].reviews.push(action.payload)
         return {...state, instructor}
+      case 'DELETE_REVIEW':
+        instructor = [ state.instructor_data ]
+        instructor.reviews.filter(review => review.id !== action.payload.id)
+        return {...state, instructor}
       default:
         return state
     }
