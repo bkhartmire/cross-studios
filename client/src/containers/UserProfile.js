@@ -58,7 +58,7 @@ class UserProfile extends Component {
         <div className="sidebar">
           <h4>Logged In as {user.firstname} {user.lastname}</h4>
           <h1>Your Favorite Instructors:</h1>
-          {user.favorites.map((fave) => <Instructor key={fave.instructor_id} instructor={fave.instructor}/>)}
+          {user.favorites.map((fave) => <Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/>)}
         </div>
 
         <div className="schedule">

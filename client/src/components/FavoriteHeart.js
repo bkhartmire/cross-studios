@@ -24,7 +24,7 @@ class FavoriteHeart extends Component {
       heart = <a className="heart" onClick={e => this.handleFavorite(e, instructor.id)} style={{color: '#c2c4c6'}}>&hearts;</a>
     }
     return(
-      <h4>{heart}</h4>
+      <span>  {heart}</span>
     )
   }
 }
