@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
 
   def destroy
     review = Review.find(params[:id])
-    binding.pry
     review.destroy
     render json: review
   end

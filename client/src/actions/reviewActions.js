@@ -21,21 +21,16 @@ export const createReview = (review, instructorId) => {
   }
 }
 
-export const deleteReview = (reviewId, instructorId) => {
-  debugger
-  return dispatch => {
-    fetch(`/api/instructors/${instructorId}/reviews/${reviewId}`, {
-      method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    }).then(resp => resp.json())
-    .then(review => dispatch({
-      type: 'DELETE_REVIEW',
-      payload: review
-    }))
-    .catch(err => err)
-    document.location.reload()
-  }
+export const deleteReview = (id, instructorId) => {
+  fetch(`/api/instructors/${instructorId}/reviews/${id}`, {
+    method: 'DELETE',
+    headers: {
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+  }).then(resp => resp.json())
+  .catch(err => err)
+  document.location.reload()
 }
