@@ -21,5 +21,7 @@ export const createReview = (review, instructorId) => {
 }
 
 export const deleteReview = (reviewId, instructorId) => {
-
+  return dispatch => {
+    fetch(`/api/`)
+  }
 }

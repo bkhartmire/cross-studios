@@ -37,8 +37,8 @@ class UserProfile extends Component {
       }).catch(err => console.log(err))
   }
 
-  handleDeleteClick = (id) => {
-    debugger
+  handleDeleteClick = (reviewId, instructorId) => {
+    deleteReview(reviewId, instructorId)
   }
 
   render(){
@@ -73,7 +73,7 @@ class UserProfile extends Component {
               {user.reviews.map((review) =>
                 <li className="userReview float-left">
                   <h3 className="inline-block">{review.instructor.name}: {review.text}</h3>
-                  <button  onClick={e => this.handleDeleteClick(review.id)}>Delete Review</button>
+                  <button  onClick={e => this.handleDeleteClick(review.id, review.instructor.id)}>Delete Review</button>
                 </li>
               )}
             </ul>
