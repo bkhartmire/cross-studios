@@ -9,8 +9,8 @@ class UsersController < ApiController
    end
 
    def profile
-     @user = User.find_by_auth_token!(request.headers[:token])
-     render json: @user, include: [favorites: {include: :instructor}, dance_classes: {include: [:studio, :instructor]}]
+     user = User.find_by_auth_token!(request.headers[:token])
+     render json: user, include: [favorites: {include: :instructor}, dance_classes: {include: [:studio, :instructor]}]
    end
 
 

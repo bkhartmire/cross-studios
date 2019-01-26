@@ -52,5 +52,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   loginUser
 }, dispatch)
 
-//what is this withRouter?
 export default withRouter(connect(null, mapDispatchToProps)(Login))

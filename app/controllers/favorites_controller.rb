@@ -4,8 +4,8 @@ class FavoritesController < ApplicationController
 
   def index
     user = User.find_by_auth_token!(request.headers[:token])
-    @favorites = Favorite.all.select{|favorite| favorite.user_id == user.id}
-    render json: @favorites
+    favorites = Favorite.all.select{|favorite| favorite.user_id == user.id}
+    render json: favorites
   end
 
   def create
@@ -18,9 +18,9 @@ class FavoritesController < ApplicationController
       instructor.save
     end
 
-    @favorite = Favorite.find_or_create_by(user_id: user_id, instructor_id: params[:instructor_id])
+    favorite = Favorite.find_or_create_by(user_id: user_id, instructor_id: params[:instructor_id])
 
-    render json: @favorite
+    render json: favorite
   end
 
   def destroy
@@ -29,9 +29,9 @@ class FavoritesController < ApplicationController
     instructor = Instructor.find_by(id: params[:instructor_id])
     instructor.favorited_count -= 1
     instructor.save
-    @favorite = Favorite.find_by(id: params[:favorite_id])
-    @favorite.destroy
-    render json: @favorite
+    favorite = Favorite.find_by(id: params[:favorite_id])
+    favorite.destroy
+    render json: favorite
   end
 
 end
