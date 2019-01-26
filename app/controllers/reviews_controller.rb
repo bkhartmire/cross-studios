@@ -3,7 +3,9 @@ class ReviewsController < ApplicationController
   def create
     user = User.find_by_auth_token!(request.headers[:token])
     instructor = Instructor.find_by(id: params[:instructor_id])
-    Review.find_or_create_by(user_id: user.id, instructor_id: instructor.id, text: params[:review])
+    review = Review.find_or_create_by(user_id: user.id, instructor_id: instructor.id)
+    review.text = params[:review]
+    review.save
 
     render json: review
   end

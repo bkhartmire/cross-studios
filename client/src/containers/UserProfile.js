@@ -65,18 +65,23 @@ class UserProfile extends Component {
       <div className="userProfile">
         <div className="sidebar">
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
-          <h1 className="float-left">Your Favorite Instructors:</h1>
-          {user.favorites.map((fave) => <span key={fave.id} className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)}
-          <div className="userReviews">
-            <h1 className="float-left">Your Reviews:</h1>
+          <div>
+            <h1 className="float-left">Your Favorite Instructors:</h1>
+            {user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)}
+          </div>
+          <div className="float-left">
+            <h1 className="userReviews float-left">Your Reviews:</h1>
             <ul className="userReviews">
               {user.reviews.map((review) =>
-                <li key={review.id} className="userReview float-left">
-                  <h3 className="inline-block">{review.instructor.name}: {review.text}</h3>
-                  <button  onClick={e => this.handleDeleteClick(review.id, review.instructor.id)}>Delete Review</button>
-                </li>
+                <div key={review.id}>
+                  <li className="userReview float-left">
+                    <h3>{review.instructor.name}: {review.text}</h3>
+                    <button onClick={e => this.handleDeleteClick(review.id, review.instructor.id)}>Delete Review</button>
+                  </li>
+                </div>
               )}
             </ul>
+
           </div>
 
         </div>
