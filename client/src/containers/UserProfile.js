@@ -3,7 +3,7 @@ import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
 
-class Profile extends Component {
+class UserProfile extends Component {
   constructor() {
     super()
     this.state = {
@@ -117,4 +117,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile
+export default UserProfile

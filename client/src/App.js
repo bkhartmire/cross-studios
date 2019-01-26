@@ -9,7 +9,7 @@ import InstructorList from './containers/InstructorList'
 import InstructorProfile from './containers/InstructorProfile'
 import Login from './containers/Login'
 import Signup from './containers/Signup'
-import Profile from './containers/Profile'
+import UserProfile from './containers/UserProfile'
 
 class App extends Component {
   constructor() {
@@ -53,7 +53,7 @@ class App extends Component {
           <Route path='/all_instructors' render ={ () => (this.state.auth) ? <InstructorList/> :  <Redirect to='/login'/>}/>
           <Route path='/signup' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Signup/> }/>
           <Route path='/login' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Login/> }/>
-          <Route path='/profile' render={ () => (this.state.auth) ? <Profile/> : <Redirect to='/login'/>}/>
+          <Route path='/profile' render={ () => (this.state.auth) ? <UserProfile/> : <Redirect to='/login'/>}/>
         </div>
 
       </BrowserRouter>
