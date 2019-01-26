@@ -23,13 +23,14 @@ class InstructorProfile extends Component {
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
         return(
-          <span className={`dance_class_${dance_class.id}`}>
+          <span key={dance_class.id} >
             <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
             <ScheduleButton key={dance_class.id} danceClass={dance_class} userDanceClasses={userDanceClasses}/>
           </span>
         )
       })
     }
+
 
     return(
       <div className="instructorProfile">
@@ -42,10 +43,11 @@ class InstructorProfile extends Component {
         {listDanceClasses}
 
         <br></br>
+        <ReviewsContainer instructorId={instructor.id} reviews={instructor.reviews}/>
 
         <iframe width="560" height="315" src={instructor.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        <br></br><br></br><br></br>
-        <ReviewsContainer instructorId={instructor.id} reviews={instructor.reviews}/>
+
+
       </div>
     )
   }

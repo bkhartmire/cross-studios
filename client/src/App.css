@@ -87,11 +87,15 @@ div.danceClassList {
 }
 
 div.userReviews {
-  padding-top: 10px;
+  padding-top: 30px;
+  float: left;
+  display: block;
+
 }
 
 h1.userReviews {
   float: left;
+
   padding-bottom: 10px;
 }
 

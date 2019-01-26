@@ -67,8 +67,8 @@ class UserProfile extends Component {
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <h1 className="float-left">Your Favorite Instructors:</h1>
           {user.favorites.map((fave) => <span key={fave.id} className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)}
-          <div className="float-left">
-            <h1 className="userReviews">Your Reviews:</h1>
+          <div className="userReviews">
+            <h1 className="float-left">Your Reviews:</h1>
             <ul className="userReviews">
               {user.reviews.map((review) =>
                 <li key={review.id} className="userReview float-left">
