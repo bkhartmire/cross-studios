@@ -13,6 +13,7 @@ class UserProfile extends Component {
       lastname: '',
       favorites: [],
       reviews: [],
+      id: 0
     }
   }
 
@@ -31,6 +32,7 @@ class UserProfile extends Component {
           lastname: res.lastname,
           favorites: res.favorites,
           reviews: res.reviews,
+          id: res.id,
         })
       }).catch(err => console.log(err))
   }

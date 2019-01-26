@@ -20,6 +20,6 @@ export const createReview = (review, instructorId) => {
   }
 }
 
-export const deleteReview = (id) => {
+export const deleteReview = (reviewId, instructorId) => {
 
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReviewForm from '../components/ReviewForm'
 import ReviewsList from '../components/ReviewsList'
-import { connect } from 'react-redux'
 
 class ReviewsContainer extends Component {
   render() {
