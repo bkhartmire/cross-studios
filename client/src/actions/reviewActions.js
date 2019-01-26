@@ -16,6 +16,6 @@ export const createReview = (review, instructorId) => {
       type: 'CREATE_REVIEW',
       payload: review
     }))
+    document.location.reload()
   }
-  document.location.reload()
 }
