@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { createReview } from '../actions/reviewActions' 
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { createReview } from '../actions/reviewActions'
 
 class ReviewForm extends Component {
   constructor(){
@@ -7,27 +10,28 @@ class ReviewForm extends Component {
     this.state = {
       text: '',
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleOnChange = e => {
+  handleChange = e => {
     this.setState({ text: event.target.value})
   }
 
-  handleOnSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault()
-    //add review action that will fetch post request. pass in this.state.text & this.props.instructor id. Userid will be determined by headers and id determined in controller
     this.props.addReview({text: this.state.text, instructorId: this.props.isntructorId})
     this.setState({text: '',})
   }
   render() {
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit} >
+        <form onSubmit={this.handleSubmit} >
           <label>New Review:</label>
           <input
             type="text"
             value={this.state.text}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <input type="submit"/>
         </form>
