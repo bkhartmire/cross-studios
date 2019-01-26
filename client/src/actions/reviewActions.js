@@ -1,8 +1,7 @@
 import Auth from '../modules/Auth'
 
 export const createReview = (review, instructorId) => {
-  debugger
-  return dispatch => {
+    return dispatch => {
     fetch(`/api/instructors/${instructorId}/reviews`, {
       method: 'POST',
       body: JSON.stringify({ review: review }),
