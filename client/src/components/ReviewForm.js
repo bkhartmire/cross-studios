@@ -14,13 +14,13 @@ class ReviewForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange = e => {
-    this.setState({ text: event.target.value})
+  handleChange = (e) => {
+    this.setState({ text: e.target.value})
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addReview({text: this.state.text, instructorId: this.props.isntructorId})
+    this.props.createReview({text: this.state.text, instructorId: this.props.isntructorId})
     this.setState({text: '',})
   }
   render() {
