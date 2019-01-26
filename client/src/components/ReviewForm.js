@@ -9,7 +9,7 @@ class ReviewForm extends Component {
   }
 
   handleOnChange = e => {
-    e.preventDefault()
+    this.setState({ text: event.target.value})
   }
 
   handleOnSubmit = e => {

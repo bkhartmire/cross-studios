@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_030517) do
+ActiveRecord::Schema.define(version: 2019_01_26_164352) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 2019_01_25_030517) do
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "instructor_id"
+    t.string "text"
   end
 
   create_table "studios", force: :cascade do |t|
