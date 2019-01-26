@@ -12,6 +12,10 @@ export const createReview = (review, instructorId) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
-    })
+    }).then(resp => resp.json())
+    .then(review => dispatch({
+      type: 'CREATE_REVIEW',
+      payload: review
+    }))
   }
 }
