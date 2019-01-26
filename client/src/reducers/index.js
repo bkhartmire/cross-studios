@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
   studios: studiosReducer,
   user: userReducer,
   instructors: instructorsReducer,
-  reviews: reviewsReducer,
 })
 
 export default rootReducer
