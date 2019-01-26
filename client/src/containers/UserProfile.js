@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
+import { deleteReview } from '../actions/reviewActions'
 
 class UserProfile extends Component {
   constructor() {
@@ -33,6 +34,11 @@ class UserProfile extends Component {
         })
       }).catch(err => console.log(err))
   }
+
+  handleDeleteClick = (id) => {
+    debugger
+  }
+
   render(){
     const user = this.state
     const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
@@ -62,7 +68,12 @@ class UserProfile extends Component {
           <div className="float-left">
             <h1 className="userReviews">Your Reviews:</h1>
             <ul className="userReviews">
-              {user.reviews.map((review) => <li className="userReview float-left"><h3>{review.instructor.name}: {review.text}</h3></li>)}
+              {user.reviews.map((review) =>
+                <li className="userReview float-left">
+                  <h3 className="inline-block">{review.instructor.name}: {review.text}</h3>
+                  <button  onClick={e => this.handleDeleteClick(review.id)}>Delete Review</button>
+                </li>
+              )}
             </ul>
           </div>
 

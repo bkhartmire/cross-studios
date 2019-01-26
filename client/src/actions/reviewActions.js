@@ -19,3 +19,7 @@ export const createReview = (review, instructorId) => {
     document.location.reload()
   }
 }
+
+export const deleteReview = (id) => {
+
+}
