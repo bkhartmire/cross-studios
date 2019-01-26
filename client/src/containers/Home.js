@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import StudioList from '../containers/StudioList'
+import StudioList from './StudioList'
 
 class Home extends Component {
   render(){

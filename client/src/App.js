@@ -3,7 +3,7 @@ import './App.css';
 import Auth from './modules/Auth'
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
 import { handleLogout } from './actions/userActions'
-import Home from './components/Home'
+import Home from './containers/Home'
 import DanceClassList from './containers/DanceClassList'
 import InstructorList from './containers/InstructorList'
 import InstructorProfile from './containers/InstructorProfile'
