@@ -44,7 +44,7 @@ class InstructorProfile extends Component {
         <br></br>
 
         <iframe width="560" height="315" src={instructor.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        <ReviewsContainer instructor={instructor} reviews={instructor.reviews}/>
+        <ReviewsContainer instructorId={instructor.id} reviews={instructor.reviews}/>
       </div>
     )
   }
