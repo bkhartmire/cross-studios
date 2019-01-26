@@ -58,7 +58,7 @@ class UserProfile extends Component {
         <div className="sidebar">
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <h1 className="float-left">Your Favorite Instructors:</h1>
-          {user.favorites.map((fave) => <div className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></div>)}
+          {user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)}
           <div className="float-left">
             <h1 className="userReviews">Your Reviews:</h1>
             <ul className="userReviews">
