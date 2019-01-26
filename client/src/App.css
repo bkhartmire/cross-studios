@@ -49,7 +49,7 @@ a:hover {
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   right: 30px;
 
 }
@@ -63,26 +63,12 @@ div.column {
 div.danceClassList {
   width: 100%;
 }
-.col-2 {
 
+ul.userReviews {
+  position: absolute;
 }
 
-.col-3 {
-
-}
-
-.col-4 {
-
-}
-
-.col-5 {
-
-}
-
-.col-6 {
-
-}
-
-.col-7 {
-
+li.userReview {
+  float: left;
+  padding-bottom: 10px;
 }

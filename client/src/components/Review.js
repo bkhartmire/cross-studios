@@ -6,7 +6,7 @@ class Review extends Component {
     const { review } = this.props
     return(
       <div>
-        <li>{review.text}</li>
+        <p>{review.text}</p>
       </div>
     )
   }
