@@ -11,6 +11,7 @@ class UserProfile extends Component {
       firstname: '',
       lastname: '',
       favorites: [],
+      reviews: [],
     }
   }
 
@@ -27,7 +28,8 @@ class UserProfile extends Component {
           userDanceClasses: res.dance_classes,
           firstname: res.firstname,
           lastname: res.lastname,
-          favorites: res.favorites
+          favorites: res.favorites,
+          reviews: res.reviews,
         })
       }).catch(err => console.log(err))
   }
