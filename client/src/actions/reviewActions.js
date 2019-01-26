@@ -16,6 +16,7 @@ export const createReview = (review, instructorId) => {
       type: 'CREATE_REVIEW',
       payload: review
     }))
+    .catch(err => err)
     document.location.reload()
   }
 }
@@ -35,5 +36,6 @@ export const deleteReview = (reviewId, instructorId) => {
       payload: review
     }))
     .catch(err => err)
+    document.location.reload()
   }
 }
