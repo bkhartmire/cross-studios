@@ -6,6 +6,7 @@ import { fetchUserDanceClasses } from '../actions/danceClassActions'
 import { fetchUserFavorites } from '../actions/userActions'
 import Button from '../components/Button'
 import FavoriteHeart from '../components/FavoriteHeart'
+import ReviewsContainer from './ReviewsContainer'
 
 class InstructorProfile extends Component {
   componentDidMount() {
@@ -43,6 +44,7 @@ class InstructorProfile extends Component {
         <br></br>
 
         <iframe width="560" height="315" src={instructor.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <ReviewsContainer instructor={instructor} reviews={instructor.reviews}/>
       </div>
     )
   }
