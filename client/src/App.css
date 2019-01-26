@@ -43,14 +43,32 @@ a:hover {
   font-size: 200%;
 }
 
+a.favorited:hover {
+  color: #c2c4c6;
+}
+
+.favorited {
+  color: red;
+}
+
+.not-favorited {
+  color: #c2c4c6;
+}
+
+a.not-favorited:hover {
+  color: red;
+}
+
 .schedule {
   left: 0px;
-  width: 70%;
+  width: 60%;
 }
 
 .sidebar {
   position: absolute;
   right: 30px;
+  width: 40%;
+  float: left;
 
 }
 
@@ -65,10 +83,26 @@ div.danceClassList {
 }
 
 ul.userReviews {
-  position: absolute;
+
+
 }
 
-li.userReview {
+.float-left {
+  float: left;
+}
+
+div.userReviews {
+  padding-top: 10px;
+}
+
+h1.userReviews {
   float: left;
   padding-bottom: 10px;
+}
+li.userReview {
+  float: left;
+  text-indent: 0px;
+  padding-bottom: 10px;
+  text-align: left;
+
 }
