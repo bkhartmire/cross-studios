@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorActions'
 import { fetchUserDanceClasses } from '../actions/danceClassActions'
 import { fetchUserFavorites } from '../actions/userActions'
-import Button from '../components/Button'
+import ScheduleButton from '../components/ScheduleButton'
 import FavoriteHeart from '../components/FavoriteHeart'
 import ReviewsContainer from './ReviewsContainer'
 
@@ -25,7 +25,7 @@ class InstructorProfile extends Component {
         return(
           <span className={`dance_class_${dance_class.id}`}>
             <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
-            <Button key={dance_class.id} danceClass={dance_class} userDanceClasses={userDanceClasses}/>
+            <ScheduleButton key={dance_class.id} danceClass={dance_class} userDanceClasses={userDanceClasses}/>
           </span>
         )
       })

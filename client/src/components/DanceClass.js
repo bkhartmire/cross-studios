@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import Button from './Button'
+import ScheduleButton from './ScheduleButton'
 
 
 class DanceClass extends Component {
@@ -20,7 +20,7 @@ class DanceClass extends Component {
         <h3>{instructor_name}: {danceClass.name}</h3>
         <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
         <h4>{danceClass.studio.name}</h4>
-        <Button key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>
+        <ScheduleButton key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>
         <br></br>
       </div>
     )

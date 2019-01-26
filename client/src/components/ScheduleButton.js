@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
 
-class Button extends Component {
+class ScheduleButton extends Component {
 
   handleClick(e, id) {
     e.preventDefault();
@@ -27,4 +27,4 @@ class Button extends Component {
   }
 }
 
-export default Button
+export default ScheduleButton
