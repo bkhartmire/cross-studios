@@ -37,10 +37,6 @@ class UserProfile extends Component {
       }).catch(err => console.log(err))
   }
 
-  handleDeleteClick = (reviewId, instructorId) => {
-    deleteReview(reviewId, instructorId)
-  }
-
   render(){
     const user = this.state
     const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
@@ -76,7 +72,7 @@ class UserProfile extends Component {
                 <div key={review.id}>
                   <li className="userReview float-left">
                     <h3>{review.instructor.name}: {review.text}</h3>
-                    <button onClick={e => this.handleDeleteClick(review.id, review.instructor.id)}>Delete Review</button>
+                    <button onClick={() => deleteReview(review.id, review.instructor.id)}>Delete Review</button>
                   </li>
                 </div>
               )}

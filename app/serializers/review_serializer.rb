@@ -1,6 +1,6 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :instructor_id, :user_id, :text
+  attributes :id, :user_id, :instructor_id, :text
 
-  belongs_to :instructor
-  belongs_to :user
+  # belongs_to :instructor
+  # belongs_to :user
 end
