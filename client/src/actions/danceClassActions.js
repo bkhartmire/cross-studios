@@ -39,7 +39,7 @@ export const addToUserSchedule = (danceClassId) => {
   .then(alert("Class added to your schedule."))
   .catch(error => console.error('Error:', error))
 
-  document.location.reload()
+  //document.location.reload()
 }
 
 export const removeFromUserSchedule = (danceClassId) => {
@@ -54,5 +54,5 @@ export const removeFromUserSchedule = (danceClassId) => {
   }).then(res => res.json())
   .then(alert("Class removed from your schedule."))
   .catch(error => console.error('Error:', error))
-  document.location.reload()
+  //document.location.reload()
 }

@@ -11,7 +11,7 @@ class ReviewsList extends Component {
         <h3>Instructor Reviews:</h3>
         <ul>
           {hasReviews ? (
-            reviews.map((review) => { return <Review review={review} />})
+            reviews.map((review) => { return <Review key={review.id} review={review} />})
           ) : (<h5>This instructor doesn't have any reviews yet.</h5>)}
         </ul>
       </div>

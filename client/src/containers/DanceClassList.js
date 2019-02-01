@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { fetchDanceClasses, fetchUserDanceClasses } from '../actions/danceClassActions'
+import { fetchDanceClasses, fetchUserDanceClasses, addToUserSchedule, removeFromUserSchedule  } from '../actions/danceClassActions'
 import DanceClass from '../components/DanceClass'
 
 class DanceClassList extends Component {
@@ -60,7 +60,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDanceClasses,
-  fetchUserDanceClasses
+  fetchUserDanceClasses,
+  addToUserSchedule,
+  removeFromUserSchedule
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(DanceClassList)
