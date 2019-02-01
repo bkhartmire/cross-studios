@@ -1,44 +1,50 @@
 import React, { Component } from 'react'
-import Auth from '../modules/Auth'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+//import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
+import { fetchUser } from '../actions/userActions'
 import { deleteReview } from '../actions/reviewActions'
 
 class UserProfile extends Component {
-  constructor() {
-    super()
-    this.state = {
-      userDanceClasses: [],
-      firstname: '',
-      lastname: '',
-      favorites: [],
-      reviews: [],
-      id: 0
-    }
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     userDanceClasses: [],
+  //     firstname: '',
+  //     lastname: '',
+  //     favorites: [],
+  //     reviews: [],
+  //     id: 0
+  //   }
+  // }
 
   componentDidMount() {
-    fetch('/api/profile', {
-      method: 'GET',
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-      }
-    }).then(res => res.json())
-    .then(res => {
-       this.setState({
-          userDanceClasses: res.dance_classes,
-          firstname: res.firstname,
-          lastname: res.lastname,
-          favorites: res.favorites,
-          reviews: res.reviews,
-          id: res.id,
-        })
-      }).catch(err => console.log(err))
+    this.props.fetchUser()
+
+    // fetch('/api/profile', {
+    //   method: 'GET',
+    //   headers: {
+    //     token: Auth.getToken(),
+    //     'Authorization': `Token ${Auth.getToken()}`,
+    //   }
+    // }).then(res => res.json())
+    // .then(res => {
+    //    this.setState({
+    //       userDanceClasses: res.dance_classes,
+    //       firstname: res.firstname,
+    //       lastname: res.lastname,
+    //       favorites: res.favorites,
+    //       reviews: res.reviews,
+    //       id: res.id,
+    //     })
+    //   }).catch(err => console.log(err))
   }
 
   render(){
-    const user = this.state
+    debugger
+    const {user} = this.props
     const mondayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "MONDAY")
     const hasMondayClasses = mondayClasses.length > 0
     const tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
@@ -140,4 +146,14 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile
+const mapStateToProps = state => {
+  return {
+    user: state.user.current,
+  }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchUser,
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

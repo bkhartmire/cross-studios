@@ -42,6 +42,7 @@ export const signupUser = (formData) => {
         type: 'SET_USER',
         payload: Auth.isUserAuthenticated()
       })
+
       document.location.reload()
 
 
@@ -50,7 +51,28 @@ export const signupUser = (formData) => {
 }
 
 export const fetchUser = () => {
-  
+  return (dispatch) => {
+    dispatch ({type: 'LOADING_USER'})
+    return fetch('/api/profile', {
+      method: 'GET',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).then(res => res.json())
+    // .then(res => {
+    //    this.setState({
+    //       userDanceClasses: res.dance_classes,
+    //       firstname: res.firstname,
+    //       lastname: res.lastname,
+    //       favorites: res.favorites,
+    //       reviews: res.reviews,
+    //       id: res.id,
+    //     })
+    .then(user => dispatch({type: 'FETCH_USER', payload: user}))
+      .catch(err => console.log(err))
+  }
+
 }
 
 export const fetchUserFavorites = () => {
