@@ -22,7 +22,11 @@ export default function userReducer(state = initialState, action) {
       let current_user = { ...state.current }
       current_user.reviews = current_user.reviews.filter(review => review.id !== action.payload.id)
       return {...state, current: current_user}
-      case 'REMOVE_FROM_SCHEDULE':
+    case 'ADD_TO_SCHEDULE':
+      current_user = { ...state.current }
+      current_user.dance_classes.push(action.payload)
+      return {...state, current: current_user}
+    case 'REMOVE_FROM_SCHEDULE':
        current_user = { ...state.current }
        current_user.dance_classes = current_user.dance_classes.filter((danceClass) => danceClass.id !== action.payload.id)
        return {...state, current: current_user}

@@ -63,7 +63,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDanceClasses,
-  fetchUserDanceClasses,
+  fetchUser,
+  //fetchUserDanceClasses,
   addToUserSchedule,
   removeFromUserSchedule
 }, dispatch)
