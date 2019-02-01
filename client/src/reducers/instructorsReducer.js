@@ -16,6 +16,7 @@ export default function instructorsReducer(
         return {...state, loading: false, all_instructors: action.payload}
       case 'CREATE_REVIEW':
         let instructor = { ...state.instructor_data }
+        debugger
         instructor.reviews.push(action.payload)
 
         return {...state, instructor_data: instructor }
