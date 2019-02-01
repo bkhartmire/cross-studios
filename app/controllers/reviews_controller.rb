@@ -7,16 +7,14 @@ class ReviewsController < ApplicationController
     # review.text = params[:review]
     # review.save
     #   #json: { review: @review, duplicate: dup }
-    review = Review.find_by(user_id: user.id, instructor_id: instructor.id)
-    if !!review
-      user_already_reviewed? = true
-      review.text = params[:review]
-      review.save
+    existing_review = Review.find_by(user_id: user.id, instructor_id: instructor.id)
+    if !!existing_review
+      user_already_reviewed = existing_review
     else
-      user_already_reviewed? = false
-      review = Review.create(user_id: user.id, instructor_id: instructor.id, text: params[:review])
+      user_already_reviewed = false
     end
-    render json: {review: review, duplicate: user_already_reviewed?}
+    review = Review.create(user_id: user.id, instructor_id: instructor.id, text: params[:review])
+    render json: {review: review, duplicate: user_already_reviewed}
   end
 
   def destroy

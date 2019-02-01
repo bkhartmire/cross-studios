@@ -18,7 +18,7 @@ class InstructorProfile extends Component {
 
   render(){
     const {instructor, userDanceClasses, userFavorites} = this.props
-    debugger
+    //debugger
 
     let listDanceClasses
     if (instructor.dance_classes) {
