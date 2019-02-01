@@ -18,7 +18,9 @@ export default function danceClassesReducer(
         schedule.push(action.payload)
         debugger
         return {...state, userDanceClasses: schedule}
-      case 'REMOVE_FROM_SCHEDULE':
+      // case 'REMOVE_FROM_SCHEDULE':
+      //   schedule = [ ...state.userDanceClasses ]
+      //   debugger
       default:
         return state
     }
