@@ -6,7 +6,7 @@ import ScheduleButton from './ScheduleButton'
 class DanceClass extends Component {
 
   render() {
-    const {danceClass, userDanceClasses} = this.props
+    const {danceClass, userDanceClasses, addToUserSchedule, removeFromUserSchedule} = this.props
     //this conditional only adds instructor link to dance classes with a known instructor
     let instructor_name
     if (danceClass.instructor.name === "TBA") {
@@ -20,7 +20,7 @@ class DanceClass extends Component {
         <h3>{instructor_name}: {danceClass.name}</h3>
         <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
         <h4>{danceClass.studio.name}</h4>
-        <ScheduleButton key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses}/>
+        <ScheduleButton key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses} addToUserSchedule={addToUserSchedule} removeFromUserSchedule{removeFromUserSchedule}/>
         <br></br>
       </div>
     )
