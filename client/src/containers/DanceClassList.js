@@ -44,7 +44,7 @@ class DanceClassList extends Component {
         </div>
         <div className="column">
           <h2 className="day">Sunday</h2>
-            {danceClasses.filter(danceClass => danceClass.day === 'SUNDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses} addToUserSchedule={this.props.addToUserSchedule}, removeFromUserSchedule={this.props.removeFromUserSchedule}/>)}
+            {danceClasses.filter(danceClass => danceClass.day === 'SUNDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses} addToUserSchedule={this.props.addToUserSchedule} removeFromUserSchedule={this.props.removeFromUserSchedule}/>)}
         </div>
       </div>
     )

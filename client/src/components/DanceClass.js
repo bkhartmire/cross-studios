@@ -20,7 +20,7 @@ class DanceClass extends Component {
         <h3>{instructor_name}: {danceClass.name}</h3>
         <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
         <h4>{danceClass.studio.name}</h4>
-        <ScheduleButton key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses} addToUserSchedule={addToUserSchedule} removeFromUserSchedule{removeFromUserSchedule}/>
+        <ScheduleButton key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses} addToUserSchedule={addToUserSchedule} removeFromUserSchedule={removeFromUserSchedule}/>
         <br></br>
       </div>
     )
