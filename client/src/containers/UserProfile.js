@@ -63,14 +63,14 @@ class UserProfile extends Component {
 
     let userFavorites
     let hasUserFavorites = false
-    if (user.favorites) {
+    if (user.favorites && user.favorites.length > 0) {
       userFavorites = user.favorites
       hasUserFavorites = true
     }
 
     let userReviews
     let hasUserReviews = false
-    if (user.reviews) {
+    if (user.reviews && user.reviews.length > 0) {
       userReviews = user.reviews
       hasUserReviews = true
     }
@@ -101,7 +101,7 @@ class UserProfile extends Component {
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <div>
             <h1 className="float-left">Your Favorite Instructors:</h1><br></br>
-            {hasUserFavorites ? (userFavorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)) : (<span className="float-left"><br></br><br></br><h5>You haven't favorited any instructors yet.</h5></span>)}
+            {hasUserFavorites ? (userFavorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)) : (<span className="float-left"><h5>You haven't favorited any instructors yet.</h5></span>)}
 
           </div>
           <div className="float-left">
