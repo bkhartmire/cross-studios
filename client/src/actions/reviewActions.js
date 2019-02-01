@@ -23,7 +23,6 @@ export const createReview = (review, instructorId) => {
 
 export const deleteReview = (id, instructorId) => {
   //dispatch action in user reducer
-  debugger
   return dispatch => {
     fetch(`/api/instructors/${instructorId}/reviews/${id}`, {
       method: 'DELETE',

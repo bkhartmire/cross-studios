@@ -13,17 +13,15 @@ export default function userReducer(state = initialState, action) {
     case 'SET_USER':
       return { ...state, auth: action.payload }
     case 'FETCH_USER':
-      debugger
       return { ...state, current: action.payload}
     case 'LOADING_USER_FAVORITES':
       return {...state, loading: true}
     case 'FETCH_USER_FAVORITES':
       return {...state, loading: false, favorites: action.payload}
     case 'DELETE_REVIEW':
-      debugger
-      // instructor = { ...state.instructor_data }
-      // instructor.reviews = instructor.reviews.filter(review => review.id !== action.payload.id)
-      // return {...state, instructor_data: instructor}
+      let current_user = { ...state.current }
+      current_user.reviews = current_user.reviews.filter(review => review.id !== action.payload.id)
+      return {...state, current: current_user}
     default:
       return state
   }

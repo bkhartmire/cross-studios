@@ -13,8 +13,8 @@ class UserProfile extends Component {
     this.props.fetchUser()
   }
 
-  handleDeleteClick(e, review.id, review.instructor.id) {
-    
+  handleDeleteClick(e, reviewId, instructorId) {
+    deleteReview(reviewId, instructorId)
   }
 
   render(){
@@ -86,7 +86,7 @@ class UserProfile extends Component {
                 <div key={review.id}>
                   <li className="userReview float-left">
                     <h3>{review.instructor.name}: {review.text}</h3>
-                    <button onClick={e => this.handleDeleteClick(e, review.id, review.instructor.id)}>Delete Review</button>
+                    <button onClick={e => this.props.deleteReview(review.id, review.instructor.id)}>Delete Review</button>
                   </li>
                 </div>
               )): <span className="float-left"><h5>You haven't reviewed any instructors yet.</h5></span>}
@@ -162,6 +162,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser,
+  deleteReview
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
