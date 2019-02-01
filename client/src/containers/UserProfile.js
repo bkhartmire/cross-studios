@@ -17,67 +17,11 @@ class UserProfile extends Component {
   handleDeleteClick(e, reviewId, instructorId) {
     deleteReview(reviewId, instructorId)
   }
-  //
-  // handleClick(e, classes) {
-  //   e.preventDefault()
-  //   debugger
-  // }
 
   render(){
-    //debugger
     const {user} = this.props
-    //
-    let mondayClasses
-    if (user.dance_classes) {
-      mondayClasses = user.dance_classes.filter(danceClass => danceClass.day === "Monday")
-    }
-    // let hasMondayClasses
-    // let tuesdayClasses
-    // let hasTuesdayClasses
-    // let wednesdayClasses
-    // let hasWednesdayClasses
-    // let thursdayClasses
-    // let hasThursdayClasses
-    // let fridayClasses
-    // let hasFridayClasses
-    // let saturdayClasses
-    // let hasSaturdayClasses
-    // let sundayClasses
-    // let hasSundayClasses
+
     const nothingMessage = "Nothing scheduled for this day."
-    //
-    // let userFavorites
-    // let hasUserFavorites = false
-    // if (user.favorites && user.favorites.length > 0) {
-    //   userFavorites = user.favorites
-    //   hasUserFavorites = true
-    // }
-    //
-    // let userReviews
-    // let hasUserReviews = false
-    // if (user.reviews && user.reviews.length > 0) {
-    //   userReviews = user.reviews
-    //   hasUserReviews = true
-    // }
-    //
-    // if (this.props.user.danceClasses && this.props.user.danceClasses.length > 0) {
-    //   mondayClasses = user.danceClasses.filter(danceClass => danceClass.day === "MONDAY")
-    //   hasMondayClasses = mondayClasses.length > 0
-    //   tuesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "TUESDAY")
-    //   hasTuesdayClasses = tuesdayClasses.length > 0
-    //   wednesdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "WEDNESDAY")
-    //   hasWednesdayClasses = wednesdayClasses.length > 0
-    //   thursdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "THURSDAY")
-    //   hasThursdayClasses = thursdayClasses.length > 0
-    //   fridayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "FRIDAY")
-    //   hasFridayClasses = fridayClasses.length > 0
-    //   saturdayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SATURDAY")
-    //   hasSaturdayClasses = saturdayClasses.length > 0
-    //   sundayClasses = user.userDanceClasses.filter(danceClass => danceClass.day === "SUNDAY")
-    //   hasSundayClasses = sundayClasses.length > 0
-    // }
-
-
 
     return(
       <div className="userProfile">
@@ -142,51 +86,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
-
-
-// {hasMondayClasses ?
-//   mondayClasses.map((danceClass) =>
-//     <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.dance_classes}/>
-//   )
-//  : <h5>{nothingMessage}</h5>}
-// <h2>Tuesday</h2>
-// {hasTuesdayClasses? (
-//   tuesdayClasses.map((danceClass) =>
-//     <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-// )
-// ) : (<h5>{nothingMessage}</h5>)}
-//
-// <h2>Wednesday</h2>
-//   {hasWednesdayClasses? (
-//     wednesdayClasses.map((danceClass) =>
-//       <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-//   )
-// ) : (<h5>{nothingMessage}</h5>)}
-//
-// <h2>Thursday</h2>
-//   {hasThursdayClasses? (
-//     thursdayClasses.map((danceClass) =>
-//       <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-//   )
-// ) : (<h5>{nothingMessage}</h5>)}
-//
-// <h2>Friday</h2>
-//   {hasFridayClasses? (
-//     fridayClasses.map((danceClass) =>
-//       <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-//   )
-// ) : (<h5>{nothingMessage}</h5>)}
-//
-// <h2>Saturday</h2>
-//   {hasSaturdayClasses? (
-//     saturdayClasses.map((danceClass) =>
-//       <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-//   )
-// ) : (<h5>{nothingMessage}</h5>)}
-//
-// <h2>Sunday</h2>
-//   {hasSundayClasses? (
-//     sundayClasses.map((danceClass) =>
-//       <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.userDanceClasses}/>
-//   )
-// ) : (<h5>{nothingMessage}</h5>)}
