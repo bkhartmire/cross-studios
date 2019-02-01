@@ -27,6 +27,7 @@ export const fetchUserDanceClasses = () => {
 }
 
 export const addToUserSchedule = (danceClassId) => {
+  debugger
   fetch('/api/user_dance_classes', {
     method: 'POST',
     body: JSON.stringify({dance_class_id: danceClassId}),
