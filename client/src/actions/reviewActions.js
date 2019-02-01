@@ -37,6 +37,4 @@ export const deleteReview = (id, instructorId) => {
     }))
     .catch(err => err)
   }
-
-  //document.location.reload()
 }
