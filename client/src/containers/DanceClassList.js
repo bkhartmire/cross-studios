@@ -10,7 +10,6 @@ class DanceClassList extends Component {
 
   componentDidMount(){
     this.props.fetchDanceClasses()
-    //this.props.fetchUserDanceClasses()
     this.props.fetchUser()
   }
 
@@ -56,7 +55,6 @@ class DanceClassList extends Component {
 const mapStateToProps = state => {
   return {
     danceClasses: state.danceClasses.all,
-    // userDanceClasses: state.danceClasses.userDanceClasses
     user: state.user.current
   }
 }
@@ -64,7 +62,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDanceClasses,
   fetchUser,
-  //fetchUserDanceClasses,
   addToUserSchedule,
   removeFromUserSchedule
 }, dispatch)
