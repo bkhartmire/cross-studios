@@ -1,7 +1,7 @@
 import Auth from '../modules/Auth'
 
 export const fetchDanceClasses = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({type: 'LOADING_DANCE_CLASSES'})
     return fetch('/api/dance_classes', {
       accept: 'application/json',
@@ -11,7 +11,7 @@ export const fetchDanceClasses = () => {
 }
 
 export const fetchUserDanceClasses = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({type: 'LOADING_USER_DANCE_CLASSES'})
     fetch('/api/profile', {
       method: 'GET',
@@ -28,19 +28,23 @@ export const fetchUserDanceClasses = () => {
 
 export const addToUserSchedule = (danceClassId) => {
   debugger
-  fetch('/api/user_dance_classes', {
-    method: 'POST',
-    body: JSON.stringify({dance_class_id: danceClassId}),
-    headers: {
-      token: Auth.getToken(),
-      'Authorization': `Token ${Auth.getToken()}`,
-      'Content-Type': 'application/json',
-    }
-  }).then(res => res.json())
-  .then(alert("Class added to your schedule."))
-  .catch(error => console.error('Error:', error))
-
-  //document.location.reload()
+  return dispatch => {
+    fetch('/api/user_dance_classes', {
+      method: 'POST',
+      body: JSON.stringify({dance_class_id: danceClassId}),
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+        'Content-Type': 'application/json',
+      }
+    }).then(res => res.json())
+    .then(userDanceClass => dispatch({
+      type: 'ADD_TO_SCHEDULE',
+      payload: userDanceClass
+    }))
+    .catch(error => console.error('Error:', error))
+    .then(alert("Class added to your schedule."))
+  }
 }
 
 export const removeFromUserSchedule = (danceClassId) => {
