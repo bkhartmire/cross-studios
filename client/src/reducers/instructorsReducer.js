@@ -3,7 +3,6 @@ export default function instructorsReducer(
     loading: false,
     instructor_data: {},
     all_instructors: [],
-    reviews: [],
   }, action) {
     switch (action.type) {
       case 'LOADING_INSTRUCTOR':
@@ -16,17 +15,12 @@ export default function instructorsReducer(
         return {...state, loading: false, all_instructors: action.payload}
       case 'CREATE_REVIEW':
         let instructor = { ...state.instructor_data }
-
         if (!!action.payload.duplicate) {
-          let duplicate_review = instructor.reviews.find(review => review.user_id === action.payload.duplicate.user_id)
-          debugger
+          let duplicate_review = instructor.reviews.find(review => review.user_id === action.payload.review.user_id)
           duplicate_review.text = action.payload.review.text
-          debugger
         } else {
           instructor.reviews.push(action.payload.review)
         }
-
-        debugger
         return {...state, instructor_data: instructor }
       default:
         return state
