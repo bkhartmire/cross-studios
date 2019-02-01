@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { fetchDanceClasses, fetchUserDanceClasses, addToUserSchedule, removeFromUserSchedule  } from '../actions/danceClassActions'
+import { fetchDanceClasses, fetchUserDanceClasses } from '../actions/danceClassActions'
+import { addToUserSchedule, removeFromUserSchedule } from '../actions/userActions'
 import DanceClass from '../components/DanceClass'
 
 class DanceClassList extends Component {
