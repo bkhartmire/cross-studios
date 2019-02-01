@@ -51,8 +51,10 @@ export const signupUser = (formData) => {
 }
 
 export const fetchUser = () => {
-  return (dispatch) => {
-    dispatch ({type: 'LOADING_USER'})
+  debugger
+  return dispatch => {
+    debugger
+    dispatch({type: 'LOADING_USER'})
     return fetch('/api/profile', {
       method: 'GET',
       headers: {

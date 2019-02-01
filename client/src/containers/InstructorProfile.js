@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorActions'
-import { fetchUserDanceClasses } from '../actions/danceClassActions'
+import { fetchUser, addToUserSchedule, removeFromUserSchedule } from '../actions/userActions'
 import { fetchUserFavorites } from '../actions/userActions'
 import ScheduleButton from '../components/ScheduleButton'
 import FavoriteHeart from '../components/FavoriteHeart'
@@ -12,21 +12,20 @@ class InstructorProfile extends Component {
   componentDidMount() {
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
-    this.props.fetchUserDanceClasses()
+    this.props.fetchUser()
     this.props.fetchUserFavorites()
   }
 
   render(){
-    const {instructor, userDanceClasses, userFavorites} = this.props
-    //debugger
-
+    const {instructor, user, userFavorites} = this.props
+    debugger
     let listDanceClasses
     if (instructor.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
         return(
           <span key={dance_class.id} >
             <h4>{dance_class.name}: {dance_class.day} {dance_class.start_time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
-            <ScheduleButton key={dance_class.id} danceClass={dance_class} userDanceClasses={userDanceClasses}/>
+            <ScheduleButton key={dance_class.id} danceClass={dance_class} userDanceClasses={user.dance_classes} addToUserSchedule={this.props.addToUserSchedule} removeFromUserSchedule={this.props.removeFromUserSchedule}/>
           </span>
         )
       })
@@ -57,14 +56,16 @@ class InstructorProfile extends Component {
 const mapStateToProps = state => {
   return {
     instructor: state.instructors.instructor_data,
-    userDanceClasses: state.danceClasses.userDanceClasses,
+    user: state.user.current,
     userFavorites: state.user.favorites,
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchInstructor,
-  fetchUserDanceClasses,
+  fetchUser,
+  addToUserSchedule,
+  removeFromUserSchedule,
   fetchUserFavorites,
 }, dispatch)
 
