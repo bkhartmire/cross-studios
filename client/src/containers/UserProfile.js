@@ -5,7 +5,7 @@ import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
 import { fetchUser } from '../actions/userActions'
 import { deleteReview } from '../actions/reviewActions'
-import { addToUserSchedule, removeFromUserSchedule } from '../actions/danceClassActions'
+import { addToUserSchedule, removeFromUserSchedule } from '../actions/userActions'
 
 class UserProfile extends Component {
 
