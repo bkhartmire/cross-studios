@@ -90,39 +90,3 @@ export const fetchUserFavorites = () => {
     .then(favorites => dispatch({type:'FETCH_USER_FAVORITES', payload: favorites}))
   }
 }
-
-export const addToUserSchedule = (danceClassId) => {
-  debugger
-  return dispatch => {
-    fetch('/api/user_dance_classes', {
-      method: 'POST',
-      body: JSON.stringify({dance_class_id: danceClassId}),
-      headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
-        'Content-Type': 'application/json',
-      }
-    }).then(res => res.json())
-    .then(userDanceClass => dispatch({
-      type: 'ADD_TO_SCHEDULE',
-      payload: userDanceClass
-    }))
-    .catch(error => console.error('Error:', error))
-    .then(alert("Class added to your schedule."))
-  }
-}
-
-export const removeFromUserSchedule = (danceClassId) => {
-  fetch(`/api/user_dance_classes/${danceClassId}`, {
-    method: 'DELETE',
-    headers: {
-      token: Auth.getToken(),
-      'Authorization': `Token ${Auth.getToken()}`,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  }).then(res => res.json())
-  .then(alert("Class removed from your schedule."))
-  .catch(error => console.error('Error:', error))
-
-}

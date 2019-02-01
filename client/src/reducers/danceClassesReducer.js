@@ -13,6 +13,9 @@ export default function danceClassesReducer(
         return { ...state, loading: true}
       case 'FETCH_USER_DANCE_CLASSES':
         return {...state, loading: false, userDanceClasses: action.payload}
+      case 'ADD_TO_SCHEDULE':
+
+      case 'REMOVE_FROM_SCHEDULE':
       default:
         return state
     }
