@@ -1,6 +1,7 @@
 import Auth from '../modules/Auth'
 
 export const createReview = (review, instructorId) => {
+  //dispatch action in instructor reducer
   return dispatch => {
     fetch(`/api/instructors/${instructorId}/reviews`, {
       method: 'POST',
@@ -21,6 +22,8 @@ export const createReview = (review, instructorId) => {
 }
 
 export const deleteReview = (id, instructorId) => {
+  //dispatch action in user reducer
+  debugger
   return dispatch => {
     fetch(`/api/instructors/${instructorId}/reviews/${id}`, {
       method: 'DELETE',

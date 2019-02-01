@@ -8,38 +8,13 @@ import { fetchUser } from '../actions/userActions'
 import { deleteReview } from '../actions/reviewActions'
 
 class UserProfile extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     userDanceClasses: [],
-  //     firstname: '',
-  //     lastname: '',
-  //     favorites: [],
-  //     reviews: [],
-  //     id: 0
-  //   }
-  // }
 
   componentDidMount() {
     this.props.fetchUser()
+  }
 
-    // fetch('/api/profile', {
-    //   method: 'GET',
-    //   headers: {
-    //     token: Auth.getToken(),
-    //     'Authorization': `Token ${Auth.getToken()}`,
-    //   }
-    // }).then(res => res.json())
-    // .then(res => {
-    //    this.setState({
-    //       userDanceClasses: res.dance_classes,
-    //       firstname: res.firstname,
-    //       lastname: res.lastname,
-    //       favorites: res.favorites,
-    //       reviews: res.reviews,
-    //       id: res.id,
-    //     })
-    //   }).catch(err => console.log(err))
+  handleDeleteClick(e, review.id, review.instructor.id) {
+    
   }
 
   render(){
@@ -111,7 +86,7 @@ class UserProfile extends Component {
                 <div key={review.id}>
                   <li className="userReview float-left">
                     <h3>{review.instructor.name}: {review.text}</h3>
-                    <button onClick={() => deleteReview(review.id, review.instructor.id)}>Delete Review</button>
+                    <button onClick={e => this.handleDeleteClick(e, review.id, review.instructor.id)}>Delete Review</button>
                   </li>
                 </div>
               )): <span className="float-left"><h5>You haven't reviewed any instructors yet.</h5></span>}
