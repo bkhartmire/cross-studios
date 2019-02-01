@@ -15,7 +15,6 @@ class DanceClassList extends Component {
 
   render(){
     const {danceClasses, user} = this.props
-
     return(
       <div className="danceClassList">
         <h1>Dance Classes</h1>
