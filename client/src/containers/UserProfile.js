@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-//import Auth from '../modules/Auth'
 import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
 import { fetchUser } from '../actions/userActions'

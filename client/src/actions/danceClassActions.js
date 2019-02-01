@@ -46,16 +46,21 @@ export const addToUserSchedule = (danceClassId) => {
 }
 
 export const removeFromUserSchedule = (danceClassId) => {
-  fetch(`/api/user_dance_classes/${danceClassId}`, {
-    method: 'DELETE',
-    headers: {
-      token: Auth.getToken(),
-      'Authorization': `Token ${Auth.getToken()}`,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  }).then(res => res.json())
-  .then(alert("Class removed from your schedule."))
-  .catch(error => console.error('Error:', error))
-
+  return dispatch => {
+    fetch(`/api/user_dance_classes/${danceClassId}`, {
+      method: 'DELETE',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(userDanceClass => dispatch({
+      type: 'REMOVE_FROM_SCHEDULE',
+      payload: userDanceClass
+    }))
+    .then(alert("Class removed from your schedule."))
+    .catch(error => console.error('Error:', error))
+  }
 }
