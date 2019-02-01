@@ -14,7 +14,10 @@ export default function danceClassesReducer(
       case 'FETCH_USER_DANCE_CLASSES':
         return {...state, loading: false, userDanceClasses: action.payload}
       case 'ADD_TO_SCHEDULE':
-
+        let schedule = [ ...state.userDanceClasses ]
+        schedule.push(action.payload)
+        debugger
+        return {...state, userDanceClasses: schedule}
       case 'REMOVE_FROM_SCHEDULE':
       default:
         return state

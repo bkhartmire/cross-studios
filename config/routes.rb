@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
     resources :studios, only: [:index]
     resources :users
-    resources :user_dance_classes, only: [:index, :create, :destroy]
+    resources :user_dance_classes, only: [:create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
     post '/login' => "sessions#create"
     delete '/logout' => "sessions#destroy"
