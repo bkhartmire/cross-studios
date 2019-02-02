@@ -3,15 +3,20 @@ import React, {Component} from 'react'
 
 class FavoriteHeart extends Component {
 
-  // handleFavorite(e, instructorId) {
-  //   e.preventDefault()
-  //   favoriteInstructor(instructorId)
-  // }
-  //
-  // handleUnfavorite(e, favoriteId, instructorId) {
-  //   e.preventDefault()
-  //   unfavoriteInstructor(favoriteId, instructorId)
-  // }
+  componentDidMount() {
+    this.favoriteInstructor = this.props.favoriteInstructor
+    this.unfavoriteInstructor = this.props.unfavoriteInstructor
+  }
+
+  handleFavorite(e, instructorId) {
+    e.preventDefault()
+    this.favoriteInstructor(instructorId)
+  }
+
+  handleUnfavorite(e, favoriteId, instructorId) {
+    e.preventDefault()
+    this.unfavoriteInstructor(favoriteId, instructorId)
+  }
 
   render() {
     const {instructor, userFavorites, favoriteInstructor, unfavoriteInstructor} = this.props
@@ -22,12 +27,12 @@ class FavoriteHeart extends Component {
     }
     let heart
     if (userFavoritesMatch) {
-      heart = <a className="heart favorited" onClick={() => unfavoriteInstructor(userFavoritesMatch.id, instructor.id)}>&hearts;</a>
+      heart = <a className="heart favorited" onClick={e => this.handleUnfavorite(e, userFavoritesMatch.id, instructor.id)}>&hearts;</a>
     } else {
-      heart = <a className="heart not-favorited" onClick={() => favoriteInstructor(instructor.id)} >&hearts;</a>
+      heart = <a className="heart not-favorited" onClick={e => this.handleFavorite(e, instructor.id)} >&hearts;</a>
     }
     return(
-      <span>{heart}</span>
+      <span>  {heart}</span>
     )
   }
 }

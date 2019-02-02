@@ -18,7 +18,7 @@ class InstructorProfile extends Component {
 
   render(){
     const {instructor, user} = this.props
-    debugger
+    
     let listDanceClasses
     if (instructor.dance_classes && user.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
