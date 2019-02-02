@@ -139,18 +139,22 @@ export const favoriteInstructor = (instructorId) => {
 }
 
 export const unfavoriteInstructor = (favoriteId, instructorID) => {
-  fetch(`/api/favorites/${favoriteId}`, {
-    method: 'DELETE',
-    headers: {
-      token: Auth.getToken(),
-      'Authorization': `Token ${Auth.getToken()}`,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify({
-      favorite_id: favoriteId,
-      instructor_id: instructorID
-    }),
-  }).then(res => res.clone().json())
-  .catch(err => console.log(err))
+  return dispatch => {
+    fetch(`/api/favorites/${favoriteId}`, {
+      method: 'DELETE',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        favorite_id: favoriteId,
+        instructor_id: instructorID
+      }),
+    }).then(res => res.clone().json())
+    .then(favorite => dispatch({type: 'UNFAVORITE_INSTRUCTOR', payload: favorite}))
+    .catch(err => console.log(err))
+  }
+
 }

@@ -3,8 +3,6 @@ import Auth from '../modules/Auth'
 const initialState = {
   loading: false,
   auth: Auth.isUserAuthenticated(),
-  //delete favorites?
-  favorites: [],
   current: {}
 }
 
@@ -32,11 +30,12 @@ export default function userReducer(state = initialState, action) {
        return {...state, current: current_user}
     case 'FAVORITE_INSTRUCTOR':
       current_user = { ...state.current }
-      debugger
       current_user.favorites.push(action.payload)
       return {...state, current: current_user}
     case 'UNFAVORITE_INSTRUCTOR':
       current_user = { ...state.current }
+      current_user.favorites = current_user.favorites.filter((favorite) => favorite.id !== action.payload.id)
+      return {...state, current: current_user}
     default:
       return state
   }
