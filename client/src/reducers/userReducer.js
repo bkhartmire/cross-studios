@@ -30,6 +30,13 @@ export default function userReducer(state = initialState, action) {
        current_user = { ...state.current }
        current_user.dance_classes = current_user.dance_classes.filter((danceClass) => danceClass.id !== action.payload.id)
        return {...state, current: current_user}
+    case 'FAVORITE_INSTRUCTOR':
+      current_user = { ...state.current }
+      debugger
+      current_user.favorites.push(action.payload)
+      return {...state, current: current_user}
+    case 'UNFAVORITE_INSTRUCTOR':
+      current_user = { ...state.current }
     default:
       return state
   }
