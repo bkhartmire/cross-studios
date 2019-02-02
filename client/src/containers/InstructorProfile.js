@@ -13,7 +13,7 @@ class InstructorProfile extends Component {
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
     this.props.fetchUser()
-    this.props.fetchUserFavorites()
+    //this.props.fetchUserFavorites()
   }
 
   render(){
@@ -36,7 +36,7 @@ class InstructorProfile extends Component {
       <div className="instructorProfile">
         <h1>{instructor.name}</h1>
         <span>
-           <FavoriteHeart key={instructor.id} instructor={instructor} userFavorites={userFavorites}/> {instructor.favorited_count} favorited
+           <FavoriteHeart key={instructor.id} instructor={instructor} userFavorites={user.favorites}/> {instructor.favorited_count} favorited
         </span>
         <br></br><br></br>
 
@@ -66,7 +66,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser,
   addToUserSchedule,
   removeFromUserSchedule,
-  fetchUserFavorites,
+  //fetchUserFavorites,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(InstructorProfile)

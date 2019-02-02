@@ -32,7 +32,6 @@ export const favoriteInstructor = (instructorId) => {
     body: JSON.stringify({instructor_id: instructorId}),
   }).then(res => res.clone().json())
   .catch(err => console.log(err))
-  document.location.reload()
 }
 
 export const unfavoriteInstructor = (favoriteId, instructorID) => {
@@ -50,5 +49,4 @@ export const unfavoriteInstructor = (favoriteId, instructorID) => {
     }),
   }).then(res => res.clone().json())
   .catch(err => console.log(err))
-  document.location.reload()
 }
