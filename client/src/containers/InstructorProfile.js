@@ -10,16 +10,17 @@ import ReviewsContainer from './ReviewsContainer'
 
 class InstructorProfile extends Component {
   componentDidMount() {
+    this.props.fetchUser()
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
-    this.props.fetchUser()
+
   }
 
   render(){
-    const {instructor, user, userFavorites} = this.props
-
+    const {instructor, user} = this.props
+    debugger
     let listDanceClasses
-    if (instructor.dance_classes) {
+    if (instructor.dance_classes && user.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
         return(
           <span key={dance_class.id} >
@@ -56,7 +57,6 @@ const mapStateToProps = state => {
   return {
     instructor: state.instructors.instructor_data,
     user: state.user.current,
-    userFavorites: state.user.favorites,
   }
 }
 
@@ -66,7 +66,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   addToUserSchedule,
   removeFromUserSchedule,
   favoriteInstructor,
-  unfavoriteInstructor
+  unfavoriteInstructor,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(InstructorProfile)

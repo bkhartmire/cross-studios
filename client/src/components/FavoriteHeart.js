@@ -21,13 +21,13 @@ class FavoriteHeart extends Component {
       userFavoritesMatch = userFavorites.find((favorite) => favorite.instructor_id === instructor.id)
     }
     let heart
-    if (!!userFavoritesMatch) {
-      heart = <a className="heart favorited" onClick={unfavoriteInstructor(favoriteId, instructorId)}>&hearts;</a>
+    if (userFavoritesMatch) {
+      heart = <a className="heart favorited" onClick={() => unfavoriteInstructor(userFavoritesMatch.id, instructor.id)}>&hearts;</a>
     } else {
-      heart = <a className="heart not-favorited" onClick={favoriteInstructor(instructorId))} >&hearts;</a>
+      heart = <a className="heart not-favorited" onClick={() => favoriteInstructor(instructor.id)} >&hearts;</a>
     }
     return(
-      <span>  {heart}</span>
+      <span>{heart}</span>
     )
   }
 }

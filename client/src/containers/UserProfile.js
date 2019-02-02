@@ -13,10 +13,6 @@ class UserProfile extends Component {
     this.props.fetchUser()
   }
 
-  handleDeleteClick(e, reviewId, instructorId) {
-    deleteReview(reviewId, instructorId)
-  }
-
   render(){
     const {user} = this.props
 

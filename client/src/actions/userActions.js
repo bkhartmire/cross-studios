@@ -121,7 +121,7 @@ export const fetchUserFavorites = () => {
 }
 
 export const favoriteInstructor = (instructorId) => {
-  debugger
+  //debugger
   return dispatch => {
     fetch('/api/favorites', {
       method: 'POST',
