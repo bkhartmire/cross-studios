@@ -119,3 +119,34 @@ export const fetchUserFavorites = () => {
     .then(favorites => dispatch({type:'FETCH_USER_FAVORITES', payload: favorites}))
   }
 }
+
+export const favoriteInstructor = (instructorId) => {
+  fetch('/api/favorites', {
+    method: 'POST',
+    headers: {
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({instructor_id: instructorId}),
+  }).then(res => res.clone().json())
+  .catch(err => console.log(err))
+}
+
+export const unfavoriteInstructor = (favoriteId, instructorID) => {
+  fetch(`/api/favorites/${favoriteId}`, {
+    method: 'DELETE',
+    headers: {
+      token: Auth.getToken(),
+      'Authorization': `Token ${Auth.getToken()}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      favorite_id: favoriteId,
+      instructor_id: instructorID
+    }),
+  }).then(res => res.clone().json())
+  .catch(err => console.log(err))
+}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { favoriteInstructor, unfavoriteInstructor } from '../actions/instructorActions'
+import { favoriteInstructor, unfavoriteInstructor } from '../actions/userActions'
 
 class FavoriteHeart extends Component {
 
