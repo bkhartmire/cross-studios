@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReviewForm from '../components/ReviewForm'
-import ReviewsList from '../components/ReviewsList'
+import ReviewsList from '../containers/ReviewsList'
 
 class ReviewsContainer extends Component {
   render() {

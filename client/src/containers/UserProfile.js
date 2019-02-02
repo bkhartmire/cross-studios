@@ -23,7 +23,7 @@ class UserProfile extends Component {
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <div>
             <h1 className="float-left">Your Favorite Instructors:</h1><br></br>
-            {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/></span>)) : (<span className="float-left"><h5>You haven't favorited any instructors yet.</h5></span>)}
+            {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/></span>)) : (<span className="float-left"><h5>You don't have any favorite instructors.</h5></span>)}
 
           </div>
           <div className="float-left">
@@ -36,7 +36,7 @@ class UserProfile extends Component {
                     <button onClick={e => this.props.deleteReview(review.id, review.instructor.id)}>Delete Review</button>
                   </li>
                 </div>
-              )): <span className="float-left"><h5>You haven't reviewed any instructors yet.</h5></span>}
+              )): <span className="float-left"><h5>You don't have any instructor reviews.</h5></span>}
             </ul>
 
           </div>
