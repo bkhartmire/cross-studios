@@ -4,6 +4,7 @@ import React, {Component} from 'react'
 class FavoriteHeart extends Component {
 
   componentDidMount() {
+    debugger
     this.favoriteInstructor = this.props.favoriteInstructor
     this.unfavoriteInstructor = this.props.unfavoriteInstructor
   }

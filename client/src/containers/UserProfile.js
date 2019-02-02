@@ -3,9 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import DanceClass from '../components/DanceClass'
 import Instructor from '../components/Instructor'
-import { fetchUser } from '../actions/userActions'
 import { deleteReview } from '../actions/reviewActions'
-import { addToUserSchedule, removeFromUserSchedule } from '../actions/userActions'
+import { fetchUser, addToUserSchedule, removeFromUserSchedule, favoriteInstructor, unfavoriteInstructor } from '../actions/userActions'
 
 class UserProfile extends Component {
 
@@ -24,7 +23,7 @@ class UserProfile extends Component {
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <div>
             <h1 className="float-left">Your Favorite Instructors:</h1><br></br>
-            {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites}/></span>)) : (<span className="float-left"><h5>You haven't favorited any instructors yet.</h5></span>)}
+            {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/></span>)) : (<span className="float-left"><h5>You haven't favorited any instructors yet.</h5></span>)}
 
           </div>
           <div className="float-left">
@@ -78,6 +77,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   deleteReview,
   addToUserSchedule,
   removeFromUserSchedule,
+  favoriteInstructor,
+  unfavoriteInstructor,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
