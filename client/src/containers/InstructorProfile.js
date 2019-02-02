@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchInstructor } from '../actions/instructorActions'
 import { fetchUser, addToUserSchedule, removeFromUserSchedule } from '../actions/userActions'
-import { fetchUserFavorites } from '../actions/userActions'
+import { fetchUserFavorites, favoriteInstructor, unfavoriteInstructor } from '../actions/userActions'
 import ScheduleButton from '../components/ScheduleButton'
 import FavoriteHeart from '../components/FavoriteHeart'
 import ReviewsContainer from './ReviewsContainer'
@@ -13,7 +13,6 @@ class InstructorProfile extends Component {
     const instructor_id = window.location.href.match(/\/\d+/)
     this.props.fetchInstructor(instructor_id)
     this.props.fetchUser()
-    //this.props.fetchUserFavorites()
   }
 
   render(){
@@ -36,7 +35,7 @@ class InstructorProfile extends Component {
       <div className="instructorProfile">
         <h1>{instructor.name}</h1>
         <span>
-           <FavoriteHeart key={instructor.id} instructor={instructor} userFavorites={user.favorites}/> {instructor.favorited_count} favorited
+           <FavoriteHeart key={instructor.id} instructor={instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/> {instructor.favorited_count} favorited
         </span>
         <br></br><br></br>
 
@@ -66,7 +65,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchUser,
   addToUserSchedule,
   removeFromUserSchedule,
-  //fetchUserFavorites,
+  favoriteInstructor,
+  unfavoriteInstructor
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(InstructorProfile)
