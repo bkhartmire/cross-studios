@@ -90,8 +90,12 @@ div.userReviews {
   padding-top: 10px;
 }
 
+.block {
+  display: block;
+}
+
 h1.userReviews {
-  
+
   padding-bottom: 10px;
 }
 
