@@ -97,12 +97,12 @@ div.userReviews {
 h1.userFavorites {
   display: block;
   float: left;
-  padding-right: 100px;
+  padding-right: 80px;
 }
 
 h1.userReviews {
   padding-bottom: 10px;
-  padding-right: 300px;
+  padding-right: 200px;
   padding-left: 10px;
   display: block;
   float: left;
