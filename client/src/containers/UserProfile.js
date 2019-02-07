@@ -23,30 +23,31 @@ class UserProfile extends Component {
         <div className="sidebar">
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <div className="block">
-            <h1 className="float-left block">Your Favorite Instructors:</h1><br></br>
+            <h1 className="userFavorites">Your Favorite Instructors:</h1>
             {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/></span>)) : (<span className="float-left block"><h5>You don't have any favorite instructors.</h5></span>)}
 
           </div>
           <div className="userReviews block">
 
-            <h1 className="userReviews float-left block">Your Reviews:</h1><br></br>
-            <ul className="userReviews">
+            <h1 className="userReviews">Your Reviews:</h1><br></br>
+
               {(user.reviews && user.reviews.length > 0)? (user.reviews.map((review) =>
                 <div key={review.id}>
-                  <div className="userReview float-left block">
-                    <span className="float-left"><h3><Link to={`/instructors/${review.instructor.id}`}>{review.instructor.name}</Link>:</h3></span>
+                  <div className="userReview">
+                    <span className="userReview"><h3><Link to={`/instructors/${review.instructor.id}`}>{review.instructor.name}</Link>:</h3></span>
                     <br></br>
-                    <span className="float-left">
-                      <p>{review.text}</p>
-                      <button className="float-left" onClick={e => this.props.deleteReview(review.id, review.instructor.id)}>Delete Review</button>
-
+                    <span className="userReview">
+                      <p className="userReview">{review.text}</p>
                     </span>
+                    <br></br>
+                    <button className="float-left" onClick={e => this.props.deleteReview(review.id, review.instructor.id)}>Delete Review</button>
 
 
                   </div>
+                  <br></br>
                 </div>
               )): <span className="float-left"><h5>You don't have any instructor reviews.</h5></span>}
-            </ul>
+
 
           </div>
 

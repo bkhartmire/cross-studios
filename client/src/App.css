@@ -94,17 +94,28 @@ div.userReviews {
   display: block;
 }
 
-h1.userReviews {
-
-  padding-bottom: 10px;
+h1.userFavorites {
+  display: block;
+  float: left;
+  padding-right: 100px;
 }
 
-li.userReview {
+h1.userReviews {
+  padding-bottom: 10px;
+  padding-right: 300px;
+  padding-left: 10px;
+  display: block;
+  float: left;
+}
+
+.userReview {
   float: left;
   text-indent: 0px;
   padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 60px;
   text-align: left;
-
+  display: block;
 }
 
 .day {
