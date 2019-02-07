@@ -31,10 +31,13 @@ class UserProfile extends Component {
             <ul className="userReviews">
               {(user.reviews && user.reviews.length > 0)? (user.reviews.map((review) =>
                 <div key={review.id}>
-                  <li className="userReview float-left">
-                    <h3>{review.instructor.name}: {review.text}</h3>
-                    <button onClick={e => this.props.deleteReview(review.id, review.instructor.id)}>Delete Review</button>
-                  </li>
+                  <div className="userReview float-left">
+                    <span className="float-left"><Instructor key={review.instructor_id} instructor={review.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/> </span>
+                    <br></br>
+                    <span className="float-left">{review.text}  </span>
+
+                    <button className="float-left" onClick={e => this.props.deleteReview(review.id, review.instructor.id)}>Delete Review</button>
+                  </div>
                 </div>
               )): <span className="float-left"><h5>You don't have any instructor reviews.</h5></span>}
             </ul>
