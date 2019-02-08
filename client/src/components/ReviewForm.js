@@ -20,7 +20,9 @@ class ReviewForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log('A')
     this.props.createReview(this.state.text, this.props.instructorId)
+    console.log('B')
     this.setState({text: '',})
   }
   render() {

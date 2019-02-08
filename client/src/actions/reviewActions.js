@@ -2,6 +2,7 @@ import Auth from '../modules/Auth'
 
 export const createReview = (review, instructorId) => {
   //dispatch action in instructor reducer
+  console.log('C')
   return dispatch => {
     fetch(`/api/instructors/${instructorId}/reviews`, {
       method: 'POST',
@@ -13,12 +14,15 @@ export const createReview = (review, instructorId) => {
         'Content-Type': 'application/json',
       }
     }).then(resp => resp.json())
-    .then(review => dispatch({
+    .then(review => {
+      console.log('D')
+      dispatch({
       type: 'CREATE_REVIEW',
       payload: review
-    }))
+    })})
     .catch(err => err)
   }
+  console.log('E')
 }
 
 export const deleteReview = (id, instructorId) => {
