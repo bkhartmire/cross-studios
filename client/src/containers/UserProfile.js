@@ -24,7 +24,7 @@ class UserProfile extends Component {
           <h4 className="float-left">Logged In as {user.firstname} {user.lastname}</h4>
           <div className="block">
             <h1 className="userFavorites">Your Favorite Instructors:</h1>
-            {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/></span>)) : (<span className="float-left block"><h5>You don't have any favorite instructors.</h5></span>)}
+            {(user.favorites && user.favorites.length > 0)? (user.favorites.map((fave) => <span key={fave.id} className="float-left"><Instructor key={fave.instructor_id} instructor={fave.instructor} userFavorites={user.favorites} favoriteInstructor={this.props.favoriteInstructor} unfavoriteInstructor={this.props.unfavoriteInstructor}/></span>)) : (<span className="float-left block"><h5>You don't have any favorite instructors.</h5></span>)}
 
           </div>
           <div className="userReviews block">
