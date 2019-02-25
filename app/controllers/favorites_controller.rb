@@ -1,4 +1,3 @@
-require 'pry'
 class FavoritesController < ApplicationController
 
 
@@ -24,8 +23,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    user = User.find_by_auth_token!(request.headers[:token])
-    user_id = user.id
+    #user = User.find_by_auth_token!(request.headers[:token])
+    #user_id = user.id
     instructor = Instructor.find_by(id: params[:instructor_id])
     instructor.favorited_count -= 1
     instructor.save
