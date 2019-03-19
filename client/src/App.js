@@ -10,12 +10,12 @@ import InstructorProfile from './containers/InstructorProfile'
 import Login from './containers/Login'
 import Signup from './containers/Signup'
 import UserProfile from './containers/UserProfile'
-
+//need to authenticate user somehow. deleted Auth module with authentication methods
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      auth: Auth.isUserAuthenticated(),
+      //auth: Auth.isUserAuthenticated(),
     }
     this.handleLogout = this.handleLogout.bind(this)
   }
@@ -25,13 +25,15 @@ class App extends Component {
     fetch('/logout', {
       method: 'DELETE',
       headers: {
-        token: Auth.getToken(),
+        //token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => {
       Auth.deauthenticateUser()
       this.setState({
-        auth: Auth.isUserAuthenticated()
+        auth: true
+        //you can't set auth to true. change dummy code.
+        //auth: Auth.isUserAuthenticated()
       })
     }).catch(err => console.log(err))
   }
