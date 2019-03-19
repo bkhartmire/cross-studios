@@ -1,4 +1,4 @@
-import Auth from '../modules/Auth'
+
 
 export const loginUser = (user) => {
   return dispatch => {

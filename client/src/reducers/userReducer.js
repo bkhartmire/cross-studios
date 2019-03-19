@@ -1,8 +1,8 @@
-import Auth from '../modules/Auth'
-
+//change AUTH CODE!! you deleted Auth.isUserAuthenticated()
+//fix this line. auth cannot equal true
 const initialState = {
   loading: false,
-  auth: Auth.isUserAuthenticated(),
+  auth: true,
   current: {}
 }
 

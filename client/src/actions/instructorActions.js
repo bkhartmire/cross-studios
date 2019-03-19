@@ -1,4 +1,3 @@
-import Auth from '../modules/Auth'
 
 export const fetchInstructor = (instructor_id) => {
   return (dispatch) => {

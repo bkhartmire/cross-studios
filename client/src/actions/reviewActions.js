@@ -1,4 +1,4 @@
-import Auth from '../modules/Auth'
+
 
 export const createReview = (review, instructorId) => {
   //dispatch action in instructor reducer

@@ -1,5 +1,3 @@
-import Auth from '../modules/Auth'
-
 export const fetchDanceClasses = () => {
   return dispatch => {
     dispatch({type: 'LOADING_DANCE_CLASSES'})

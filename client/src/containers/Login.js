@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import Auth from '../modules/Auth'
 
 import { loginUser } from '../actions/userActions'
 
