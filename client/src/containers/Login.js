@@ -11,7 +11,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      auth: Auth.isUserAuthenticated(),
+      //auth: Auth.isUserAuthenticated(),
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
