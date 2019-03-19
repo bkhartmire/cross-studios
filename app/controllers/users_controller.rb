@@ -3,8 +3,7 @@ class UsersController < ApiController
    before_action :require_login, except: [:create]
 
    def create
-     #.create! will return user itself instead of boolean value
-     user = User.create!(user_params)
+     user = User.create(user_params)
      render json: {token: user.auth_token}
    end
 
