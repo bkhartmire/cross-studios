@@ -1,7 +1,4 @@
-//import sessionApi from '../api/SessionApi';
-
 export function loginUser(credentials) {
-  debugger
   return dispatch => {
     fetch('/api/login', {
       method: 'POST',

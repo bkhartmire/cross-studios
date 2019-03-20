@@ -38,7 +38,6 @@ class SessionsController < ApplicationController
      if user.authenticate(auth_params[:password])
        jwt = Auth.issue({user: user.id})
        render json: {jwt: jwt}
-     else
      end
    end
 
