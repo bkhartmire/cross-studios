@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def create
-    user = User.find_by_auth_token!(request.headers[:token])
+    user = current_user
     instructor = Instructor.find_by(id: params[:instructor_id])
     existing_review = Review.find_by(user_id: user.id, instructor_id: instructor.id)
     if !!existing_review
