@@ -38,13 +38,16 @@ export const fetchUser = () => {
 }
 
 export const addToUserSchedule = (danceClassId) => {
+  debugger
   return dispatch => {
     fetch('/api/user_dance_classes', {
       method: 'POST',
-      body: JSON.stringify({dance_class_id: danceClassId}),
       headers: {
-        'Authorization': `Bearer ${sessionStorage.jwt}`
-      }
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({dance_class_id: danceClassId}),
     }).then(res => res.json())
     .then(userDanceClass => dispatch({
       type: 'ADD_TO_SCHEDULE',
@@ -60,9 +63,9 @@ export const removeFromUserSchedule = (danceClassId) => {
     fetch(`/api/user_dance_classes/${danceClassId}`, {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${sessionStorage.jwt}`
-        // 'Content-Type': 'application/json',
-        // 'Accept': 'application/json'
+        'Authorization': `Bearer ${sessionStorage.jwt}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
       }
     }).then(res => res.json())
     .then(userDanceClass => dispatch({
