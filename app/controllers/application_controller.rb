@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
       end
     end
   end
-  
+
   def authenticate
     render json: {error: "unauthorized"}, status: 401
       unless logged_in?

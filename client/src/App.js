@@ -12,33 +12,34 @@ import Signup from './containers/Signup'
 import UserProfile from './containers/UserProfile'
 //need to authenticate user somehow. deleted Auth module with authentication methods
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      //auth: Auth.isUserAuthenticated(),
-    }
-    this.handleLogout = this.handleLogout.bind(this)
-  }
-
-  handleLogout(e, data) {
-    e.preventDefault()
-    fetch('/logout', {
-      method: 'DELETE',
-      headers: {
-        //token: Auth.getToken(),
-        //'Authorization': `Token ${Auth.getToken()}`,
-      }
-    }).then(res => {
-      //Auth.deauthenticateUser()
-      this.setState({
-        auth: true
-        //you can't set auth to true. change dummy code.
-        //auth: Auth.isUserAuthenticated()
-      })
-    }).catch(err => console.log(err))
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     //auth: Auth.isUserAuthenticated(),
+  //   }
+  //   this.handleLogout = this.handleLogout.bind(this)
+  // }
+  //
+  // handleLogout(e, data) {
+  //   e.preventDefault()
+  //   fetch('/logout', {
+  //     method: 'DELETE',
+  //     headers: {
+  //       //token: Auth.getToken(),
+  //       //'Authorization': `Token ${Auth.getToken()}`,
+  //     }
+  //   }).then(res => {
+  //     //Auth.deauthenticateUser()
+  //     this.setState({
+  //       auth: true
+  //       //you can't set auth to true. change dummy code.
+  //       //auth: Auth.isUserAuthenticated()
+  //     })
+  //   }).catch(err => console.log(err))
+  // }
 
   render() {
+
     return (
       <BrowserRouter>
         <div className="App">
@@ -49,13 +50,13 @@ class App extends Component {
             <Link to='/profile'>Profile</Link><span> | </span>
             <a href="#" onClick={this.handleLogout}>Logout</a>
           </div>
-          <Route exact path='/' render={ () =>  (this.state.auth) ? <Home/> : <Redirect to='/login'/>}/>
-          <Route path='/dance_classes' render ={ () => (this.state.auth) ? <DanceClassList/> :  <Redirect to='/login'/>}/>
-          <Route path='/instructors/:id' render={ () => (this.state.auth) ? <InstructorProfile/> :  <Redirect to='/login'/>}/>
-          <Route path='/all_instructors' render ={ () => (this.state.auth) ? <InstructorList/> :  <Redirect to='/login'/>}/>
+          <Route exact path='/' component={Home}/>
+          <Route path='/dance_classes' component={DanceClassList}/>
+          <Route path='/instructors/:id' component={InstructorProfile}/>
+          <Route path='/all_instructors' component={InstructorList}/>
           <Route path='/signup' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Signup/> }/>
           <Route path='/login' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Login/> }/>
-          <Route path='/profile' render={ () => (this.state.auth) ? <UserProfile/> : <Redirect to='/login'/>}/>
+          <Route path='/profile' component={UserProfile}/>
         </div>
 
       </BrowserRouter>

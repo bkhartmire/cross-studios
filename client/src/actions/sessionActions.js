@@ -7,7 +7,8 @@ export function loginUser(credentials) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({auth: credentials})
     }).then(resp => resp.json())
     .catch(err => err)
 
