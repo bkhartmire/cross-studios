@@ -1,8 +1,17 @@
-import sessionApi from '../api/SessionApi';
+//import sessionApi from '../api/SessionApi';
 
 export function loginUser(credentials) {
   return dispatch => {
-    return sessionApi.login(credentials).then(response => {
+    fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(resp => resp.json())
+    .catch(err => err)
+
+  //   return sessionApi.login(credentials)
+  .then(response => {
       sessionStorage.setItem('jwt', response.jwt);
       dispatch({
         type: 'LOG_IN_SUCCESS'
