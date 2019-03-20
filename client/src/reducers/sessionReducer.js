@@ -1,12 +1,10 @@
-import {browserHistory} from 'react-router';
-
 export default function sessionReducer(
   state = {
     session: !!sessionStorage.jwt
   }, action) {
     switch (action.type) {
       case 'LOG_IN_SUCCESS':
-        browserHistory.push('/')
+        window.location.pathname = "/"
         return !!sessionStorage.jwt
       default:
         return state;
