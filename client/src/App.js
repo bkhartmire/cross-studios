@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
-import { logoutUser } from '../actions/sessionActions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { logoutUser } from './actions/sessionActions'
 import Home from './containers/Home'
 import DanceClassList from './containers/DanceClassList'
 import InstructorList from './containers/InstructorList'
@@ -41,7 +43,7 @@ class App extends Component {
 
   handleLogout(e) {
     e.preventDefault()
-    this.props.actions.logoutUser()
+    this.props.logoutUser()
   }
 
   render() {
@@ -83,5 +85,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   logoutUser
 }, dispatch)
 
-export default withRouter(connect(null, mapDispatchToProps)(App))
+export default connect(null, mapDispatchToProps)(App)
 // export default App;

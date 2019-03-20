@@ -16,3 +16,9 @@ export function loginUser(credentials) {
     }).catch(err => err)
   }
 }
+
+export function logoutUser() {
+  debugger
+  //sessionStorage.removeItem('jwt');
+  // return {type: types.LOG_OUT}
+}
