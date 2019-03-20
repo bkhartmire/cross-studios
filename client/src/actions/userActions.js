@@ -38,7 +38,6 @@ export const fetchUser = () => {
 }
 
 export const addToUserSchedule = (danceClassId) => {
-  debugger
   return dispatch => {
     fetch('/api/user_dance_classes', {
       method: 'POST',
