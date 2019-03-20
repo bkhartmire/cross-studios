@@ -1,3 +1,5 @@
+import {browserHistory} from 'react-router';
+
 export default function sessionReducer(
   state = {
     session: !!sessionStorage.jwt
