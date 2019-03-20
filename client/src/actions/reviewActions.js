@@ -2,27 +2,22 @@
 
 export const createReview = (review, instructorId) => {
   //dispatch action in instructor reducer
-  console.log('C')
   return dispatch => {
     fetch(`/api/instructors/${instructorId}/reviews`, {
       method: 'POST',
       body: JSON.stringify({ review: review }),
       headers: {
-        //token: Auth.getToken(),
-        //'Authorization': `Token ${Auth.getToken()}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
     }).then(resp => resp.json())
     .then(review => {
-      console.log('D')
       dispatch({
       type: 'CREATE_REVIEW',
       payload: review
     })})
     .catch(err => err)
   }
-  console.log('E')
 }
 
 export const deleteReview = (id, instructorId) => {
