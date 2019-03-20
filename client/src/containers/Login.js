@@ -27,12 +27,13 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const user = this.state
-    this.props.loginUser(user)
+    this.props.loginUser(this.state.credentials)
   }
 
   render() {
-    const { username, password } = this.state
+    //does this work??
+    const { username, password } = this.state.credentials
+
 
     return(
       <div className="login">
