@@ -26,10 +26,10 @@ class App extends Component {
       method: 'DELETE',
       headers: {
         //token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
+        //'Authorization': `Token ${Auth.getToken()}`,
       }
     }).then(res => {
-      Auth.deauthenticateUser()
+      //Auth.deauthenticateUser()
       this.setState({
         auth: true
         //you can't set auth to true. change dummy code.

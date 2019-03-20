@@ -8,8 +8,8 @@ export const createReview = (review, instructorId) => {
       method: 'POST',
       body: JSON.stringify({ review: review }),
       headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
+        //token: Auth.getToken(),
+        //'Authorization': `Token ${Auth.getToken()}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
@@ -31,8 +31,8 @@ export const deleteReview = (id, instructorId) => {
     fetch(`/api/instructors/${instructorId}/reviews/${id}`, {
       method: 'DELETE',
       headers: {
-        token: Auth.getToken(),
-        'Authorization': `Token ${Auth.getToken()}`,
+        //token: Auth.getToken(),
+        //'Authorization': `Token ${Auth.getToken()}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }

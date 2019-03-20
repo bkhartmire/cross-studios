@@ -33,7 +33,7 @@ class Login extends Component {
   render() {
     //does this work??
     const { username, password } = this.state.credentials
-
+    debugger
 
     return(
       <div className="login">
