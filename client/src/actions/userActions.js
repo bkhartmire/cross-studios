@@ -26,19 +26,18 @@
 //   }
 // }
 //
-// export const fetchUser = () => {
-//   return dispatch => {
-//     return fetch('/api/profile', {
-//       method: 'GET',
-//       // headers: {
-//       //   token: Auth.getToken(),
-//       //   'Authorization': `Token ${Auth.getToken()}`,
-//       // }
-//     }).then(res => res.json())
-//     .then(user => dispatch({type: 'FETCH_USER', payload: user}))
-//       .catch(err => console.log(err))
-//   }
-// }
+export const fetchUser = () => {
+  return dispatch => {
+    return fetch('/api/profile', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${sessionStorage.jwt}`
+      }
+    }).then(res => res.json())
+    .then(user => dispatch({type: 'FETCH_USER', payload: user}))
+      .catch(err => console.log(err))
+  }
+}
 //
 // export const addToUserSchedule = (danceClassId) => {
 //   return dispatch => {

@@ -1,8 +1,5 @@
-//change AUTH CODE!! you deleted Auth.isUserAuthenticated()
-//fix this line. auth cannot equal true
 const initialState = {
   loading: false,
-  auth: true,
   current: {}
 }
 
