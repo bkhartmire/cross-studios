@@ -13,34 +13,13 @@ import Login from './containers/Login'
 import Signup from './containers/Signup'
 import UserProfile from './containers/UserProfile'
 
-//need to authenticate user somehow. deleted Auth module with authentication methods
+
 class App extends Component {
   constructor() {
     super()
-  //   this.state = {
-  //     //auth: Auth.isUserAuthenticated(),
-  //   }
    this.handleLogout = this.handleLogout.bind(this)
   }
-  //
-  // handleLogout(e, data) {
-  //   e.preventDefault()
-  //   fetch('/logout', {
-  //     method: 'DELETE',
-  //     headers: {
-  //       //token: Auth.getToken(),
-  //       //'Authorization': `Token ${Auth.getToken()}`,
-  //     }
-  //   }).then(res => {
-  //     //Auth.deauthenticateUser()
-  //     this.setState({
-  //       auth: true
-  //       //you can't set auth to true. change dummy code.
-  //       //auth: Auth.isUserAuthenticated()
-  //     })
-  //   }).catch(err => console.log(err))
-  // }
-
+  
   handleLogout(e) {
     e.preventDefault()
     this.props.logoutUser()
@@ -78,4 +57,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(null, mapDispatchToProps)(App)
-// export default App;
