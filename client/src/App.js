@@ -54,8 +54,8 @@ class App extends Component {
           <Route path='/dance_classes' component={DanceClassList}/>
           <Route path='/instructors/:id' component={InstructorProfile}/>
           <Route path='/all_instructors' component={InstructorList}/>
-          <Route path='/signup' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Signup/> }/>
-          <Route path='/login' render={ () => (this.state.auth) ? < Redirect to="/"/> : <Login/> }/>
+          <Route path='/signup' component={Signup}/>
+          <Route path='/login' component={Login}/>
           <Route path='/profile' component={UserProfile}/>
         </div>
 
