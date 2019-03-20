@@ -2,13 +2,13 @@ class FavoritesController < ApplicationController
 
 
   def index
-    user = User.find_by_auth_token!(request.headers[:token])
+    user = current_user
     favorites = Favorite.all.select{|favorite| favorite.user_id == user.id}
     render json: favorites
   end
 
   def create
-    user = User.find_by_auth_token!(request.headers[:token])
+    user = current_user
     user_id = user.id
     instructor = Instructor.find_by(id: params[:instructor_id])
 
