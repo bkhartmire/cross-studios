@@ -58,26 +58,18 @@ class App extends Component {
             <Link to='/profile'>Profile</Link><span> | </span>
             <a href="#" onClick={this.handleLogout}>Logout</a>
           </div>
-          <Route exact path='/' component={Home}/>
-          <Route path='/dance_classes' component={DanceClassList} onEnter={requireAuth}/>
-          <Route path='/instructors/:id' component={InstructorProfile} onEnter={requireAuth}/>
-          <Route path='/all_instructors' component={InstructorList} onEnter={requireAuth}/>
-          <Route path='/signup' component={Signup}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/profile' component={UserProfile}/>
+          <Route exact path='/' render={ () => (!!sessionStorage.jwt) ? <Home/> : <Redirect to='/login'/>}/>
+          <Route path='/dance_classes' render={ () => (!!sessionStorage.jwt) ? <DanceClassList/> : <Redirect to='/login'/>}/>
+          <Route path='/instructors/:id' render={ () => (!!sessionStorage.jwt) ? <InstructorProfile/> : <Redirect to='/login'/>}/>
+          <Route path='/all_instructors' render={ () => (!!sessionStorage.jwt) ? <InstructorList/> : <Redirect to='/login'/>}/>
+          <Route path='/signup' render={ () => (!sessionStorage.jwt) ? <Signup/> : <Redirect to='/'/>}/>
+          <Route path='/login' render={ () => (!sessionStorage.jwt) ? <Login/> : <Redirect to='/'/>}/>
+          <Route path='/profile' render={ () => (!!sessionStorage.jwt) ? <UserProfile/> : <Redirect to='/login'/>}/>
         </div>
 
       </BrowserRouter>
     )
 
-    function requireAuth(nextState, replace) {
-      if (!sessionStorage.jwt) {
-        replace({
-          pathname: '/login',
-          state: { nextPathname: nextState.location.pathname }
-        })
-      }
-    }
   }
 }
 

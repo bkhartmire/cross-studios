@@ -18,7 +18,9 @@ export function loginUser(credentials) {
 }
 
 export function logoutUser() {
-  debugger
-  //sessionStorage.removeItem('jwt');
-  // return {type: types.LOG_OUT}
+  sessionStorage.removeItem('jwt');
+  return dispatch => {
+    dispatch({type: 'LOG_OUT'})
+  }
+
 }
