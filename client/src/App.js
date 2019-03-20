@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom'
-import { handleLogout } from './actions/userActions'
+import { logoutUser } from '../actions/sessionActions'
 import Home from './containers/Home'
 import DanceClassList from './containers/DanceClassList'
 import InstructorList from './containers/InstructorList'
@@ -10,15 +10,16 @@ import InstructorProfile from './containers/InstructorProfile'
 import Login from './containers/Login'
 import Signup from './containers/Signup'
 import UserProfile from './containers/UserProfile'
+
 //need to authenticate user somehow. deleted Auth module with authentication methods
 class App extends Component {
-  // constructor() {
-  //   super()
+  constructor() {
+    super()
   //   this.state = {
   //     //auth: Auth.isUserAuthenticated(),
   //   }
-  //   this.handleLogout = this.handleLogout.bind(this)
-  // }
+   this.handleLogout = this.handleLogout.bind(this)
+  }
   //
   // handleLogout(e, data) {
   //   e.preventDefault()
@@ -37,6 +38,11 @@ class App extends Component {
   //     })
   //   }).catch(err => console.log(err))
   // }
+
+  handleLogout(e) {
+    e.preventDefault()
+    this.props.actions.logoutUser()
+  }
 
   render() {
 
@@ -61,6 +67,7 @@ class App extends Component {
 
       </BrowserRouter>
     )
+
     function requireAuth(nextState, replace) {
       if (!sessionStorage.jwt) {
         replace({
@@ -72,4 +79,9 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  logoutUser
+}, dispatch)
+
+export default withRouter(connect(null, mapDispatchToProps)(App))
+// export default App;
