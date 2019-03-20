@@ -9,9 +9,10 @@ class Login extends Component {
   constructor(){
     super()
     this.state = {
-      username: '',
-      password: '',
-      //auth: Auth.isUserAuthenticated(),
+      credentials: {
+        email: '',
+        password: ''
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -19,9 +20,9 @@ class Login extends Component {
 
   handleChange(e) {
     const field = e.target.name
-    let state = this.state
-    state[field] = e.target.value
-    this.setState(state)
+    const credentials = this.state.credentials
+    credentials[field] = e.target.value
+    return this.setState({credentials: credentials})
   }
 
   handleSubmit(e) {
