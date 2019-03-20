@@ -1,3 +1,5 @@
+require 'pry'
+
 class SessionsController < ApplicationController
   # skip_before_action :require_login, only: [:create], raise: false
   #
@@ -33,6 +35,7 @@ class SessionsController < ApplicationController
 
    def create
      user = User.find_by(email: auth_params[:email])
+     binding.pry
      if user.authenticate(auth_params[:password])
        jwt = Auth.issue({user: user.id})
        render json: {jwt: jwt}

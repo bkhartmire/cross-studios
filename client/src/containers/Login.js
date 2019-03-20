@@ -31,13 +31,13 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password } = this.state.credentials
+    const { email, password } = this.state.credentials
 
     return(
       <div className="login">
         <h1>Log In</h1>
         <form onSubmit={ this.handleSubmit }>
-            <input name="username" placeholder="Username" value={ username } onChange={ this.handleChange }/><br/>
+            <input name="email" placeholder="Email" value={ email } onChange={ this.handleChange }/><br/>
             <input type='password' name="password" placeholder="Password" value={ password } onChange={ this.handleChange }/><br/>
             <button type="submit">Login</button>
           </form>
