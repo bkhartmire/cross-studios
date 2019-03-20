@@ -12,7 +12,7 @@ class StudioList extends Component {
 
   render(){
     const {studios} = this.props
-    debugger
+
     return(
       <div>
         <h1>Manage your class schedule from these top LA dance studios!</h1>
