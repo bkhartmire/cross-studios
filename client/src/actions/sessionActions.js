@@ -11,15 +11,11 @@ export function loginUser(credentials) {
       body: JSON.stringify({auth: credentials})
     }).then(resp => resp.json())
     .catch(err => err)
-
-  //   return sessionApi.login(credentials)
-  .then(response => {
+    .then(response => {
       sessionStorage.setItem('jwt', response.jwt);
       dispatch({
         type: 'LOG_IN_SUCCESS'
       });
-    }).catch(error => {
-      throw(error);
-    });
-  };
+    }).catch(err => err)
+  }
 }

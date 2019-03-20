@@ -228,9 +228,9 @@ dance_classes = DanceClass.create([
 ])
 
 users = User.create([
-  {username: 'user1', password: 'password', firstname: 'Jojo', lastname: 'Gomez'},
-  {username: 'user2', password: 'password', firstname: 'Jade', lastname: 'Chynoweth'},
-  {username: 'user3', password: 'password', firstname: 'Bam', lastname: 'Martin'},
-  {username: 'user4', password: 'password', firstname: 'Ysabelle', lastname: 'Capitule'},
-  {username: 'user5', password: 'password', firstname: 'Keone', lastname: 'Madrid'}
+  {email: 'user1@email.com', password: 'password', firstname: 'Jojo', lastname: 'Gomez'},
+  {email: 'user2@email.com', password: 'password', firstname: 'Jade', lastname: 'Chynoweth'},
+  {email: 'user3@email.com', password: 'password', firstname: 'Bam', lastname: 'Martin'},
+  {email: 'user4@email.com', password: 'password', firstname: 'Ysabelle', lastname: 'Capitule'},
+  {email: 'user5@email.com', password: 'password', firstname: 'Keone', lastname: 'Madrid'}
   ])
