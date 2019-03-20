@@ -9,6 +9,7 @@ export const createReview = (review, instructorId) => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.jwt}`
       }
     }).then(resp => resp.json())
     .then(review => {
@@ -26,10 +27,9 @@ export const deleteReview = (id, instructorId) => {
     fetch(`/api/instructors/${instructorId}/reviews/${id}`, {
       method: 'DELETE',
       headers: {
-        //token: Auth.getToken(),
-        //'Authorization': `Token ${Auth.getToken()}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.jwt}`
       }
     }).then(resp => resp.json())
     .then(review => dispatch({
