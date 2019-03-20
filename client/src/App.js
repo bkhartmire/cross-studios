@@ -51,16 +51,24 @@ class App extends Component {
             <a href="#" onClick={this.handleLogout}>Logout</a>
           </div>
           <Route exact path='/' component={Home}/>
-          <Route path='/dance_classes' component={DanceClassList}/>
-          <Route path='/instructors/:id' component={InstructorProfile}/>
-          <Route path='/all_instructors' component={InstructorList}/>
+          <Route path='/dance_classes' component={DanceClassList} onEnter={requireAuth}/>
+          <Route path='/instructors/:id' component={InstructorProfile} onEnter={requireAuth}/>
+          <Route path='/all_instructors' component={InstructorList} onEnter={requireAuth}/>
           <Route path='/signup' component={Signup}/>
           <Route path='/login' component={Login}/>
           <Route path='/profile' component={UserProfile}/>
         </div>
 
       </BrowserRouter>
-    );
+    )
+    function requireAuth(nextState, replace) {
+      if (!sessionStorage.jwt) {
+        replace({
+          pathname: '/login',
+          state: { nextPathname: nextState.location.pathname }
+        })
+      }
+    }
   }
 }
 
