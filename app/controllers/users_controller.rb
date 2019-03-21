@@ -1,10 +1,9 @@
-
 class UsersController < ApplicationController
-   # before_action :require_login, except: [:create]
+  skip_before_action :authenticate, only: [:create]
 
    def create
-     # user = User.create!(user_params)
-     # render json: {token: user.auth_token}
+     user = User.create!(user_params)
+     render json: user
    end
 
    def profile

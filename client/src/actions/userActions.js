@@ -1,4 +1,5 @@
 export const signupUser = (formData) => {
+  debugger
   return dispatch => {
     fetch('/api/users', {
       method: 'POST',
@@ -8,7 +9,7 @@ export const signupUser = (formData) => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${sessionStorage.jwt}`
+        //'Authorization': `Bearer ${sessionStorage.jwt}`
       }
     }).then(res => res.json())
     .then(res => {
