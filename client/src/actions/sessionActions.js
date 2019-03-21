@@ -9,10 +9,10 @@ export function loginUser(credentials) {
     }).then(resp => resp.json())
     .catch(err => err)
     .then(response => {
-      sessionStorage.setItem('jwt', response.jwt);
+      sessionStorage.setItem('jwt', response.jwt)
       dispatch({
         type: 'LOG_IN_SUCCESS'
-      });
+      })
     }).catch(err => err)
   }
 }

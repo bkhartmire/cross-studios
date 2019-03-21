@@ -3,7 +3,10 @@ class UsersController < ApplicationController
 
    def create
      user = User.create!(user_params)
-     render json: user
+     if user.authenticate(user.password)
+       jwt = Auth.issue({user: user.id})
+       render json: {jwt: jwt}
+     end
    end
 
    def profile

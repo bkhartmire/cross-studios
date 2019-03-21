@@ -1,5 +1,4 @@
 export const signupUser = (formData) => {
-  debugger
   return dispatch => {
     fetch('/api/users', {
       method: 'POST',
@@ -8,12 +7,13 @@ export const signupUser = (formData) => {
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        //'Authorization': `Bearer ${sessionStorage.jwt}`
+        'Content-Type': 'application/json'
       }
     }).then(res => res.json())
+    .catch(err => err)
+    //dispatches to session reducer
     .then(res => {
-
+      sessionStorage.setItem('jwt', res.jwt)
       dispatch({
         type: 'LOG_IN_SUCCESS',
       })
