@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-
+import GoogleLogin from 'react-google-login';
 import { loginUser } from '../actions/sessionActions'
 
 class Login extends Component {
@@ -29,6 +29,13 @@ class Login extends Component {
     e.preventDefault()
     this.props.loginUser(this.state.credentials)
   }
+
+  const responseGoogle = (response) => {
+    console.log("google console");
+    console.log(response);
+    debugger
+    //this.signup(response, 'google');
+}
 
   render() {
     const { email, password } = this.state.credentials

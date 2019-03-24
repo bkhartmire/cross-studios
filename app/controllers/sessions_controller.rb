@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
    end
 
    def google_auth
+     binding.pry
+     access_token = request.env["omniauth.auth"]
+     binding.pry
+
    end
 
    private
