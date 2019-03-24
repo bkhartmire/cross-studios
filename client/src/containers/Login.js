@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
-import { loginUser } from '../actions/sessionActions'
+import { loginUser, googleAuth } from '../actions/sessionActions'
 
 class Login extends Component {
   constructor(){
@@ -35,12 +35,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state.credentials
 
-    const responseGoogle = (response) => {
-      console.log("google console");
-      console.log(response);
-      debugger
-      //this.signup(response, 'google');
-    }
+
 
     return(
       <div className="login">
@@ -54,8 +49,8 @@ class Login extends Component {
             <GoogleLogin
               clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
               buttonText="Login with Google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onSuccess={googleAuth}
+              onFailure={googleAuth}
             />
       </div>
     )
@@ -63,7 +58,8 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  loginUser
+  loginUser,
+  googleAuth
 }, dispatch)
 
 export default withRouter(connect(null, mapDispatchToProps)(Login))

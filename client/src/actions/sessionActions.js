@@ -22,5 +22,11 @@ export function logoutUser() {
   return dispatch => {
     dispatch({type: 'LOG_OUT'})
   }
+}
 
+export function googleAuth(response) {
+  console.log("google console");
+  console.log(response);
+  debugger
+  //this.signup(response, 'google');
 }
