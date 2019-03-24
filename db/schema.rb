@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_164352) do
+ActiveRecord::Schema.define(version: 2019_03_24_112501) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_01_26_164352) do
     t.string "lastname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
 end
