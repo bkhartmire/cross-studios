@@ -24,9 +24,7 @@ export function logoutUser() {
   }
 }
 
-export function googleAuth(response) {
-  console.log("google console");
-  console.log(response);
+export const googleAuth = (response) => {
   debugger
   const userInfo = {
     firstname: response.w3.ofa,
@@ -34,5 +32,21 @@ export function googleAuth(response) {
     email: response.w3.U3,
     google_token: response.accessToken
   }
-
+  return dispatch => {
+    debugger
+    fetch('/api/auth/google_user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userInfo)
+    }).then(resp => resp.json())
+    .catch(err => err)
+    .then(response => {
+      sessionStorage.setItem('jwt', response.jwt)
+      dispatch({
+        type: 'LOG_IN_SUCCESS'
+      })
+    }).catch(err => err)
+  }
 }

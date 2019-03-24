@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
      binding.pry
      access_token = request.env["omniauth.auth"]
      binding.pry
-
    end
 
    private

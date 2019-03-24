@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     post '/login' => "sessions#create"
     delete '/logout' => "sessions#destroy"
     get '/profile' => "users#profile"
-    get 'auth/:provider/callback', to: 'sessions#google_auth'
+    #is this route correct??
+    get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
+    post 'auth/google_user', to: 'sessions#google_auth'
   end
 end

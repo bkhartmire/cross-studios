@@ -16,6 +16,7 @@ class Login extends Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleGoogleAuth = this.handleGoogleAuth.bind(this)
   }
 
   handleChange(e) {
@@ -28,6 +29,10 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault()
     this.props.loginUser(this.state.credentials)
+  }
+
+  handleGoogleAuth(response) {
+    this.props.googleAuth(response)
   }
 
 
@@ -49,8 +54,7 @@ class Login extends Component {
             <GoogleLogin
               clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
               buttonText="Login with Google"
-              onSuccess={googleAuth}
-              onFailure={googleAuth}
+              onSuccess={this.handleGoogleAuth}
             />
       </div>
     )
@@ -59,7 +63,7 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   loginUser,
-  googleAuth
+  googleAuth,
 }, dispatch)
 
-export default withRouter(connect(null, mapDispatchToProps)(Login))
+export default connect(null, mapDispatchToProps)(Login)

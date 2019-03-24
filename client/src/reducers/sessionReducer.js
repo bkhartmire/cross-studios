@@ -4,6 +4,7 @@ export default function sessionReducer(
   }, action) {
     switch (action.type) {
       case 'LOG_IN_SUCCESS':
+      debugger
         window.location.pathname = "/"
         return !!sessionStorage.jwt
       case 'LOG_OUT':
