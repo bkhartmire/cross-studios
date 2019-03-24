@@ -12,13 +12,20 @@ class SessionsController < ApplicationController
    end
 
    def google_auth
-     binding.pry
-     # access_token = request.env["omniauth.auth"]
-     binding.pry
+     # refresh token???
+     #if existing user created account before with their gmail, they can connect their google account
+     user = User.find_or_create_by(email: params[:email]) do |u|
+       u.firstname = params[:firstname]
+       u.lastname = params[:lastname]
+       u.google_token = params[:google_token]
+       u.password = SecureRandom.urlsafe_base64(n=6)
+     end
+     jwt = Auth.issue({user: user.id})
+     render json: {jwt: jwt}
    end
 
    private
      def auth_params
-       params.require(:auth).permit(:email, :password, :firstname, :lastname, :google_token)
+       params.require(:auth).permit(:email, :password)
      end
 end

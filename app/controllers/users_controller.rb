@@ -22,8 +22,7 @@ class UsersController < ApplicationController
         :email,
         :password,
         :firstname,
-        :lastname,
-        :google_token
+        :lastname
       )
   end
 end

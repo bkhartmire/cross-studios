@@ -25,7 +25,6 @@ export function logoutUser() {
 }
 
 export const googleAuth = (response) => {
-  debugger
   const userInfo = {
     firstname: response.w3.ofa,
     lastname: response.w3.wea,
@@ -33,7 +32,6 @@ export const googleAuth = (response) => {
     google_token: response.accessToken
   }
   return dispatch => {
-    debugger
     fetch('/api/auth/google_user', {
       method: 'POST',
       headers: {
