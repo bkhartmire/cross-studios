@@ -28,5 +28,11 @@ export function googleAuth(response) {
   console.log("google console");
   console.log(response);
   debugger
-  //this.signup(response, 'google');
+  const userInfo = {
+    firstname: response.w3.ofa,
+    lastname: response.w3.wea,
+    email: response.w3.U3,
+    google_token: response.accessToken
+  }
+
 }
