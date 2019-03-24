@@ -13,12 +13,12 @@ class SessionsController < ApplicationController
 
    def google_auth
      binding.pry
-     access_token = request.env["omniauth.auth"]
+     # access_token = request.env["omniauth.auth"]
      binding.pry
    end
 
    private
      def auth_params
-       params.require(:auth).permit(:email, :password)
+       params.require(:auth).permit(:email, :password, :firstname, :lastname, :google_token)
      end
 end
