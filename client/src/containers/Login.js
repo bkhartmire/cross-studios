@@ -30,15 +30,17 @@ class Login extends Component {
     this.props.loginUser(this.state.credentials)
   }
 
-  const responseGoogle = (response) => {
-    console.log("google console");
-    console.log(response);
-    debugger
-    //this.signup(response, 'google');
-}
+
 
   render() {
     const { email, password } = this.state.credentials
+
+    const responseGoogle = (response) => {
+      console.log("google console");
+      console.log(response);
+      debugger
+      //this.signup(response, 'google');
+    }
 
     return(
       <div className="login">
@@ -49,6 +51,12 @@ class Login extends Component {
             <button type="submit">Login</button>
           </form>
           <Link to='/signup'>Sign Up</Link>
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              buttonText="Login with Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+            />
       </div>
     )
   }
