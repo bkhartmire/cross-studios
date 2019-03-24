@@ -11,6 +11,9 @@ class SessionsController < ApplicationController
      end
    end
 
+   def google_auth
+   end
+
    private
      def auth_params
        params.require(:auth).permit(:email, :password)
