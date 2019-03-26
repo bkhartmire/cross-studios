@@ -21,17 +21,11 @@ class DanceClass < ApplicationRecord
   end
 
   def self.reformat
-    #sunday -> 0; friday -> 5 (today is 2)
-    binding.pry
-    #wday returns 0-6 integer (Sunday = 0)
+    #.wday returns 0-6 integer (Sunday = 0)
     today_index = DateTime.now.wday
-    if today_index > self.day_index
-      difference = today_index - self.day_index
-      class_date = DateTime.now - difference
-    elsif today_index < self.day_index
-      difference = self.day_index - today_index
-      class_date = DateTime.now + difference
-    end
+    difference = today_index - self.day_index
+    class_date = DateTime.now - difference
+    binding.pry
     return class_date
   end
 
