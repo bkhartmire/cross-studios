@@ -17,8 +17,8 @@ class DanceClass extends Component {
 
     return(
       <div className="dance_class_listing">
-        <h3>{instructor_name}: {danceClass.name}</h3>
-        <h4>{danceClass.start_time}-{danceClass.end_time}</h4>
+        <h3>{instructor_name}: {danceClass.text}</h3>
+        <h4>{danceClass.start}-{danceClass.end}</h4>
         <h4>{danceClass.studio.name}</h4>
         <ScheduleButton key={danceClass.id} danceClass={danceClass} userDanceClasses={userDanceClasses} addToUserSchedule={addToUserSchedule} removeFromUserSchedule={removeFromUserSchedule}/>
         <br></br>

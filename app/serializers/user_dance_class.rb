@@ -1,5 +1,5 @@
 class UserDanceClassSerializer < ActiveModel::Serializer
-  attributes :id, :name, :instructor_id, :studio_id, :day, :start_time, :end_time, :studio, :instructor
+  attributes :id, :text, :instructor_id, :studio_id, :day, :start, :end, :studio, :instructor
 
   belongs_to :user
   belongs_to :danceClass

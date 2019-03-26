@@ -10,11 +10,7 @@ class DanceClassesController < ApplicationController
     reformat_classes = classes.each do |dance_class|
       dance_class.reformat
     end
-    # reformat_classes = classes.map do |dance_class|
-    #   dance_class.text = dance_class.name
-    #   dance_class.start = dance_class.start_time
-    #   dance_class.end = dance_class.end_time
-    # end
+
     render json: classes
   end
 

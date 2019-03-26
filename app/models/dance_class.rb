@@ -15,7 +15,7 @@ class DanceClass < ApplicationRecord
     sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}
     separated_days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
     separated_days.each do |day|
-      day.sort_by!{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
+      day.sort_by!{|dance_class| DateTime.parse(dance_class.end).strftime("%H:%M:%S")}
     end
     separated_days.flatten
   end
@@ -26,7 +26,7 @@ class DanceClass < ApplicationRecord
     difference = today_index - self.day_index
     class_date = DateTime.now - difference
     binding.pry
-    
+
     return class_date
   end
 
