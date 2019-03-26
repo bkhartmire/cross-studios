@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { DayPilot, DayPilotCalendar } from 'daypilot-pro-react'
+import { fetchDanceClasses } from '../actions/danceClassActions'
 
 class Calendar extends Component {
+  componentDidMount(){
+    this.props.fetchDanceClasses()
+  }
   constructor(props) {
     super(props)
     this.state = {
@@ -25,6 +31,7 @@ class Calendar extends Component {
     }
   }
   render() {
+    debugger
     var {...config} = this.state
     return (
       <div>
@@ -36,4 +43,14 @@ class Calendar extends Component {
   }
 }
 
-export default Calendar
+const mapStateToProps = state => {
+  return {
+    danceClasses: state.danceClasses.all
+  }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchDanceClasses
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calendar)
