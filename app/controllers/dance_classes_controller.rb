@@ -6,6 +6,12 @@ class DanceClassesController < ApplicationController
     end
     classes = DanceClass.sort_chronologically
     #include associated instructor and studio in json object
+    #going to have to reformat dance_class object to fit into calendar component...
+    reformat_classes = classes.map |dance_class| do
+      dance_class.text = dance_class.name
+      dance_class.start = dance_class.start_time
+      dance_class.end = dance_class.end_time
+    end
     render json: classes
   end
 

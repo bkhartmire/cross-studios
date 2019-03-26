@@ -16,7 +16,7 @@ class Calendar extends Component {
       events: [
     {
       id: 1,
-      text: "Event 1",
+      name: "Event 1",
       start: "2019-03-26T10:30:00",
       end: "2019-03-26T13:00:00"
     },
