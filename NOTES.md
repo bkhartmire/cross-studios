@@ -1,1 +1,1 @@
--allow users to signup/login with google.
+-create more beautiful, well organized dance class calendar
