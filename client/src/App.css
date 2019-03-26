@@ -121,3 +121,7 @@ h1.userReviews {
 .day {
   border-style: double;
 }
+
+.calendar_default_corner div:nth-of-type(2) {
+    display: none !important;
+}
