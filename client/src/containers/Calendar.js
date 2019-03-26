@@ -5,7 +5,8 @@ class Calendar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      viewType: "Week"
+      viewType: "Week",
+      headerDateFormat: "dddd" //name of day (e.g. 'Monday')
     }
   }
   render() {
