@@ -1,3 +1,4 @@
+require 'pry'
 class DanceClass < ApplicationRecord
   belongs_to :studio
   belongs_to :instructor
@@ -17,6 +18,11 @@ class DanceClass < ApplicationRecord
       day.sort_by!{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
     end
     separated_days.flatten
+  end
+
+  def self.reformat
+    binding.pry
+  
   end
 
 end

@@ -16,15 +16,15 @@ class Calendar extends Component {
       events: [
     {
       id: 1,
-      name: "Event 1",
-      start: "2019-03-26T10:30:00",
-      end: "2019-03-26T13:00:00"
+      text: "Event 1",
+      start: "2019-02-26T10:30:00",
+      end: "2019-02-26T13:00:00"
     },
     {
       id: 2,
       text: "Event 2",
-      start: "2019-03-26T12:00:00",
-      end: "2019-03-26T14:00:00",
+      start: "2019-02-26T12:00:00",
+      end: "2019-02-26T14:00:00",
       backColor: "#38761d"
     }
   ]

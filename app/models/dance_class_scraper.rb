@@ -19,25 +19,25 @@ class DanceClassScraper
     saturday_data = doc.css(".avia-table-6")
     sunday_data = doc.css(".avia-table-7")
 
-    days = [monday_data, tuesday_data, wednesday_data, thursday_data, friday_data, saturday_data, sunday_data]
+    days = [sunday_data, monday_data, tuesday_data, wednesday_data, thursday_data, friday_data, saturday_data]
     return days
   end
 
   def get_day(index)
     if index == 0
-      day = "MONDAY"
-    elsif index == 1
-      day = "TUESDAY"
-    elsif index == 2
-      day = "WEDNESDAY"
-    elsif index == 3
-      day = "THURSDAY"
-    elsif index == 4
-      day = "FRIDAY"
-    elsif index == 5
-      day = "SATURDAY"
-    elsif index == 6
       day = "SUNDAY"
+    elsif index == 1
+      day = "MONDAY"
+    elsif index == 2
+      day = "TUESDAY"
+    elsif index == 3
+      day = "WEDNESDAY"
+    elsif index == 4
+      day = "THURSDAY"
+    elsif index == 5
+      day = "FRIDAY"
+    elsif index == 6
+      day = "SATURDAY"
     end
     return day
   end
@@ -48,6 +48,7 @@ class DanceClassScraper
     days.each_with_index do |day_data, index|
       studio_id = Studio.find_by(name: 'Millennium Dance Complex').id
       day = get_day(index)
+      day_index = index
       classes = day_data.css('tr')
       #nested enumerator
       classes.each do |dance_class|
@@ -64,6 +65,7 @@ class DanceClassScraper
             start_time: start_time,
             end_time: end_time,
             day: day,
+            day_index: day_index,
             instructor_id: instructor_id
           )
         end
