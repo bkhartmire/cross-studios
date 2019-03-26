@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {DayPilot, DayPilotCalendar} from "daypilot-pro-react";
+import React, { Component } from 'react'
+import { DayPilot, DayPilotCalendar } from 'daypilot-pro-react'
 
 class Calendar extends Component {
 
   render() {
     return (
       <div>
-        <DayPilotCalendar />
+        <DayPilotCalendar/>
       </div>
-    );
+    )
   }
 }
 
-export default Calendar;
+export default Calendar

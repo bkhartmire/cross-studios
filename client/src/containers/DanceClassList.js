@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { fetchDanceClasses } from '../actions/danceClassActions'
 import { fetchUser, addToUserSchedule, removeFromUserSchedule } from '../actions/userActions'
+import Calendar from './Calendar'
 import DanceClass from '../components/DanceClass'
 
 class DanceClassList extends Component {
@@ -18,6 +19,9 @@ class DanceClassList extends Component {
     return(
       <div className="danceClassList">
         <h1>Dance Classes</h1>
+          <div>
+            <Calendar/>
+          </div>
         <div className="column">
           <h2 className="day">Monday</h2>
             {danceClasses.filter(danceClass => danceClass.day === 'MONDAY').map((danceClass) => <DanceClass key={danceClass.id} danceClass={danceClass} userDanceClasses={user.dance_classes} addToUserSchedule={this.props.addToUserSchedule} removeFromUserSchedule={this.props.removeFromUserSchedule}/>)}
