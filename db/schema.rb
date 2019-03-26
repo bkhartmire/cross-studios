@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 2019_03_26_073257) do
   end
 
   create_table "dance_classes", force: :cascade do |t|
-    t.string "name"
+    t.string "text"
     t.integer "instructor_id"
     t.integer "studio_id"
     t.string "day"
-    t.string "start_time"
-    t.string "end_time"
+    t.string "start"
+    t.string "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "day_index"
