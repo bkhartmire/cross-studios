@@ -26,6 +26,7 @@ class DanceClass < ApplicationRecord
     difference = today_index - self.day_index
     class_date = DateTime.now - difference
     binding.pry
+    
     return class_date
   end
 
