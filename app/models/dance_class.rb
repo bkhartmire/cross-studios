@@ -22,12 +22,17 @@ class DanceClass < ApplicationRecord
 
   def self.reformat
     #.wday returns 0-6 integer (Sunday = 0)
-    today_index = DateTime.now.wday
+    today_index = Date.today.wday
     difference = today_index - self.day_index
-    class_date = DateTime.now - difference
-    binding.pry
+    class_date = Date.today - difference
 
-    return class_date
+    start_time = Time.parse(self.start)
+    end_time = Time.parse(self.end)
+    clone = self.dup
+    clone.start = DateTime.new(class_date.year, class_date.month, class_date.day, start_time.hour, start_time.min, start_time.sec, start_time.zone)
+    clone.end = DateTime.new(class_date.year, class_date.month, class_date.day, end_time.hour, end_time.min, end_time.sec, end_time.zone)
+    binding.pry
+    return clone
   end
 
 end
