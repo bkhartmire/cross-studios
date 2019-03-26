@@ -16,7 +16,7 @@ class InstructorList extends Component {
 
   render() {
     const {user, instructors} = this.props
-    
+
     let instructorsArray
     if (this.state && this.state.sorted) {
       let instructorsCopy = [ ...instructors ]
@@ -45,7 +45,7 @@ class InstructorList extends Component {
 
 const mapStateToProps = state => {
   return {
-    instructors: state.instructors.all_instructors,
+    instructors: state.instructors.allInstructors,
     user: state.user.current,
   }
 }

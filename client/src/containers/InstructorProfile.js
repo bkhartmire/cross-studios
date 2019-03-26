@@ -18,7 +18,7 @@ class InstructorProfile extends Component {
 
   render(){
     const {instructor, user} = this.props
-    
+
     let listDanceClasses
     if (instructor.dance_classes && user.dance_classes) {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
@@ -55,7 +55,7 @@ class InstructorProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    instructor: state.instructors.instructor_data,
+    instructor: state.instructors.instructorData,
     user: state.user.current,
   }
 }
