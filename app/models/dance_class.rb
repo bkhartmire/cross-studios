@@ -15,24 +15,27 @@ class DanceClass < ApplicationRecord
     sunday = self.all.select {|dance_class| dance_class.day == "SUNDAY"}
     separated_days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
     separated_days.each do |day|
-      day.sort_by!{|dance_class| DateTime.parse(dance_class.end).strftime("%H:%M:%S")}
+      day.sort_by!{|dance_class| DateTime.parse(dance_class.end_time).strftime("%H:%M:%S")}
     end
     separated_days.flatten
   end
 
   def reformat
+    calendar_object = {id: self.id, text: self.text}
+  
     #.wday returns 0-6 integer (Sunday = 0)
     today_index = Date.today.wday
     difference = today_index - self.day_index
     class_date = Date.today - difference
 
-    reformatted_start_time = Time.parse(self.start)
-    reformatted_end_time = Time.parse(self.end)
-    clone = self.dup
-    clone.start = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_start_time.hour, reformatted_start_time.min, reformatted_start_time.sec, reformatted_start_time.zone)
-    clone.end = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_end_time.hour, reformatted_end_time.min, reformatted_end_time.sec, reformatted_end_time.zone)
-    #binding.pry
-    return clone
+    reformatted_start_time = Time.parse(self.start_time)
+    reformatted_end_time = Time.parse(self.end_time)
+
+    calendar_object[:start] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_start_time.hour, reformatted_start_time.min, reformatted_start_time.sec, reformatted_start_time.zone)
+
+    calendar_object[:end] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_end_time.hour, reformatted_end_time.min, reformatted_end_time.sec, reformatted_end_time.zone)
+    binding.pry
+    return calendar_object
   end
 
 end

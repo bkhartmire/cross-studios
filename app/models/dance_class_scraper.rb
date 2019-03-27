@@ -58,7 +58,7 @@ class DanceClassScraper
         end_time = time[1]
         text = class_data[1].text
         instructor_id = Instructor.find_or_create_by(name: class_data[3].text).id
-        if (end.include? "am") || (end.include? "pm")
+        if (end_time.include? "am") || (end_time.include? "pm")
           DanceClass.find_or_create_by(
             text: text,
             studio_id: studio_id,
