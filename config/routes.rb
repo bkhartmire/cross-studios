@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users
     resources :user_dance_classes, only: [:create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
+    get '/calendar' => "dance_classes#calendar_index"
     post '/login' => "sessions#create"
     delete '/logout' => "sessions#destroy"
     get '/profile' => "users#profile"
