@@ -46,7 +46,7 @@ class Calendar extends Component {
 
 const mapStateToProps = state => {
   return {
-    danceClasses: state.danceClasses.all
+    danceClasses: state.danceClasses.all,
     calendar: state.danceClasses.calendar
   }
 }
