@@ -9,30 +9,24 @@ class Calendar extends Component {
     this.props.fetchDanceClasses()
     this.props.fetchCalendar()
   }
+  componentDidUpdate(){
+
+    this.setState((state, props) =>({
+      events: state.events.push(props.calendar).flatten
+    }))
+    debugger
+  }
   constructor(props) {
     super(props)
     this.state = {
       viewType: "Week",
       headerDateFormat: "dddd", //name of day (e.g. 'Monday')
-      events: [
-    {
-      id: 1,
-      text: "Event 1",
-      start: "2019-02-26T10:30:00",
-      end: "2019-02-26T13:00:00"
-    },
-    {
-      id: 2,
-      text: "Event 2",
-      start: "2019-02-26T12:00:00",
-      end: "2019-02-26T14:00:00",
-      backColor: "#38761d"
-    }
-  ]
+      events: [],
     }
   }
+
   render() {
-    debugger
+
     var {...config} = this.state
     return (
       <div>
