@@ -24,7 +24,7 @@ class InstructorProfile extends Component {
       listDanceClasses = instructor.dance_classes.map(dance_class => {
         return(
           <span key={dance_class.id} >
-            <h4>{dance_class.text}: {dance_class.day} {dance_class.start}-{dance_class.end} at {dance_class.studio.name}</h4>
+            <h4>{dance_class.text}: {dance_class.day} {dance_class._time}-{dance_class.end_time} at {dance_class.studio.name}</h4>
             <ScheduleButton key={dance_class.id} danceClass={dance_class} userDanceClasses={user.dance_classes} addToUserSchedule={this.props.addToUserSchedule} removeFromUserSchedule={this.props.removeFromUserSchedule}/>
           </span>
         )

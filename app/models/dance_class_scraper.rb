@@ -54,16 +54,16 @@ class DanceClassScraper
       classes.each do |dance_class|
         class_data = dance_class.css('td')
         time = class_data[0].text.split('-')
-        start = time[0]
-        end = time[1]
+        start_time = time[0]
+        end_time = time[1]
         text = class_data[1].text
         instructor_id = Instructor.find_or_create_by(name: class_data[3].text).id
         if (end.include? "am") || (end.include? "pm")
           DanceClass.find_or_create_by(
             text: text,
             studio_id: studio_id,
-            start: start,
-            end: end,
+            start_time: start_time,
+            end_time: end_time,
             day: day,
             day_index: day_index,
             instructor_id: instructor_id
