@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { DayPilot, DayPilotCalendar } from 'daypilot-pro-react'
-import { fetchDanceClasses } from '../actions/danceClassActions'
+import { fetchDanceClasses, fetchCalendar } from '../actions/danceClassActions'
 
 class Calendar extends Component {
   componentDidMount(){
     this.props.fetchDanceClasses()
+    this.props.fetchCalendar()
   }
   constructor(props) {
     super(props)
@@ -46,11 +47,13 @@ class Calendar extends Component {
 const mapStateToProps = state => {
   return {
     danceClasses: state.danceClasses.all
+    calendar: state.danceClasses.calendar
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchDanceClasses
+  fetchDanceClasses,
+  fetchCalendar
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calendar)
