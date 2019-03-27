@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2019_03_26_073257) do
     t.integer "instructor_id"
     t.integer "studio_id"
     t.string "day"
-    t.string "start"
-    t.string "end"
+    t.string "start_time"
+    t.string "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "day_index"
