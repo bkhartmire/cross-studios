@@ -26,11 +26,11 @@ class DanceClass < ApplicationRecord
     difference = today_index - self.day_index
     class_date = Date.today - difference
 
-    start_time = Time.parse(self.start)
-    end_time = Time.parse(self.end)
+    reformatted_start_time = Time.parse(self.start)
+    reformatted_end_time = Time.parse(self.end)
     clone = self.dup
-    clone.start = DateTime.new(class_date.year, class_date.month, class_date.day, start_time.hour, start_time.min, start_time.sec, start_time.zone)
-    clone.end = DateTime.new(class_date.year, class_date.month, class_date.day, end_time.hour, end_time.min, end_time.sec, end_time.zone)
+    clone.start = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_start_time.hour, reformatted_start_time.min, reformatted_start_time.sec, reformatted_start_time.zone)
+    clone.end = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_end_time.hour, reformatted_end_time.min, reformatted_end_time.sec, reformatted_end_time.zone)
     #binding.pry
     return clone
   end
