@@ -10,7 +10,7 @@ class DanceClassesController < ApplicationController
     reformatted_classes = classes.each do |dance_class|
       dance_class.reformat
     end
-    
+    binding.pry
     #render json: classes
     render json: reformatted_classes
   end

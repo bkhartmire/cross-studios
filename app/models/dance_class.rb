@@ -22,7 +22,7 @@ class DanceClass < ApplicationRecord
 
   def reformat
     calendar_object = {id: self.id, text: self.text}
-  
+
     #.wday returns 0-6 integer (Sunday = 0)
     today_index = Date.today.wday
     difference = today_index - self.day_index
@@ -32,9 +32,9 @@ class DanceClass < ApplicationRecord
     reformatted_end_time = Time.parse(self.end_time)
 
     calendar_object[:start] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_start_time.hour, reformatted_start_time.min, reformatted_start_time.sec, reformatted_start_time.zone)
-
+  
     calendar_object[:end] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_end_time.hour, reformatted_end_time.min, reformatted_end_time.sec, reformatted_end_time.zone)
-    binding.pry
+    #binding.pry
     return calendar_object
   end
 
