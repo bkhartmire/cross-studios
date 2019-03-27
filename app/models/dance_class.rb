@@ -20,7 +20,7 @@ class DanceClass < ApplicationRecord
     separated_days.flatten
   end
 
-  def self.reformat
+  def reformat
     #.wday returns 0-6 integer (Sunday = 0)
     today_index = Date.today.wday
     difference = today_index - self.day_index
@@ -31,7 +31,7 @@ class DanceClass < ApplicationRecord
     clone = self.dup
     clone.start = DateTime.new(class_date.year, class_date.month, class_date.day, start_time.hour, start_time.min, start_time.sec, start_time.zone)
     clone.end = DateTime.new(class_date.year, class_date.month, class_date.day, end_time.hour, end_time.min, end_time.sec, end_time.zone)
-    binding.pry
+    #binding.pry
     return clone
   end
 
