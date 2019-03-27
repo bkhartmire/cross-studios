@@ -7,7 +7,7 @@ class DanceClassesController < ApplicationController
     classes = DanceClass.sort_chronologically
     #include associated instructor and studio in json object
     #going to have to reformat dance_class object to fit into calendar component...
-    reformatted_classes = classes.each do |dance_class|
+    reformatted_classes = classes.map do |dance_class|
       dance_class.reformat
     end
     binding.pry

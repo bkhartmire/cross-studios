@@ -167,7 +167,7 @@ dance_classes = DanceClass.create([
   {text: 'Heels', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Brinn Nicole').id, day: 'FRIDAY', day_index: 5, start_time: '6:00pm', end_time: '8:00pm'},
   {text: 'Heels', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Cisco Ruelas').id, day: 'FRIDAY', day_index: 5, start_time: '8:30pm', end_time: '10:00pm'},
   {text: 'Bangin Body', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'JJ Dancer').id, day: 'SATURDAY', day_index: 6, start_time: '10:30am', end_time: '11:30am'},
-  {text: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Charlie Bartley').id, day: 'SATURDAY', day_index: 6,  start_time: '12:00p', end_time: '1:15pm'},
+  {text: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Charlie Bartley').id, day: 'SATURDAY', day_index: 6,  start_time: '12:00pm', end_time: '1:15pm'},
   {text: 'Beginner Heels', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Alexis Beauregard').id, day: 'SATURDAY', day_index: 6, start_time: '1:30pm', end_time: '2:45pm'},
   {text: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Dexter Carr').id, day: 'SATURDAY', day_index: 6, start_time: '3:00pm', end_time: '4:30pm'},
   {text: 'Hip Hop', studio_id: Studio.find_by(name: 'The Playground LA').id, instructor_id: Instructor.find_by(name: 'Guy Groove').id, day: 'SUNDAY', day_index: 0, start_time: '1200pm', end_time: '1:00pm'},
