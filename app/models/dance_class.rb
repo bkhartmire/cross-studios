@@ -30,10 +30,12 @@ class DanceClass < ApplicationRecord
 
     reformatted_start_time = Time.parse(self.start_time)
     reformatted_end_time = Time.parse(self.end_time)
+    
+    calendar_object[:start] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_start_time.hour, reformatted_start_time.min, reformatted_start_time.sec)
+    #reformatted_start_time.zone
 
-    calendar_object[:start] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_start_time.hour, reformatted_start_time.min, reformatted_start_time.sec, reformatted_start_time.zone)
-
-    calendar_object[:end] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_end_time.hour, reformatted_end_time.min, reformatted_end_time.sec, reformatted_end_time.zone)
+    calendar_object[:end] = DateTime.new(class_date.year, class_date.month, class_date.day, reformatted_end_time.hour, reformatted_end_time.min, reformatted_end_time.sec)
+    #reformatted_end_time.zone
 
     return calendar_object
   end

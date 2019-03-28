@@ -56,6 +56,17 @@ class DanceClassScraper
         time = class_data[0].text.split('-')
         start_time = time[0]
         end_time = time[1]
+        #need to add am or pm to start_time
+        start_hour = start_time.split(':')[0].to_i
+        end_hour = end_time.split(':')[0].to_i
+        if end_hour == 12
+          start_time << "am"
+        elsif (start_hour < end_hour) && (end_time.include? "am")
+          start_time << "am"
+        elsif (start_hour < end_hour) && (end_time.include? "pm")
+          start_time << "pm"
+        end
+
         text = class_data[1].text
         instructor_id = Instructor.find_or_create_by(name: class_data[3].text).id
         if (end_time.include? "am") || (end_time.include? "pm")
