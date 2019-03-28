@@ -11,19 +11,26 @@ class Calendar extends Component {
     //this.props.fetchDanceClasses()
     this.props.fetchCalendar()
     this.importSchedule = this.importSchedule.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   importSchedule(config) {
     if (this.props.calendar.length > 0) {
       config.events = this.props.calendar
     }
+
+  }
+
+  handleClick(args) {
+    console.log(`You Clicked ${args.e.data.text}`)
   }
 
   constructor(props) {
     super(props)
     this.state = {
       viewType: "Day",
-      headerDateFormat: "dddd", //name of day (e.g. 'Monday')
+      headerDateFormat: "dddd",
+      onEventClicked: this.handleClick //name of day (e.g. 'Monday')
     }
   }
 
