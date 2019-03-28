@@ -6,28 +6,40 @@ import { fetchDanceClasses, fetchCalendar } from '../actions/danceClassActions'
 
 class Calendar extends Component {
   componentDidMount(){
-    this.props.fetchDanceClasses()
+    //this.props.fetchDanceClasses()
     this.props.fetchCalendar()
+    this.importSchedule = this.importSchedule.bind(this)
   }
-  componentDidUpdate(){
 
-    this.setState((state, props) =>({
-      events: state.events.push(props.calendar).flatten
-    }))
-    debugger
+  importSchedule(config) {
+    if (this.props.calendar.length > 0) {
+      config.events = this.props.calendar
+    }
   }
+
+
+  // componentDidMount(){
+    // debugger
+    //this.setState({events: this.props.calendar})
+    //
+    // this.setState((state, props) =>({
+    //   events: state.events.push(props.calendar).flatten
+    // }))
+    // debugger
+  // }
   constructor(props) {
     super(props)
     this.state = {
       viewType: "Week",
       headerDateFormat: "dddd", //name of day (e.g. 'Monday')
-      events: [],
     }
   }
 
   render() {
 
     var {...config} = this.state
+    this.importSchedule(config)
+
     return (
       <div>
         <DayPilotCalendar
@@ -41,13 +53,13 @@ class Calendar extends Component {
 const mapStateToProps = state => {
   return {
     danceClasses: state.danceClasses.all,
-    calendar: state.danceClasses.calendar
+    calendar: state.danceClasses.calendar,
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDanceClasses,
-  fetchCalendar
+  fetchCalendar,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calendar)

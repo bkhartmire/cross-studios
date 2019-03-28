@@ -14,6 +14,7 @@ class DanceClassesController < ApplicationController
     reformatted_classes = classes.map do |dance_class|
       dance_class.reformat
     end
+  
     render json: reformatted_classes
   end
 
