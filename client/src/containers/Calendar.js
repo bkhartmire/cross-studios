@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { DayPilot, DayPilotCalendar } from 'daypilot-pro-react'
 import { fetchDanceClasses, fetchCalendar } from '../actions/danceClassActions'
 
+//diaable dragging events and create pop up module with event details
+
 class Calendar extends Component {
   componentDidMount(){
     //this.props.fetchDanceClasses()
@@ -17,16 +19,6 @@ class Calendar extends Component {
     }
   }
 
-
-  // componentDidMount(){
-    // debugger
-    //this.setState({events: this.props.calendar})
-    //
-    // this.setState((state, props) =>({
-    //   events: state.events.push(props.calendar).flatten
-    // }))
-    // debugger
-  // }
   constructor(props) {
     super(props)
     this.state = {
