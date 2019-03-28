@@ -22,6 +22,7 @@ class Calendar extends Component {
   }
 
   handleClick(args) {
+    debugger
     console.log(`You Clicked ${args.e.data.text}`)
   }
 

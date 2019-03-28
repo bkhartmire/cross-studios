@@ -21,7 +21,8 @@ class DanceClass < ApplicationRecord
   end
 
   def reformat
-    calendar_object = {id: self.id, text: self.text}
+    #you can add any other dance class info you'll need inside the Calendar component
+    calendar_object = {id: self.id, text: self.text, instructor: self.instructor.name}
 
     #.wday returns 0-6 integer (Sunday = 0)
     today_index = Date.today.wday
