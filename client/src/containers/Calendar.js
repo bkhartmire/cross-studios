@@ -22,8 +22,11 @@ class Calendar extends Component {
   }
 
   handleClick(args) {
+    // DayPilot.Modal.alert(`You Clicked ${args.e.data.text}` +
+    //   "\n"  + 'new line')
     debugger
-    console.log(`You Clicked ${args.e.data.text}`)
+    new DayPilot.Modal().showHtml('<h1>Hi</h1>');
+
   }
 
   constructor(props) {
