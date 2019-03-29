@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { DayPilot, DayPilotCalendar } from 'daypilot-pro-react'
 import { fetchDanceClasses, fetchCalendar } from '../actions/danceClassActions'
+import { Modal, Button } from 'react-bootstrap'
 
 //diaable dragging events and create pop up module with event details
 
@@ -22,33 +23,30 @@ class Calendar extends Component {
   }
 
   handleClick(args) {
-    // DayPilot.Modal.alert(`You Clicked ${args.e.data.text}` +
-    //   "\n"  + 'new line')
     debugger
-    //new DayPilot.Modal().showHtml('<h1>Hi</h1>');
     this.setState({showDetails: true})
-    //update state with details of danceClass??
+
+    //this.Id.events.data
   }
 
   handleClose() {
-    this.setState({ show: false })
+    this.setState({ showDetails: false })
   }
 
   constructor(props) {
+
     super(props)
     this.state = {
-      calendar:{
-        viewType: "Day",
-        headerDateFormat: "dddd",
-        onEventClicked: this.handleClick //name of day (e.g. 'Monday')
-      },
-      showDetails: false,
+      showDetails: false
     }
   }
 
   render() {
+    const configurations = {  viewType: "Day",
+      headerDateFormat: "dddd",
+      onEventClicked: this.handleClick}
 
-    var {...config} = this.state.calendar
+    var {...config} = configurations
     this.importSchedule(config)
 
     return (
@@ -56,6 +54,23 @@ class Calendar extends Component {
         <DayPilotCalendar
           {...config}
         />
+
+        <Modal show={this.state.showDetails} onHide={this.handleClose}   aria-labelledby="contained-modal-title-vcenter"
+        centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={this.handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
       </div>
     )
   }
