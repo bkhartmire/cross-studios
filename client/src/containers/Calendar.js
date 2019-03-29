@@ -12,35 +12,43 @@ class Calendar extends Component {
     this.props.fetchCalendar()
     this.importSchedule = this.importSchedule.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleClose = this.handleClose.bind(this)
   }
 
   importSchedule(config) {
     if (this.props.calendar.length > 0) {
       config.events = this.props.calendar
     }
-
   }
 
   handleClick(args) {
     // DayPilot.Modal.alert(`You Clicked ${args.e.data.text}` +
     //   "\n"  + 'new line')
     debugger
-    new DayPilot.Modal().showHtml('<h1>Hi</h1>');
+    //new DayPilot.Modal().showHtml('<h1>Hi</h1>');
+    this.setState({showDetails: true})
+    //update state with details of danceClass??
+  }
 
+  handleClose() {
+    this.setState({ show: false })
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      viewType: "Day",
-      headerDateFormat: "dddd",
-      onEventClicked: this.handleClick //name of day (e.g. 'Monday')
+      calendar:{
+        viewType: "Day",
+        headerDateFormat: "dddd",
+        onEventClicked: this.handleClick //name of day (e.g. 'Monday')
+      },
+      showDetails: false,
     }
   }
 
   render() {
 
-    var {...config} = this.state
+    var {...config} = this.state.calendar
     this.importSchedule(config)
 
     return (
