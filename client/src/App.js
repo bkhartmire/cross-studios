@@ -35,7 +35,7 @@ class App extends Component {
             <Link to='/dance_classes'>All Dance Classes</Link><span> | </span>
             <Link to='/all_instructors'>All Instructors</Link><span> | </span>
             <Link to='/profile'>Profile</Link><span> | </span>
-            <a href="#" onClick={this.handleLogout}>Logout</a>
+            <a href="/" onClick={this.handleLogout}>Logout</a>
           </div>
           <Route exact path='/' render={ () => (!!sessionStorage.jwt) ? <Home/> : <Redirect to='/login'/>}/>
           <Route path='/dance_classes' render={ () => (!!sessionStorage.jwt) ? <DanceClassList/> : <Redirect to='/login'/>}/>
