@@ -1,7 +1,0 @@
-{
-  "name": "react-redux-get-together-app",
-  "private": true,
-  "dependencies": {
-    "react-router-dom": "^4.3.1"
-  }
-}
